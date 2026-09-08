@@ -8,7 +8,7 @@ The completed experiments support a bounded research investigation. They reject 
 
 LLM inference is the first test bed. The project objective is more useful inference work per GPU. The measurable objective here is SLO goodput, with throughput, tail latency and fairness constraints. NVML's GPU percentage reports time with a kernel executing, so it cannot establish achieved compute efficiency. [NVIDIA's metric definition](https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html).
 
-The next hypothesis is that estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond default vLLM and a calibrated simple admission limit. The competing explanation is that an extra gate reduces useful concurrency and delays work that vLLM already schedules effectively.
+Within the admission direction, one hypothesis is that estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond default vLLM and a calibrated simple admission limit. The competing explanation is that an extra gate reduces useful concurrency and delays work that vLLM already schedules effectively.
 
 ## What we did and learned
 
@@ -35,15 +35,17 @@ One fixed arrival rate and one finite workload cannot tell us where extra load b
 
 Scheduling was tested on one model. The five-model capture study does not demonstrate cross-model scheduling generalization. Output hashes differ across policies, so fixed output length does not establish answer-quality equivalence. GPU-busy telemetry cannot identify achieved SM efficiency, memory bandwidth saturation or the underlying bottleneck.
 
-## One next experiment
+## Extension: diagnosis followed by one intervention
 
-Use one comparison to test whether adaptive admission adds value beyond a calibrated simple limit. On separate calibration data, measure waiting and processing behavior, identify useful system-state signals, select baseline settings and fit a service-cost estimate. Freeze the resulting candidate before evaluation. Replay unseen burst traces at several predeclared arrival rates on the same GPU and model.
+The broader question is which limits to GPU utilization are recoverable while meeting latency targets. The completed tests motivate this question but do not establish a 47% utilization baseline, 53% overhead, or a specific causal bottleneck.
 
-Compare default vLLM, the strongest calibrated fixed rule and the adaptive candidate. Keep fairness conditions equal where comparing admission rules, and include a version with the adaptive decision disabled to isolate its effect. Record goodput, throughput, phase-specific target attainment, external waiting and long-request tail latency. Preserve complete outputs and report any dropped requests. Use independent engine repetitions and keep detailed GPU profiling separate from timed runs.
+The next study profiles the same model and GPU configuration across a load sweep, retaining the saved burst structure. It distinguishes insufficient offered demand from idle gaps with pending work, then examines expensive kernels and memory limits. Profiling and performance measurement use separate runs. The intervention is selected from the diagnostic evidence and frozen before evaluation on unseen traces.
 
-The experiment can succeed, fail or show a workload-dependent tradeoff. Its purpose is to determine whether a measured-cost decision helps, and at what load. A failure would still delimit the useful scope of admission control.
+The comparison includes current vLLM, the candidate and the candidate with the selected change disabled. Admission remains one possible mechanism, with a calibrated simple admission control and matched fairness conditions if selected. A kernel intervention must beat the actual engine implementation and improve complete serving, with correctness checks. All requests, output records and waiting time remain accounted for.
 
-The direction is consistent with established work on throughput–latency tradeoffs, including [Sarathi-Serve](https://www.usenix.org/conference/osdi24/presentation/agrawal) and [SOLA](https://proceedings.mlsys.org/paper_files/paper/2025/file/bc82dbfbfa43232be85b8d9838f49c3e-Paper-Conference.pdf). Their existence motivates strong baselines; it does not validate our proposed policy. [Full references](References.md).
+[Tensormux's company benchmark](https://www.tensormux.com/blogs/sla-benchmark) concerns multiple-replica serving. [TensorPath](https://github.com/tensormux/Tensorpath) reports individual-operation results. Neither establishes improved hardware efficiency in our setup. Their relevance is to identify levels at which an intervention can act. [Research question and proposed protocol](Research_Question.md), [full references](References.md).
+
+The outcome can be no gain or a workload-dependent improvement. The evidence must connect a reduced bottleneck to improved throughput and SLO goodput within predeclared targets. The original admission failure remains valid and its frozen protocol is unchanged.
 
 ## Local reproduction
 

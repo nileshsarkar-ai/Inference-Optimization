@@ -14,6 +14,12 @@ const studies=JSON.parse(await fs.readFile(`${ROOT}/outputs/current_model_summar
 const scheduling=JSON.parse(await fs.readFile(`${ROOT}/outputs/scheduling_results/analysis/validation.json`,'utf8'));
 const suffix=process.argv[2]??'final';
 const source={
+ tensormux:'https://www.tensormux.com/',
+ muxbench:'https://www.tensormux.com/blogs/sla-benchmark',
+ gateway:'https://github.com/KrxGu/Tensormux',
+ tensorpath:'https://github.com/tensormux/Tensorpath',
+ nsys:'https://docs.nvidia.com/nsight-systems/AnalysisGuide/index.html',
+ ncu:'https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html',
  sola:'https://proceedings.mlsys.org/paper_files/paper/2025/file/bc82dbfbfa43232be85b8d9838f49c3e-Paper-Conference.pdf',
  duet:'https://pages.cs.wisc.edu/~markhill/papers/icml2026_DuetServe.pdf',
  prism:'https://www.usenix.org/system/files/nsdi25-yang.pdf',
@@ -30,7 +36,7 @@ const proto=original.toProto();
 const blank=structuredClone(proto.slides[1]);
 blank.elements=blank.elements.filter(e=>['533','532','3'].includes(e.id));
 const cover=structuredClone(proto.slides[0]);
-const order=[1,2,'literature',3,4,5,6,'experiments',7,8,11,'results',9,10,12,13,14,15];
+const order=[1,2,'literature',3,4,5,6,'tensormux','tensorpath','experiments',7,8,11,'results',9,10,12,13,14,'extension',15,'industry_refs'];
 proto.slides=[cover,...Array.from({length:order.length-1},()=>structuredClone(blank))];
 proto.slides.forEach((s,i)=>{s.id=`review-${i+1}`;s.index=i;delete s.notesSlide;});
 proto.charts=[];
@@ -93,12 +99,11 @@ divider('experiments','Our Experiments','');
 divider('results','Our Results','');
 
 title(2,'Research question');
-add(2,'Can better admission decisions increase SLO goodput during bursts of long prompts?',41,144,1197,99,33,true);
-add(2,'SLO goodput: requests completed within latency targets per second.',41,253,1197,48,26);
-block(2,'Scheduling trade-offs','Admission limits can leave capacity unused or delay requests. Increased GPU busy time need not improve SLO goodput.',41,333,565,126,25);
-block(2,'Controlled workload','Short prompts, a burst of long prompts, then short prompts. Measure recovery, SLO goodput and tail latency.',657,333,581,126,25);
-add(2,'Hypothesis: estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput without worse tail latency.',41,531,1197,77,26,true);
-add(2,'Initial scope: single-GPU LLM serving, with all requests and waiting time included.',41,619,1197,35,22);
+add(2,'Which limits to GPU utilization can we reduce to improve LLM throughput within latency targets?',41,144,1197,104,33,true);
+block(2,'Initial investigation','We tested CUDA graph settings and admission during a burst of long prompts on one A100 40 GB.',41,284,565,115,25);
+block(2,'Extension','Profile where GPU capacity remains unused and test whether a targeted change improves complete inference.',657,284,581,115,25);
+add(2,'Hypothesis: reducing a measured scheduling or execution bottleneck can increase throughput while preserving response-time targets.',41,488,1197,94,27,true);
+add(2,'SLO goodput counts requests meeting latency targets per second. The recoverable capacity remains to be measured.',41,605,1197,53,23);
 foot(2,[['Research question and evidence',`${REPO}/blob/master/outputs/Research_Question.md`]]);
 
 title(3,'What existing inference systems optimize');
@@ -132,6 +137,25 @@ block(6,'Goal and method','Separate CPU-heavy and GPU-heavy model stages so CPU 
 block(6,'Experiment shown','One node with 8 A100 80 GB GPUs, plus separate CPU nodes. Vary the number of inference instances.',711,325,527,107,24);
 block(6,'Result and relevance','Reported goodput rises 5–9×. The 9× case uses GPU partitioning (MIG). Added CPU resources matter, so this is not a same-total-hardware gain.',711,489,527,135,23);
 foot(6,[['Yang et al., GPU-Disaggregated DLRM Serving, NSDI 2025. Figure 17',source.prism]]);
+
+title('tensormux','Tensormux: routing across inference replicas');
+add('tensormux','Company benchmark, July 2026. Llama 3.1 8B, BF16, vLLM 0.23.0.\n4 H100 80 GB GPUs, one replica/GPU. Fixed capacity, 1,024 input / 256 output tokens, concurrency 128.',41,142,1197,90,24);
+table('tensormux',[['Routing strategy','p95 TTFT (ms)'],['Least Request','394'],['Multi-strategy','399'],['Least Latency','442'],['Throughput','450'],['Random','461']],[41,261,589,314],[311,278],23);
+add('tensormux','TTFT measures first-token delay.\nAll strategies meet the 1,000 ms target.',41,598,589,56,22);
+block('tensormux','What it does','Routes requests across existing engines. The platform also advertises autoscaling and cache reuse.',682,257,556,86,24);
+block('tensormux','Reported performance','About 2,200 output tokens/s per GPU and 80% GPU utilization. Throughput is similar across strategies.',682,414,556,100,24);
+add('tensormux','This uniform workload establishes SLA compliance. It does not quantify recovered GPU capacity.',682,574,556,79,23,true);
+foot('tensormux',[['Tensormux benchmark: Table 1 and methodology',source.muxbench],['Platform',source.tensormux],['Gateway scope',source.gateway]]);
+
+title('tensorpath','TensorPath: optimizing GPU kernels');
+add('tensorpath','Tensormux’s separate Forge project generates Triton kernels and checks them against a PyTorch reference.',41,144,1197,69,26);
+add('tensorpath','3.66×',41,266,570,111,78,true);
+add('tensorpath','Reported RMSNorm speedup\nagainst PyTorch eager',41,390,570,79,30,true);
+add('tensorpath','RTX 4070, FP16\nBatch 16, hidden size 4,096\nRMSNorm normalizes model activations.',41,508,570,119,25);
+block('tensorpath','What the result covers','One operation at one shape. The repository lists integration into the serving runtime as future work.',682,259,556,107,24);
+block('tensorpath','Relation to our execution study','We changed CUDA graph capture sizes in vLLM and timed full generation. We found no established gain from exact matching.',682,426,556,132,24);
+add('tensorpath','Our next test would integrate the change and measure complete serving performance.',682,590,556,66,23,true);
+foot('tensorpath',[['TensorPath README: Forge, reported RMSNorm results and integration scope',source.tensorpath]]);
 
 title(7,'Our experimental system and performance measures');
 table(7,[['Component','Recorded setup'],['GPU','NVIDIA A100 PCIe, 40 GB\nJarvisLabs, 250 W limit'],['Precision','BF16\nOne GPU per model'],['Serving software','vLLM 0.28.0\nPyTorch 2.13.0'],['Runtime','Python 3.12.13\nCUDA package 13.0.96'],['Inputs','WikiText-2 test text\n128 generated tokens/request']],[41,155,589,389],[211,378],22);
@@ -220,16 +244,20 @@ add(13,'Burst finding: in every trial, 96/96 initial short requests meet our tar
 add(13,'The p99 column averages per-run p99s. This finite workload does not measure sustainable serving capacity.',41,633,1197,27,20);
 foot(13,[['Our measured comparison',`${REPO}/blob/master/outputs/scheduling_results/analysis/validation.json`],['Post-hoc phase analysis',`${REPO}/blob/master/outputs/scheduling_results/analysis/phase_diagnostics.json`]]);
 
-title(14,'Research progression and next hypothesis');
-add(14,'A reproducible burst-recovery problem. We have not yet demonstrated a better scheduler.',41,146,1197,101,32,true);
-add(14,'Evidence so far',41,265,565,38,28,true);
-for(const [i,t] of ['1. Burst-recovery problem observed','2. Default vLLM and fixed-32 baselines measured','3. Context-budget admission hypothesis tested','4. Tested gate rejected: 20–24% lower SLO goodput'].entries())add(14,t,41,319+i*71,565,65,24);
-add(14,'Next hypothesis',657,265,581,38,28,true);
-add(14,'Admission informed by estimated processing cost, system state and remaining latency budget can outperform default vLLM and calibrated simple limits.',657,319,581,141,25);
-add(14,'One controlled comparison',657,474,581,38,28,true);
-add(14,'Calibrate separately, freeze the rule, then test on unseen bursts. Count all requests and waiting. Check tail latency and long-request fairness.',657,522,581,101,23);
-add(14,'Include a comparison with adaptation removed. One workload does not establish causal mechanism or generalization.',41,634,1197,28,20);
-foot(14,[['Research question and methodology assessment',`${REPO}/blob/master/outputs/Methodology_Assessment.md`]]);
+title(14,'How our experiments extend this work');
+add(14,'The open question is how much unused GPU capacity we can recover while meeting latency targets.',41,143,1197,102,32,true);
+table(14,[['Our completed study','Measured finding','Implication for the extension'],['CUDA graph configuration\nFive models, 360 calls','Exact matching gives no established gain in the three current models.','Like TensorPath, investigate execution cost. Use the engine’s actual implementation as the baseline.'],['Admission during bursts\nGemma 4 12B, 2,160 requests','The context-budget gate lowers SLO goodput by 20–24%, despite ~99–100% GPU busy time.','Like Tensormux, study where work waits. Our initial scope is one engine on one GPU.']],[41,276,1197,262],[307,402,488],23);
+add(14,'These results motivate profiling. They do not identify the causal bottleneck or demonstrate a better scheduler.',41,567,1197,54,24);
+add(14,'The 47% / 53% split is illustrative. GPU busy time does not measure achieved compute efficiency.',41,630,1197,29,21);
+foot(14,[['Our measured results',`${REPO}/blob/master/outputs/Results.md`],['Tensormux',source.muxbench],['TensorPath',source.tensorpath],['NVIDIA metric definition',source.nvml]]);
+
+title('extension','Next experiment: recoverable GPU underutilization');
+add('extension','One controlled study on the same model and GPU, extending our saved burst workload.',41,146,1197,72,28,true);
+block('extension','1. Locate the bottleneck','Sweep arrival rate around serving capacity. Separate low demand from idle gaps with pending work. Trace CPU scheduling, GPU kernels and memory activity.',41,253,565,141,25);
+block('extension','2. Test one targeted change','Choose the mechanism from the profile: admission or batching if work waits, or execution changes if a kernel dominates. Freeze the change before evaluation.',657,253,581,141,25);
+add('extension','Compare current vLLM, the candidate and a control with that change disabled. Use unseen traces, balanced independent repetitions and all-request accounting.',41,473,1197,88,25);
+add('extension','Success: higher throughput and SLO goodput within fixed latency targets, supported by a reduction in the identified bottleneck.',41,582,1197,65,26,true);
+foot('extension',[['Nsight Systems: execution timeline',source.nsys],['Nsight Compute: kernel resource use',source.ncu],['Proposed protocol',`${REPO}/blob/master/outputs/Research_Question.md`]]);
 
 title(15,'References and reproducibility records');
 const refs=[
@@ -246,6 +274,19 @@ const refs=[
 for(const [i,[lab,url]] of refs.entries())link(15,lab,url,41,158+i*48,1197,39,23);
 add(15,'Paper figures retain their original measurements. Our figures use saved A100 experiment records.',41,616,1197,41,22);
 foot(15,[['Full references and additional background',`${REPO}/blob/master/outputs/References.md`]]);
+title('industry_refs','Industry sources and profiling references');
+const industryRefs=[
+ ['[10] Tensormux. Inference control plane and stated product scope',source.tensormux],
+ ['[11] Tensormux. H100 serving benchmark, 3 July 2026. Table 1',source.muxbench],
+ ['[12] Tensormux Gateway. Routing implementation and scope',source.gateway],
+ ['[13] TensorPath. Forge results, hardware conditions and integration limits',source.tensorpath],
+ ['[14] NVIDIA Nsight Systems. Post-Collection Analysis Guide',source.nsys],
+ ['[15] NVIDIA Nsight Compute. Profiling Guide',source.ncu]
+];
+for(const [i,[lab,url]] of industryRefs.entries())link('industry_refs',lab,url,41,168+i*60,1197,45,24);
+add('industry_refs','Tensormux and TensorPath results are self-reported industry evidence.\nTheir setups differ from our A100 experiments. No direct performance ranking follows.',41,568,1197,84,24);
+foot('industry_refs',[['Full bibliography and evidence boundaries, checked 9 September 2026',`${REPO}/blob/master/outputs/References.md`]]);
+
 const presenterNotes=JSON.parse(await fs.readFile(`${ROOT}/outputs/presentation_source/presenter_notes.json`,'utf8'));
 for(const n of order){const entry=presenterNotes[String(n)];if(!entry)throw Error(`Missing presenter notes: ${n}`);note(n,entry);}
 const candidate=`${ROOT}/work/slides/finalizer/Inference-Optimization-${suffix}-candidate.pptx`;
@@ -254,8 +295,8 @@ await fs.mkdir(path.dirname(output),{recursive:true});
 await(await PresentationFile.exportPptx(p)).save(candidate);
 const checked=await finalizePresentation({workspaceDir:ROOT,candidatePath:candidate,finalPath:output,pythonExecutable:PY,
  integrityValidatorPath:`${SKILL}/container_tools/inspect_presentation_package_integrity.py`,layoutValidatorPath:`${SKILL}/container_tools/inspect_presentation_layout_geometry.py`,
- layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...[4,9,10,11,16].flatMap(n=>['--require-native-table-slide',String(n)])],
- explicitTotalSlideCount:18,requiredNativeTableOwnerSlides:[4,9,10,11,16],requiredNativeChartOwnerSlides:[13,14,15],materializeLiteralChartWorkbooks:true,
+ layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...[4,8,11,12,13,18,19].flatMap(n=>['--require-native-table-slide',String(n)])],
+ explicitTotalSlideCount:22,requiredNativeTableOwnerSlides:[4,8,11,12,13,18,19],requiredNativeChartOwnerSlides:[15,16,17],materializeLiteralChartWorkbooks:true,
  fontPolicy:{basis:'reference',families:[FONT],referencePath:TEMPLATE,referenceSha256:crypto.createHash('sha256').update(await fs.readFile(TEMPLATE)).digest('hex')},verifyArtifactToolImport:true,receiptPath:`${ROOT}/work/slides/finalizer/Inference-Optimization-${suffix}.json`});
 console.log(JSON.stringify({output,package:checked.packageIntegrity?.status,layout:checked.presentationLayout?.findingCount,warnings:checked.presentationLayout?.warnings}));
 const final=await PresentationFile.importPptx(await FileBlob.load(output));

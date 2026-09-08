@@ -2,9 +2,9 @@
 
 This inventory describes the files actually saved on 8 September 2026. Paths are relative to the directory containing this document. The completed work comprises **five CUDA-graph configuration studies, 360 unprofiled timing calls, ten separate profiler passes, and a scheduling comparison with 2,160 completed requests**. No additional GPU experiments are implied by the presentation update.
 
-**18-slide PPT coverage:** slide 13 contains the three modern-model graphs, slide 14 contains the two earlier Qwen controls, and slide 15 contains all four scheduling metrics. All 360 capture observations and 36 scheduling metric observations match the saved data in nine editable charts, with means shown separately. System specifications and metric definitions appear on slide 9; the capture and scheduling protocols appear on slides 10 and 11. Slide 16 gives the numeric result table and phase finding, and slide 18 contains references. All 18 slides include native presenter notes.
+**22-slide PPT coverage:** slide 15 contains the three current-model graphs, slide 16 contains the two earlier Qwen controls, and slide 17 contains all four scheduling metrics. All 360 capture observations and 36 scheduling metric observations match the saved data in nine editable charts, with means shown separately. System specifications and metric definitions appear on slide 11, and protocols appear on slides 12–13. Slide 18 gives the numeric result table and phase finding. Slides 8–9 cover Tensormux and TensorPath industry evidence. Slides 19–20 connect our results to one proposed profiling/intervention study. References occupy slides 21–22. All 22 slides include native presenter notes.
 
-The complete speaking script is available in [Presenter notes](Inference_Optimization_Presenter_Notes.md), extracted verbatim from all 18 native PPT note sections. [Keynote and HDMI setup](Keynote_Presenter_Setup.md) explains how to keep notes on the MacBook while projecting slides.
+The complete speaking script is available in [Presenter notes](Inference_Optimization_Presenter_Notes.md), extracted verbatim from all 22 native PPT note sections. [Keynote and HDMI setup](Keynote_Presenter_Setup.md) explains how to keep notes on the MacBook while projecting slides.
 
 ## 1. Five completed configuration studies
 
@@ -91,7 +91,7 @@ The accompanying [plain-language explainer](Inference_Optimization_Explained.pdf
 | Scheduling code and declared protocol | [scheduling_validation/](scheduling_validation/): `validate_scheduling.py`, `queue_validation.py`, `analyze_scheduling.py`, `PROTOCOL.md` |
 | Copies downloaded from the GPU | [remote_reproduction/](remote_reproduction/): `graph_size_pilot/`, `model_suite/`, `scheduling_validation/`; includes modern-suite queue status |
 | Run-local reproduction snapshots | [experiment_data/reproduction/](experiment_data/reproduction/); `experiment_data_qwen7b_complete/pilot.py` and `orchestrate.py`; [scheduling_results/reproduction/](scheduling_results/reproduction/) |
-| Presentation source | [presentation_source/](presentation_source/): current slide builder, `presenter_notes.json` for all 18 slides, zipped template source assets, source notes, report builder and README |
+| Presentation source | [presentation_source/](presentation_source/): current slide builder, `presenter_notes.json` for all 22 slides, zipped template source assets, source notes, report builder and README |
 | Plain-language explainer source | [document_source/](document_source/): PDF builder, derived figure pairs, build summary and README |
 | Classroom presentation setup | [Keynote_Presenter_Setup.md](Keynote_Presenter_Setup.md): native notes and extended-display instructions; Keynote import checked, physical HDMI/projector check not performed |
 | Original paper assets | [research_sources/](research_sources/): SOLA, DuetServe and Prism DLRM PDFs and original figure crops; the directory README records sources |

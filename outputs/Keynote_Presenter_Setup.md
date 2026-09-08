@@ -2,7 +2,7 @@
 
 The PPT stores the speaking script in each slide's native presenter-notes area. It is separate from the visible slide. Display configuration determines what the audience sees. Notes remain readable to anyone who receives and opens the presentation file.
 
-All 18 native presenter notes were verified after import into Keynote on this Mac. The exported audience slides excluded the notes, and all 18 slide images were inspected. The physical HDMI setup still needs the classroom check below.
+All 22 native presenter notes were verified after import into Keynote on this Mac. The exported audience slides excluded the notes, and all 22 slide images were inspected. The physical HDMI setup still needs the classroom check below.
 
 ## HDMI projector or external screen
 

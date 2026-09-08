@@ -10,7 +10,7 @@ This is an open investigation. The completed tests did not establish an improved
 
 ## Presentation and research records
 
-- [Final presentation](Inference_Optimization_Final.pptx): the single current 18-slide PPT, organized into the question, literature, system and experiment protocols, results, and one next comparison. Includes all nine distinct experimental chart panels, references and native presenter notes for every slide.
+- [Final presentation](Inference_Optimization_Final.pptx): the single current 22-slide PPT, organized into the question, literature, system and experiment protocols, results, Tensormux/TensorPath evidence, and one profiling/intervention study. Includes all nine distinct experimental chart panels, references and native presenter notes for every slide.
 - [Plain-language research explainer](outputs/Inference_Optimization_Explained.pdf): the problem, system, experiment designs and actual results, with graphs from saved measurements.
 - [Keynote presenter setup](outputs/Keynote_Presenter_Setup.md): speaker notes and classroom display instructions. Keynote import was checked; the physical projector must be checked in the room.
 - [Experiment inventory](outputs/Experiment_Inventory.md): study folders, graphs, raw data, reproduction scripts and slide coverage.
@@ -48,7 +48,7 @@ See the [results report](outputs/Results.md) for every outcome, exact comparison
 - [Scheduling protocol and run commands](outputs/scheduling_validation/PROTOCOL.md).
 - `outputs/remote_reproduction/` and each result folder's `reproduction/` preserve the exact executed source copies.
 - Raw results include model and dataset revisions, environment versions, request/output token IDs, logs and profiler traces.
-- [Presentation source](outputs/presentation_source/README.md), including editable chart generation and all 18 native presenter-note scripts.
+- [Presentation source](outputs/presentation_source/README.md), including editable chart generation and all 22 native presenter-note scripts.
 - [Explainer source](outputs/document_source/README.md), with two PNG/PDF figure families that replot existing measurements.
 
 Original GPU: one NVIDIA A100-PCIE-40GB, 40,960 MiB reported memory, 250 W power limit and driver 595.58.03. CPU model and installed host RAM were not recorded. Original environment: Python 3.12.13, vLLM 0.28.0, PyTorch 2.13.0 and Transformers 5.16.1. Full package lists are saved with each run. A compatible NVIDIA GPU and valid W&B authentication are needed for reruns. Credentials and model-weight caches are not included.

@@ -1,26 +1,28 @@
 # Inference Optimization — Presenter notes
 
-Extracted directly from the latest 18-slide PowerPoint on 9 September 2026. The notes retain their original wording and citations. Slide headings follow presentation order.
+Extracted directly from the latest 22-slide PowerPoint on 9 September 2026. The notes retain their original wording and citations. Slide headings follow presentation order.
 
 ## Slide 1 — Inference Optimization
 
-Our project is called Inference Optimization. We want better admission decisions to increase SLO goodput: the number of requests completed within their latency targets per second on the same GPU.
+Our project is Inference Optimization. The goal is to improve how GPU resources support complete inference while meeting response-time targets. We have completed two studies on an A100 40 GB: CUDA graph configuration and request admission during a long-prompt burst.
 
-The completed tests give us a research progression. We observed a burst-recovery problem, measured default vLLM and a simple admission limit, and tested a context-budget rule. That rule performed worse, so we do not yet have a better scheduler.
+Neither study establishes a better optimization algorithm. They give us measured baselines, unsuccessful settings and a reproducible workload. We now extend this work by investigating where capacity remains unused and whether a targeted change can recover some of it.
 
-Our next question is whether estimated processing cost, system state and remaining latency budget can guide better admission decisions. The presentation separates published results, our measurements and this untested next hypothesis.
+The presentation distinguishes published research, self-reported industry evidence, our own measurements and the next hypothesis. Admission remains one possible mechanism. Profiling will guide the choice.
 
 ---
 
 ## Slide 2 — Research question
 
-Can better admission decisions increase SLO goodput during bursts of long prompts? SLO goodput means the number of requests completed within latency targets per second. In our finite replay experiment, the denominator includes the arrival period and the time required to finish all outstanding work.
+The broad research question is which limits to GPU utilization we can reduce to improve LLM throughput while meeting latency targets. Our initial admission question remains part of this: can better admission decisions improve SLO goodput during long-prompt bursts?
 
-Imagine short questions arriving, followed by long documents and then more short questions. The later questions may spend their latency budget waiting for the backlog to clear. Admission decides when and how many waiting requests enter the serving engine.
+The new extension investigates the cause of a performance limit before choosing its remedy. Possible mechanisms include scheduling and batching, coordination between CPU and GPU, or execution inside a kernel. We have not selected a winning mechanism.
 
-Our hypothesis is that estimated processing cost, system state and remaining latency budget can improve SLO goodput without worsening tail latency. System state could include queued work and available resources; the useful signals still need to be tested. The competing explanation is that an extra gate suppresses useful concurrency and delays work that vLLM handles more effectively.
+Our hypothesis is that a measured bottleneck can sometimes be reduced enough to improve complete serving performance. An alternative outcome is that the workload already reaches a memory, compute or latency limit that the chosen change cannot improve.
 
-Evidence: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Research_Question.md
+SLO goodput counts requests meeting both targets divided by replay and drain duration. It remains an outcome measure alongside output tokens per second. Hardware profiling is needed to explain a claimed change in GPU efficiency.
+
+Research scope: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Research_Question.md
 
 ---
 
@@ -29,6 +31,8 @@ Evidence: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/
 This section contains results from other researchers. For each paper, I will explain the objective, the experimental setup, the axes and the result.
 
 Their results provide background for our investigation. They are not results from our GPU, and their headline gains cannot be compared directly because the hardware, models and workloads differ.
+
+The section also includes Tensormux and TensorPath, which are industry projects rather than peer-reviewed papers. Their reported results have narrower meanings than a general GPU-utilization improvement.
 
 ---
 
@@ -82,7 +86,33 @@ Source, Figure 17 and section 5.3: https://www.usenix.org/system/files/nsdi25-ya
 
 ---
 
-## Slide 8 — Our Experiments
+## Slide 8 — Tensormux: routing across inference replicas
+
+Tensormux works above inference engines and distributes requests among replicas. Its commercial platform describes scaling and cache features, while the public gateway implements routing, failover and observability and explicitly excludes engine-level batching and GPU scheduling.
+
+The table reproduces the company's reported first-token latency values. Lower is better. All five fit its declared target, with nearly equal throughput. The uniform workload offers little routing advantage. Autoscaling was disabled. The report does not specify a hardware counter for its utilization percentage.
+
+For our project, the relevant idea is to examine where requests wait and how work is assigned. This study does not demonstrate a before/after recovery of unused capacity, and it is not a benchmark against our single A100 setup. The website's forty-percent GPU-spend figure is labeled a directional target, not an established improvement.
+
+Benchmark, Table 1: https://www.tensormux.com/blogs/sla-benchmark
+Platform claims: https://www.tensormux.com/
+Open-source scope: https://github.com/KrxGu/Tensormux
+
+---
+
+## Slide 9 — TensorPath: optimizing GPU kernels
+
+TensorPath is a separate project in the Tensormux ecosystem. Its Forge component generates Triton kernels and checks correctness and execution time against a reference. RMSNorm is an operation that normalizes intermediate model activations.
+
+The displayed speedup applies to a single RMSNorm implementation against PyTorch eager, on the listed GPU, shape and precision. It does not imply the same speedup for a full model. The repository states that runtime integration remains future work.
+
+Our graph experiment measured complete generation using the serving engine, so the experiment units differ. We would first identify an expensive operation in the actual engine and use its existing optimized implementation as the baseline. A faster isolated kernel matters to this research only if integration improves complete inference without violating correctness and latency requirements.
+
+TensorPath README, Forge results and integration scope: https://github.com/tensormux/Tensorpath
+
+---
+
+## Slide 10 — Our Experiments
 
 From this point, the experiments and measurements are our own. We used one rented A100 40 GB GPU and saved the code, inputs, configurations and outputs.
 
@@ -90,7 +120,7 @@ There are two different studies. The first changes CUDA-graph capture sizes on f
 
 ---
 
-## Slide 9 — Our experimental system and performance measures
+## Slide 11 — Our experimental system and performance measures
 
 This is the system we actually used. All experiments ran on the same A100 PCIe 40 GB GPU, with BF16 precision and one GPU per model. The table records the installed software versions. CPU model and total host RAM were not reliably recorded, so we do not claim those specifications.
 
@@ -105,7 +135,7 @@ Metric: https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html
 
 ---
 
-## Slide 10 — Our experiment 1: CUDA graph configuration
+## Slide 12 — Our experiment 1: CUDA graph configuration
 
 We started with a bounded execution-setting experiment before designing a scheduler. CUDA graphs record GPU operations so they can be replayed. A captured size that does not fit the workload exactly can involve padding, while storing many graphs has a memory cost.
 
@@ -120,7 +150,7 @@ Engineering background: https://nvidia.github.io/TensorRT-LLM/latest/blogs/tech_
 
 ---
 
-## Slide 11 — Our experiment 2: admission during a long-prompt burst
+## Slide 13 — Our experiment 2: admission during a long-prompt burst
 
 The second study introduces changing arrivals and queueing, which the fixed-batch experiment does not test. We replay the same short-long-short request trace for each policy within a repetition.
 
@@ -134,7 +164,7 @@ Protocol: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/
 
 ---
 
-## Slide 12 — Our Results
+## Slide 14 — Our Results
 
 The following graphs are our measurements, taken from the saved experiment records. The CUDA-graph comparison comes first, followed by the request-admission comparison.
 
@@ -142,7 +172,7 @@ The chart points show actual repetitions. The lines or diamonds show calculated 
 
 ---
 
-## Slide 13 — Our experiment 1 results: three current models
+## Slide 15 — Our experiment 1 results: three current models
 
 These three panels show Gemma 4 12B, Qwen3.5-9B and Gemma 4 E4B. The horizontal axis is the number of requests submitted in a fixed batch. The vertical axis is generated output tokens per second. Compare configurations within each panel because the vertical ranges differ.
 
@@ -156,7 +186,7 @@ Measurements: https://github.com/nileshsarkar-ai/Inference-Optimization/tree/mas
 
 ---
 
-## Slide 14 — Our experiment 1 results: two earlier model controls
+## Slide 16 — Our experiment 1 results: two earlier model controls
 
 We also retained our earlier Qwen2.5 controls. They use the same batch-size and capture-size comparison, with all 144 recorded timing calls shown.
 
@@ -169,7 +199,7 @@ https://github.com/nileshsarkar-ai/Inference-Optimization/tree/master/outputs/ex
 
 ---
 
-## Slide 15 — Our experiment 2 results: throughput, latency and GPU activity
+## Slide 17 — Our experiment 2 results: throughput, latency and GPU activity
 
 These are the four performance measures for our scheduling comparison. Each point represents a policy in one independent engine repetition, and each diamond is its mean. Some points overlap.
 
@@ -183,7 +213,7 @@ Data: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outp
 
 ---
 
-## Slide 16 — Our results: what the scheduling comparison means
+## Slide 18 — Our results: what the scheduling comparison means
 
 This table gives the means behind the scheduling graphs. Default vLLM produces about 2.588 requests meeting the latency targets per second, compared with 2.013 for the context-budget rule. Across paired repetitions, the rule reduces SLO goodput by twenty to twenty-four percent. The latency column averages each run's p99; it is not a percentile pooled across all requests.
 
@@ -198,28 +228,63 @@ Phase analysis: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/m
 
 ---
 
-## Slide 17 — Research progression and next hypothesis
+## Slide 19 — How our experiments extend this work
 
-Our research progression is: problem observed, baselines measured, a simple hypothesis tested, the tested rule rejected, then a better-controlled next hypothesis.
+The two completed experiments examine different levels of serving. The graph study tested one execution configuration, while the admission study tested how requests enter vLLM. Neither is a direct reproduction of Tensormux or TensorPath.
 
-We do not yet have a better scheduler. We have a reproducible burst-recovery problem and evidence that this simple size-based gate is insufficient under the tested conditions. The next question is whether admission decisions informed by estimated processing cost, system state and remaining latency budget can increase SLO goodput beyond both default vLLM and simpler admission limits.
+The connection is methodological. Tensormux motivates examining request distribution and waiting. TensorPath motivates examining operation execution cost. Our work starts with a fixed model on one GPU so changes can be evaluated against the same engine and workload.
 
-We propose one controlled comparison. Use separate data to estimate processing cost, identify useful state signals and calibrate a strong simple admission limit. Freeze the candidate and controls before testing on unseen burst traces at predeclared arrival rates, with independent engine repetitions on the same GPU and model. Include a version with adaptation removed to test what the adaptive decision adds.
+The graph study found no established benefit from manually matching capture sizes on the three current models. The context-budget gate reduced goodput by twenty to twenty-four percent even though NVML busy time stayed close to one hundred percent. This motivates investigating the bottleneck, but it does not prove that recoverable spare capacity exists under every tested load.
 
-All requests and waiting time must count. Keep fairness conditions matched and check tail latency for long requests as well as SLO goodput. Report any dropped requests. The current gate admits at most nine all-long requests and changes throttling, ordering and age protection together, so its failure does not identify the best replacement or rule out every size-based policy.
+The earlier forty-seven-percent example was illustrative. We did not measure a fifty-three-percent overhead budget. NVML busy time measures kernel activity, while achieved compute and memory throughput require other counters. These percentages have different denominators and must not be subtracted or compared as if they were the same quantity.
 
-The outcome remains open: the adaptive candidate may help, fail, or reveal a load beyond what this hardware can serve within the targets. One model and workload do not establish generalization or improved GPU compute efficiency.
-
-Assessment: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Methodology_Assessment.md
+Our results: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Results.md
+Industry evidence: https://www.tensormux.com/blogs/sla-benchmark and https://github.com/tensormux/Tensorpath
+NVIDIA definition: https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html
 
 ---
 
-## Slide 18 — References and reproducibility records
+## Slide 20 — Next experiment: recoverable GPU underutilization
+
+This is one study with a diagnostic phase followed by a controlled intervention. We will retain the existing model and burst structure first, and sweep arrival rates below and near measured serving capacity. Low demand alone can leave a GPU idle, so we must determine whether pending work exists during idle intervals.
+
+Use Nsight Systems to relate CPU work, launches and GPU execution. Use Nsight Compute on representative expensive kernels to examine compute and memory limits. Collect these profiles separately from final timing because profiling can change execution behavior. Do not add overlapping CPU and GPU times and call the sum removable overhead.
+
+Select one mechanism based on that evidence. If scheduling limits ready work, an admission or batching change is a candidate. If execution dominates, a kernel or runtime change is a candidate. Cost, current state and remaining latency budget are still possible admission signals, not a committed solution. A routing intervention requires multiple replicas and would be a later extension.
+
+Use separate calibration traces, freeze the candidate and baseline settings, and then run unseen traces at predeclared loads in balanced independent engine repetitions. Compare the current engine, the candidate and a version with its targeted change disabled. If admission is selected, include a calibrated fixed limit and matched fairness rules. Keep model revision, precision and output accounting fixed, check correctness and count all waiting and requests.
+
+We seek a repeatable improvement in throughput and SLO goodput within the declared latency targets, together with evidence that the identified bottleneck decreases. A higher busy percentage alone is insufficient. No gain, or a gain restricted to one load regime, is a valid outcome. Any future generalization claim requires additional models and hardware.
+
+Profiling references:
+https://docs.nvidia.com/nsight-systems/AnalysisGuide/index.html
+https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html
+Research protocol: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Research_Question.md
+
+---
+
+## Slide 21 — References and reproducibility records
 
 These links identify the original published figures, official engineering documentation and our reproducibility records. The three papers discussed in detail are SOLA, DuetServe and the recommendation-serving Prism system.
 
 NVIDIA's graph-tuning article is an engineering report, not a peer-reviewed paper. The vLLM and NVML links document implementation behavior and metric definitions. The repository contains model and dataset revisions, the executed code, raw requests, measurements, plots and the full bibliography.
 
-The final research message is that we have measured a burst-recovery failure and rejected one simple admission rule. The next hypothesis tests whether processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond default vLLM and calibrated simple limits. The algorithm and any improvement remain to be established.
+The extension now asks which measured scheduling or execution bottlenecks are recoverable. The next slide supplies the additional industry and profiling references.
 
 Full references: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/References.md
+
+---
+
+## Slide 22 — Industry sources and profiling references
+
+These sources cover the new extension. The Tensormux website describes the commercial platform. Its benchmark supplies the reported serving measurements, and the gateway repository states the narrower scope of the open-source component. TensorPath's README supplies the operation benchmark and its integration limitations.
+
+The NVIDIA references define the profiling methods we propose using. None of these sources establishes that our illustrative fifty-three-percent gap exists or is removable.
+
+Sources checked on 9 September 2026:
+https://www.tensormux.com/
+https://www.tensormux.com/blogs/sla-benchmark
+https://github.com/KrxGu/Tensormux
+https://github.com/tensormux/Tensorpath
+https://docs.nvidia.com/nsight-systems/AnalysisGuide/index.html
+https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html

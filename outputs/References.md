@@ -1,6 +1,6 @@
 # Inference Optimization references
 
-Checked 8 September 2026. The 18-slide PPT includes clickable source footers, a visible references slide and citations in native presenter notes. Original paper excerpts remain separate from our own measured graphs. Cross-paper gains are not directly comparable.
+Updated 9 September 2026. The 22-slide PPT includes clickable source footers, visible references slides and citations in native presenter notes. Original paper excerpts remain separate from our own measured graphs. Cross-paper gains are not directly comparable.
 
 ## Published systems research
 
@@ -22,20 +22,36 @@ Checked 8 September 2026. The 18-slide PPT includes clickable source footers, a 
 
 8. **NVIDIA Dynamo, KV-Aware Routing.** [Architecture and policy](https://docs.nvidia.com/dynamo/dev/knowledge-base/concepts/system-architecture/kv-aware-routing), [routing concepts](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/routing-concepts). Additional background, not a named system in the current PPT. Cache reuse and projected load inform current routing decisions. These are product documents, not peer-reviewed results.
 
-9. **NVIDIA (August 2026). Tuning CUDA Graph Batch Sizes for Higher Output Throughput.** [TensorRT-LLM engineering report](https://nvidia.github.io/TensorRT-LLM/latest/blogs/tech_blog/blog20_Tuning_CUDA_Graph_Batch_Sizes_for_Higher_Output_Throughput.html). Background for the capture protocol and results on slides 10 and 13–14. Discusses padding, graph-memory cost and automatic selection from concurrency logs. This engineering report describes the configuration tradeoff in our control study.
+9. **NVIDIA (August 2026). Tuning CUDA Graph Batch Sizes for Higher Output Throughput.** [TensorRT-LLM engineering report](https://nvidia.github.io/TensorRT-LLM/latest/blogs/tech_blog/blog20_Tuning_CUDA_Graph_Batch_Sizes_for_Higher_Output_Throughput.html). Background for the capture protocol and results on slides 12 and 15–16. Discusses padding, graph-memory cost and automatic selection from concurrency logs. This engineering report describes the configuration tradeoff in our control study.
 
 10. **vLLM CUDA Graphs.** [Official design documentation](https://docs.vllm.ai/en/stable/design/cuda_graphs/). [Async streaming example](https://docs.vllm.ai/en/latest/examples/deployment/async_llm_streaming/). Implementation background. The experiment records the actual installed version, vLLM 0.28.0, and complete requested settings.
 
-11. **NVIDIA NVML utilization definition.** [nvmlUtilization_t](https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html). Slide 9. Kernel-busy percentage is different from achieved SM efficiency or useful completed work.
+11. **NVIDIA NVML utilization definition.** [nvmlUtilization_t](https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html). Slide 11. Kernel-busy percentage is different from achieved SM efficiency or useful completed work.
 
 ## Models and data
 
-12. Official model repositories: [Gemma 4 12B](https://huggingface.co/google/gemma-4-12B), [Gemma 4 E4B](https://huggingface.co/google/gemma-4-E4B), [Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B). Slides 9–11 and 13. The result folders record immutable revisions and exact package versions. E4B indicates effective active parameters; it should not be described as a four-billion-total-parameter model.
+12. Official model repositories: [Gemma 4 12B](https://huggingface.co/google/gemma-4-12B), [Gemma 4 E4B](https://huggingface.co/google/gemma-4-E4B), [Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B). Slides 11–13 and 15. The result folders record immutable revisions and exact package versions. E4B indicates effective active parameters; it should not be described as a four-billion-total-parameter model.
 
 13. [Salesforce WikiText dataset](https://huggingface.co/datasets/Salesforce/wikitext). Real WikiText-2 test text supplies the prompts. Request arrivals are a declared controlled trace, not a production workload. Dataset revision and exact tokenized traces are saved with the experiments.
 
 ## Our actual measurements
 
-14. [Recorded W&B experiment project](https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility). Slides 9–17. Capture-comparison JSONL records, raw output token IDs, runtime configuration and independent scheduling request/telemetry records are saved locally. The summary CSVs and full-resolution PNG/PDF graphs are supplied with the deck. The accompanying explainer uses the same saved measurements, replotted under `document_source/figures/`; it does not add experiments. These results are our measurements, not published-paper results.
+14. [Recorded W&B experiment project](https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility). Slides 11–20. Capture-comparison JSONL records, raw output token IDs, runtime configuration and independent scheduling request/telemetry records are saved locally. The summary CSVs and full-resolution PNG/PDF graphs are supplied with the deck. The accompanying explainer uses the same saved measurements, replotted under `document_source/figures/`; it does not add experiments. These results are our measurements, not published-paper results.
 
 No claim of a solved algorithm, universal GPU-utilization improvement or validated transfer beyond LLMs follows from these sources or experiments.
+
+## Industry evidence added for the extension
+
+15. **Tensormux. Inference control plane.** [Official platform](https://www.tensormux.com/). Slides 8 and 22. Commercial scope includes routing, scaling and cache reuse. Its GPU-spend figure is explicitly a directional target, not a demonstrated hardware-utilization gain.
+
+16. **Tensormux (3 July 2026). Zero failures. Half the latency budget. $0.32 a million tokens.** [Company benchmark](https://www.tensormux.com/blogs/sla-benchmark). Slide 8 transcribes Table 1 in an editable table, preserving its first-token latency values. This self-reported benchmark supports SLA compliance under its setup, not a before/after utilization gain. The article does not name the hardware counter behind its utilization percentage. The compared routing strategies are from the reported platform test; the open-source gateway has a different strategy list. No comparison with our A100 throughput is claimed.
+
+17. **Tensormux Gateway.** [Official linked repository](https://github.com/KrxGu/Tensormux). Slides 8 and 22. Its README distinguishes routing, failover and observability from the inference engine's batching, KV management and GPU scheduling. Do not attribute the entire commercial platform to this open-source component.
+
+18. **TensorPath / Forge.** [Official repository](https://github.com/tensormux/Tensorpath). Slides 9, 19 and 22. README sections on Forge, measured kernels and runtime integration support the displayed operation-level result and its boundaries. The baseline is PyTorch eager. The deck makes no end-to-end model speedup claim and does not treat deployment estimates as measured results.
+
+19. **NVIDIA Nsight Systems. Post-Collection Analysis Guide.** [Official documentation](https://docs.nvidia.com/nsight-systems/AnalysisGuide/index.html). Slides 20 and 22. Proposed timeline analysis, not an experiment already conducted.
+
+20. **NVIDIA Nsight Compute. Profiling Guide.** [Official documentation](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html). Slides 20 and 22. Proposed kernel resource analysis. Achieved compute and memory metrics have different meanings from NVML busy time.
+
+The added sources were inspected on 9 September 2026. No new GPU experiment ran for this presentation update. The 47% / 53% illustration is not an observed measurement in our records.

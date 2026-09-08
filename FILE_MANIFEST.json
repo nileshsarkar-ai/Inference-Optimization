@@ -1,8 +1,8 @@
 {
-  "created_at_utc": "2026-09-08T20:24:55.673292+00:00",
+  "created_at_utc": "2026-09-08T21:26:14.663569+00:00",
   "description": "Current Inference Optimization research snapshot; excludes this manifest and Git metadata. Historical paths and W&B identifiers in immutable experiment records retain their original names.",
   "file_count": 677,
-  "total_bytes": 420298944,
+  "total_bytes": 420339360,
   "original_result_files_verified": 525,
   "files": [
     {
@@ -12,13 +12,13 @@
     },
     {
       "path": "Inference_Optimization_Final.pptx",
-      "bytes": 497669,
-      "sha256": "6fcab10de6f1028bae6d574b24828cf4e34ab7b0853103ca882ab61bb7462ec2"
+      "bytes": 515867,
+      "sha256": "8302800f76d10697bf37f83784f483128d053ed50851457ad9a3bbd580bb7e57"
     },
     {
       "path": "README.md",
-      "bytes": 6202,
-      "sha256": "92968f9f1ada9859f0ca1fe3f140fc96e7d8812d2cc4cff8ffc0db6f573b79ee"
+      "bytes": 6246,
+      "sha256": "c32a874b7c5803c18f67b2a079c76b1e22158ef9cc52a443ab37e6a286a6dab4"
     },
     {
       "path": "experiment_status.json",
@@ -112,8 +112,8 @@
     },
     {
       "path": "outputs/Experiment_Inventory.md",
-      "bytes": 15466,
-      "sha256": "88b4b2a5e13373f8b5f167c21a839ee53377f3ff087d99fc454e5053ad7420cd"
+      "bytes": 15587,
+      "sha256": "0b30cf3452774ae7ca225271b15d96a3581f3e74253a585ecd3dd8dcef9a9180"
     },
     {
       "path": "outputs/Inference_Optimization_Explained.pdf",
@@ -122,33 +122,33 @@
     },
     {
       "path": "outputs/Inference_Optimization_Presenter_Notes.md",
-      "bytes": 18121,
-      "sha256": "9a301785c7a069d2569e1f34c380eb90b5da763d86160929ac8363ff474c761b"
+      "bytes": 23391,
+      "sha256": "53acdbf9e28a7b836c5e3745dfc176740fc1112d1231f3410eeda810f97a69fb"
     },
     {
       "path": "outputs/Keynote_Presenter_Setup.md",
       "bytes": 2420,
-      "sha256": "d9b2c33bb0085241b45a1b0d4df5fdd55447993aa79fe37778d21023d974a1fb"
+      "sha256": "3d23d55fcd7d5d43d3d73b93a1256993e804ab5634da28bc566bbdf9fad85ad1"
     },
     {
       "path": "outputs/Methodology_Assessment.md",
-      "bytes": 6584,
-      "sha256": "89fa762dff6b844e8b153452827cd82b47e71f686c6a17393ed2f3396b83331e"
+      "bytes": 6873,
+      "sha256": "a2d24a7190abc214a21bc75ead950c3d86ed4664a8ac55128841100a418f89eb"
     },
     {
       "path": "outputs/README.md",
-      "bytes": 3990,
-      "sha256": "86300d116e8705df8f627dd1b5a9a0621d69225ad04670adba3b2c656d16e9a8"
+      "bytes": 4132,
+      "sha256": "102f6dc013ffadf52079e034e42f0f156e85d72c2e966b5c0eea68a16984f056"
     },
     {
       "path": "outputs/References.md",
-      "bytes": 5917,
-      "sha256": "8e39557563a94b4f5cbc2166d65e290369257440062f018975d9fb3a58ec8597"
+      "bytes": 8270,
+      "sha256": "590c0502458cd0bfcd11227f6272965a1846d1296f961174205598424fc3ed6a"
     },
     {
       "path": "outputs/Research_Question.md",
-      "bytes": 8868,
-      "sha256": "feb597018d59695f5ef9bd63c1d44f1dadf5e342976a743b03048ec49130814a"
+      "bytes": 10972,
+      "sha256": "6c535c4e3b60ce995e29496b305674d4e966da899a9d930d43231ef60f727d81"
     },
     {
       "path": "outputs/Results.md",
@@ -2917,18 +2917,18 @@
     },
     {
       "path": "outputs/presentation_source/README.md",
-      "bytes": 2886,
-      "sha256": "f0ef57a910f91b603459d92fef0171c13b27d10dc62e17adc1bf6dc2364a131b"
+      "bytes": 2974,
+      "sha256": "b08d649ef44c3c0ce8f4a1893a6d32c3069ad80836d5842d5bb0441ae722b4e2"
     },
     {
       "path": "outputs/presentation_source/build_review.mjs",
-      "bytes": 27200,
-      "sha256": "af6a63b1914c87ae840ed9669f97a5e75750a598a88bdca3c29f8080721f6c0a"
+      "bytes": 32022,
+      "sha256": "c469152b886f695cfba8176be416b4ce26958b8dc57c4bc670f7d1cc40ae0d01"
     },
     {
       "path": "outputs/presentation_source/presenter_notes.json",
-      "bytes": 17100,
-      "sha256": "7152fdb1c7ab282e3c09aef6d7f5bf930fdbc18758a773a20e3b6dd2f1abdb2c"
+      "bytes": 22228,
+      "sha256": "285fe4a608f46dfeee57376c971fbdb28b2bbc64720591808337256e0c0dd98f"
     },
     {
       "path": "outputs/presentation_source/source-notes.json",
@@ -2942,8 +2942,8 @@
     },
     {
       "path": "outputs/presentation_source/verification.json",
-      "bytes": 1962,
-      "sha256": "55fe0e10701d60773beb641ff650c9491a02f76850f2bd97453593b8cf3a5d7d"
+      "bytes": 3819,
+      "sha256": "2cdf898867f975e4dd29d5a05da257482ef1bd3d93d45cf7e2df5e4e39b26ba1"
     },
     {
       "path": "outputs/presentation_source/write_results_report.py",

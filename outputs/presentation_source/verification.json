@@ -1,10 +1,10 @@
 {
-  "slides": 18,
-  "native_notes": 18,
+  "slides": 22,
+  "native_notes": 22,
   "native_charts": 9,
   "all_numeric_chart_vectors_unchanged": true,
+  "native_chart_xml_unchanged": true,
   "cover_text": "Inference Optimization \u2014 Improving GPU Utilization for LLM Inference",
-  "removed_wording_absent": true,
   "keynote_notes_import": [
     {
       "slide": 1,
@@ -77,25 +77,125 @@
     {
       "slide": 18,
       "matches_source": true
+    },
+    {
+      "slide": 19,
+      "matches_source": true
+    },
+    {
+      "slide": 20,
+      "matches_source": true
+    },
+    {
+      "slide": 21,
+      "matches_source": true
+    },
+    {
+      "slide": 22,
+      "matches_source": true
     }
   ],
   "keynote_audience_export_excludes_notes": true,
-  "native_keynote_slide_images_reviewed": 18,
+  "native_keynote_slide_images_reviewed": 22,
   "physical_hdmi_setup_tested": false,
   "package_check": "pass",
   "layout_findings": 0,
   "layout_warnings": 0,
-  "presentation_sha256": "6fcab10de6f1028bae6d574b24828cf4e34ab7b0853103ca882ab61bb7462ec2",
-  "slo_goodput_revision": {
-    "visually_changed_slides": [
-      2,
-      15,
-      16,
-      17
+  "presentation_sha256": "8302800f76d10697bf37f83784f483128d053ed50851457ad9a3bbd580bb7e57",
+  "tensormux_extension_revision": {
+    "added_industry_slides": [
+      8,
+      9
     ],
-    "remaining_slide_images_identical": true,
-    "native_chart_xml_unchanged": true,
-    "question_defines_slo_goodput": true,
-    "research_progression_and_next_hypothesis_explicit": true
+    "connection_to_our_results": 19,
+    "one_next_study": 20,
+    "references": [
+      21,
+      22
+    ],
+    "industry_evidence_labeled_self_reported": true,
+    "illustrative_47_53_not_presented_as_measured": true,
+    "retained_slide_comparison": [
+      {
+        "previous": 1,
+        "current": 1,
+        "content_identical": true
+      },
+      {
+        "previous": 3,
+        "current": 3,
+        "content_identical": true
+      },
+      {
+        "previous": 4,
+        "current": 4,
+        "content_identical": true
+      },
+      {
+        "previous": 5,
+        "current": 5,
+        "content_identical": true
+      },
+      {
+        "previous": 6,
+        "current": 6,
+        "content_identical": true
+      },
+      {
+        "previous": 7,
+        "current": 7,
+        "content_identical": true
+      },
+      {
+        "previous": 8,
+        "current": 10,
+        "content_identical": true
+      },
+      {
+        "previous": 9,
+        "current": 11,
+        "content_identical": true
+      },
+      {
+        "previous": 10,
+        "current": 12,
+        "content_identical": true
+      },
+      {
+        "previous": 11,
+        "current": 13,
+        "content_identical": true
+      },
+      {
+        "previous": 12,
+        "current": 14,
+        "content_identical": true
+      },
+      {
+        "previous": 13,
+        "current": 15,
+        "content_identical": true
+      },
+      {
+        "previous": 14,
+        "current": 16,
+        "content_identical": true
+      },
+      {
+        "previous": 15,
+        "current": 17,
+        "content_identical": true
+      },
+      {
+        "previous": 16,
+        "current": 18,
+        "content_identical": true
+      },
+      {
+        "previous": 18,
+        "current": 21,
+        "content_identical": true
+      }
+    ]
   }
 }

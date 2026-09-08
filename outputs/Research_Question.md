@@ -1,14 +1,16 @@
-# Inference Optimization: useful GPU utilization through inference scheduling
+# Inference Optimization: investigating recoverable GPU underutilization
 
-## Problem statement
+## Problem statement and extension
 
-**Can better admission decisions increase SLO goodput during bursts of long prompts? SLO goodput is the number of requests completed within latency targets per second.**
+**Which limits to GPU utilization can we reduce to improve LLM throughput within latency targets?**
 
-The comparison uses the same GPU and model, with current vLLM continuous batching and a calibrated simple admission limit as controls. The workload changes from short prompts to a burst of long prompts and back to short prompts.
+The completed studies test CUDA graph configuration and admission during bursts of long prompts. They remain the empirical starting point. The extension investigates the cause of a performance limit before selecting one scheduling or execution change. Neither the existence nor the magnitude of recoverable capacity has been established.
 
-The next hypothesis is that estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond both controls. Improvement must include tail-latency and long-request fairness checks.
+The initial admission question remains: can better admission decisions increase SLO goodput during long-prompt bursts? Estimated processing cost, system state and remaining latency budget remain possible admission signals. They are one route within the broader investigation, rather than a committed solution.
 
-LLM inference on one A100 40 GB is the first test bed. Request and stage routing, and inference beyond LLMs, belong to the wider project scope. The current experiments do not establish transfer to those settings. The context-budget gate is a simple experimental candidate, not a claimed new SOTA algorithm.
+Start with a fixed model on an A100 40 GB and current vLLM as the baseline. Keep the model revision, precision and workload fixed across conditions. Multiple-replica routing and inference beyond LLMs remain possible extensions; the current evidence does not establish transfer.
+
+The illustrative 47% utilization / 53% remainder is not a recorded experimental baseline. A percentage must identify its counter and denominator. NVML busy time, achieved compute throughput and fleet utilization cannot be interpreted interchangeably.
 
 ## Meaning of useful utilization
 
@@ -30,9 +32,9 @@ There is no universal SOTA GPU-utilization percentage. Results depend on workloa
 
 Also relevant: [Sarathi-Serve](https://www.usenix.org/system/files/osdi24-agrawal.pdf), [Aegaeon](https://ennanzhai.github.io/pub/sosp25-aegaeon.pdf), and the distinct [Prism LLM memory-ballooning system, OSDI 2026](https://www.usenix.org/conference/osdi26/technical-sessions). These studies cannot be ranked using their raw headline gains across different setups.
 
-## Hypothesis and execution study
+## Completed execution study and admission hypothesis
 
-**Next hypothesis:** admission informed by estimated processing cost, system state and remaining latency budget may improve SLO goodput during a workload shift. **Competing explanation:** conservative admission may reduce useful concurrency, and current vLLM may already make better decisions.
+**Admission-specific hypothesis:** admission informed by estimated processing cost, system state and remaining latency budget may improve SLO goodput during a workload shift. **Competing explanation:** conservative admission may reduce useful concurrency, and current vLLM may already make better decisions.
 
 The first experiment compared current-default, manually matched and coarse CUDA-graph capture sets on Gemma 4 12B, Qwen3.5-9B and Gemma 4 E4B on the same A100 40 GB. Each model has 72 timed calls: eight fixed batch sizes, three configurations and three warmed repetitions. Inputs and outputs each contain 128 tokens. Precision is BF16, engine vLLM 0.28.0. Initialization and separate profiling are excluded.
 
@@ -52,12 +54,20 @@ Near-100% GPU busy time coexisted with missed latency targets, while the tested 
 
 A post-hoc analysis of the saved request records found that all 96 initial short requests meet the declared targets, while all 96 short requests after the long-context burst miss them, in every policy and repetition. The context-budget candidate also takes longer to drain the workload. This establishes a reproducible burst-recovery problem under the tested conditions. It does not establish that scheduling can eliminate the misses at the offered load. [Phase analysis](scheduling_results/analysis/phase_diagnostics.json).
 
+## Industry work and its relation to our experiments
+
+[Tensormux](https://www.tensormux.com/) describes an inference control plane above engines. Its [gateway](https://github.com/KrxGu/Tensormux) handles routing and reliability, and explicitly excludes engine-level batching and GPU scheduling. The website's GPU-spend percentage is a directional target. The [company benchmark](https://www.tensormux.com/blogs/sla-benchmark) is evidence of SLA compliance under a specified workload, with similar throughput across routing strategies. It does not measure a recovered 53% capacity gap.
+
+[TensorPath](https://github.com/tensormux/Tensorpath) reports operation-level kernel results and identifies serving-runtime integration as unfinished. Our capture study evaluates complete generation through the engine. The relevant next step is to compare a selected change against the actual engine implementation and measure complete serving, rather than infer model-wide gains from an isolated operation.
+
 ## One eventual experiment
 
-Run one controlled comparison of an adaptive admission rule against current vLLM and a calibrated fixed admission limit. Use separate data to diagnose queueing and processing cost, identify useful system-state signals, select baseline settings, and calibrate the candidate. Freeze the rules before replaying unseen burst traces across a predeclared range of arrival rates on the same model and GPU. Use the same fairness rule for controlled admission comparisons and compare a version without the adaptive decision to isolate what it adds.
+Run a diagnostic phase followed by one controlled intervention on the same model and GPU configuration. Sweep arrival rates below and near observed serving capacity while retaining the short/long/short workload structure. Separate idle time caused by low demand from gaps that occur with pending work. Profile CPU and GPU execution with [Nsight Systems](https://docs.nvidia.com/nsight-systems/AnalysisGuide/index.html), and use [Nsight Compute](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html) on representative expensive kernels to distinguish compute and memory limits. Do not sum overlapping CPU and GPU times into an overhead budget.
 
-Measure SLO goodput and output throughput, phase-specific attainment, external waiting and long-request tail latency. Preserve complete output accounting, report any drops, and use balanced independent engine repetitions. Keep detailed GPU profiling separate from timing if claiming changes in hardware efficiency. Latency targets and evaluation conditions must be fixed before evaluation. The earlier 8-request/s test alone does not establish sustainable serving capacity.
+Choose one mechanism from the profile. Admission or batching is a candidate if scheduling restricts ready work. A kernel or runtime change is a candidate if execution cost dominates. This decision belongs to the diagnostic phase. Use separate calibration traces, freeze the candidate and settings, and evaluate on unseen traces at predeclared loads with balanced independent engine repetitions.
 
-The next investigation will measure whether the policy increases SLO goodput and identify where it succeeds or fails.
+Compare current vLLM, the candidate and a version with its targeted change disabled. For an admission intervention, also include a calibrated simple limit and match fairness conditions. Keep model revision, precision and request accounting fixed, check output correctness, include all waiting and report any dropped requests. Collect detailed profiles separately from timing runs.
 
-Research and source check: 8 September 2026. Exact model/dataset revisions, package versions, traces, output token IDs, code and measurements are saved locally and tracked in [W&B](https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility).
+Success requires a repeatable increase in output throughput and SLO goodput within fixed latency targets, supported by evidence that the identified bottleneck decreases. A higher busy percentage alone does not establish success. The result may be no improvement or a gain restricted to particular loads. Hardware and model generalization require additional evidence.
+
+Research extension and industry sources checked: 9 September 2026. Completed experiment records and the frozen original protocol remain unchanged. Exact revisions, traces, output records and measurements are saved locally and tracked in [W&B](https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility).

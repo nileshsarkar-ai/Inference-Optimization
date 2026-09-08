@@ -2,9 +2,9 @@
 
 ## Current presentation and references
 
-- `Inference_Optimization_Presenter_Notes.md`: all 18 native presenter notes extracted verbatim from the final PPT, in slide order.
-- `../Inference_Optimization_Final.pptx`: current 18-slide presentation, organized into the research question, previous literature, our system and experiment protocols, measured results, and one next comparison. It retains all nine distinct experimental chart panels. Original paper figures have linked source footers; references are visible on slide 18. Each slide includes native presenter notes.
-- `Inference_Optimization_Explained.pdf`: a plain-language explanation of the problem, system, experiments, graphs and measured conclusions.
+- `Inference_Optimization_Presenter_Notes.md`: all 22 native presenter notes extracted verbatim from the final PPT, in slide order.
+- `../Inference_Optimization_Final.pptx`: current 22-slide presentation, organized into the research question, previous literature, our system and experiment protocols, measured results, Tensormux/TensorPath evidence, and one next profiling/intervention study. It retains all nine distinct experimental chart panels. Original paper figures have linked source footers; references are visible on slides 21–22. Each slide includes native presenter notes.
+- `Inference_Optimization_Explained.pdf`: a plain-language explanation of the completed studies, system, graphs and measured conclusions. The later Tensormux/profiling extension is in the current PPT and `Research_Question.md`.
 - `Keynote_Presenter_Setup.md`: presenter-note and extended-display setup for a classroom presentation. Keynote import was checked; a physical HDMI/projector test remains room-specific.
 - `References.md`: consolidated primary-source bibliography with slide mappings and experimental context.
 - `Research_Question.md`: research question, SOTA boundary, hypotheses and one eventual experiment.

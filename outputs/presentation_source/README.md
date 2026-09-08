@@ -1,8 +1,8 @@
 # Presentation source
 
-`build_review.mjs` produces the current 18-slide **Inference Optimization** presentation. It reads the saved measurements directly and creates nine editable experiment charts containing all 360 capture observations and all 36 scheduling metric observations, with separate means. It also contains original paper figures, linked references and the research question. `presenter_notes.json` supplies the native speaking notes for all 18 slides.
+`build_review.mjs` produces the current 22-slide **Inference Optimization** presentation. It reads the saved measurements directly and creates nine editable experiment charts containing all 360 capture observations and all 36 scheduling metric observations, with separate means. It also contains original paper figures, linked references and the research question. `presenter_notes.json` supplies the native speaking notes for all 22 slides.
 
-The visible order is: cover and research question (1–2); previous literature divider and SOTA evidence (3–7); our experiments divider, system and protocols (8–11); our results divider, all measured graph panels and numeric interpretation (12–16); one future comparison (17); references (18).
+The visible order is: cover and broad research question (1–2); previous literature divider and research papers (3–7); Tensormux and TensorPath industry evidence (8–9); our experiments divider, system and protocols (10–13); our results divider and all measured chart panels (14–18); relation to the extension and one profiling/intervention study (19–20); references (21–22).
 
 The source template files are stored in `template_assets.zip`. This keeps only the final presentation as a visible PPTX in the local codebase. Extract the source assets into a temporary build directory when rebuilding.
 
