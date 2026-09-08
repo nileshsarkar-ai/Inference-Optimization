@@ -1,0 +1,429 @@
+{
+  "source": "outputs/scheduling_results/repeat-{0,1,2}/{default,fixed32,context_budget}/{requests,telemetry,summary}.json",
+  "interpretation": "Descriptive post-hoc phase decomposition of finite replay. Admission waiting is outside vLLM; active admitted requests are not simultaneous GPU kernels. No causal or capacity inference.",
+  "observations": [
+    {
+      "repeat": 0,
+      "policy": "default",
+      "duration_s": 41.21998356003314,
+      "last_arrival_s": 29.605117082583458,
+      "drain_after_last_arrival_s": 11.614866477449684,
+      "slo_met": 102,
+      "slo_attainment_percent": 42.5,
+      "slo_goodput_rps": 2.4745279156030304,
+      "admitted_requests_time_weighted_mean_from_events": 70.75588614698997,
+      "admitted_requests_peak_from_events": 125,
+      "telemetry_admitted_requests_arithmetic_mean": 70.51456310679612,
+      "telemetry_admitted_requests_max": 125,
+      "telemetry_reserved_token_estimate_max": 115456,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0006370332084153496,
+          "median_ttft_s": 0.08058428754892955
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 6,
+          "slo_attainment_percent": 12.5,
+          "median_admission_wait_s": 0.0007190591852603845,
+          "median_ttft_s": 9.241952939597248
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 0.0008074154994073268,
+          "median_ttft_s": 11.23666880526895
+        }
+      ]
+    },
+    {
+      "repeat": 0,
+      "policy": "fixed32",
+      "duration_s": 47.64691473683342,
+      "last_arrival_s": 29.605117082583458,
+      "drain_after_last_arrival_s": 18.041797654249965,
+      "slo_met": 101,
+      "slo_attainment_percent": 42.083333333333336,
+      "slo_goodput_rps": 2.1197594966610085,
+      "admitted_requests_time_weighted_mean_from_events": 28.538503344445537,
+      "admitted_requests_peak_from_events": 32,
+      "telemetry_admitted_requests_arithmetic_mean": 28.483193277310924,
+      "telemetry_admitted_requests_max": 32,
+      "telemetry_reserved_token_estimate_max": 69632,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.00100370901973168,
+          "median_ttft_s": 0.08318073383997804
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 5,
+          "slo_attainment_percent": 10.416666666666666,
+          "median_admission_wait_s": 6.721173537071069,
+          "median_ttft_s": 8.5955038091031
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 14.96035228044668,
+          "median_ttft_s": 15.163670378401102
+        }
+      ]
+    },
+    {
+      "repeat": 0,
+      "policy": "context_budget",
+      "duration_s": 50.999872494954616,
+      "last_arrival_s": 29.605117082583458,
+      "drain_after_last_arrival_s": 21.394755412371158,
+      "slo_met": 101,
+      "slo_attainment_percent": 42.083333333333336,
+      "slo_goodput_rps": 1.9803971080514342,
+      "admitted_requests_time_weighted_mean_from_events": 22.50133280023221,
+      "admitted_requests_peak_from_events": 78,
+      "telemetry_admitted_requests_arithmetic_mean": 22.46456692913386,
+      "telemetry_admitted_requests_max": 78,
+      "telemetry_reserved_token_estimate_max": 19968,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0006386525529138432,
+          "median_ttft_s": 0.07785990418668176
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 5,
+          "slo_attainment_percent": 10.416666666666666,
+          "median_admission_wait_s": 11.786922259661658,
+          "median_ttft_s": 12.139415662791869
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 21.438804377562885,
+          "median_ttft_s": 21.702309298639545
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "policy": "default",
+      "duration_s": 39.00219755782746,
+      "last_arrival_s": 28.2005555366749,
+      "drain_after_last_arrival_s": 10.801642021152556,
+      "slo_met": 105,
+      "slo_attainment_percent": 43.75,
+      "slo_goodput_rps": 2.692155995679973,
+      "admitted_requests_time_weighted_mean_from_events": 72.50716108268233,
+      "admitted_requests_peak_from_events": 123,
+      "telemetry_admitted_requests_arithmetic_mean": 72.22051282051282,
+      "telemetry_admitted_requests_max": 122,
+      "telemetry_reserved_token_estimate_max": 118016,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0006692141638207083,
+          "median_ttft_s": 0.08149128623607593
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 9,
+          "slo_attainment_percent": 18.75,
+          "median_admission_wait_s": 0.0007046218570820884,
+          "median_ttft_s": 6.1691683681995615
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 0.0008271625714488806,
+          "median_ttft_s": 10.760690136142845
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "policy": "fixed32",
+      "duration_s": 45.237223806092516,
+      "last_arrival_s": 28.2005555366749,
+      "drain_after_last_arrival_s": 17.036668269417614,
+      "slo_met": 100,
+      "slo_attainment_percent": 41.666666666666664,
+      "slo_goodput_rps": 2.2105688984948735,
+      "admitted_requests_time_weighted_mean_from_events": 29.369951191701343,
+      "admitted_requests_peak_from_events": 32,
+      "telemetry_admitted_requests_arithmetic_mean": 29.287610619469028,
+      "telemetry_admitted_requests_max": 32,
+      "telemetry_reserved_token_estimate_max": 69632,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.001129655610761393,
+          "median_ttft_s": 0.09129585196704926
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 4,
+          "slo_attainment_percent": 8.333333333333334,
+          "median_admission_wait_s": 6.788793184339281,
+          "median_ttft_s": 7.296181229768533
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 14.392467457960674,
+          "median_ttft_s": 14.546553433718689
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "policy": "context_budget",
+      "duration_s": 49.86168126994744,
+      "last_arrival_s": 28.2005555366749,
+      "drain_after_last_arrival_s": 21.661125733272538,
+      "slo_met": 102,
+      "slo_attainment_percent": 42.5,
+      "slo_goodput_rps": 2.0456590592639583,
+      "admitted_requests_time_weighted_mean_from_events": 23.173230898813742,
+      "admitted_requests_peak_from_events": 78,
+      "telemetry_admitted_requests_arithmetic_mean": 23.14859437751004,
+      "telemetry_admitted_requests_max": 78,
+      "telemetry_reserved_token_estimate_max": 19968,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0006678798607211434,
+          "median_ttft_s": 0.08132192918778669
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 6,
+          "slo_attainment_percent": 12.5,
+          "median_admission_wait_s": 11.628311736261193,
+          "median_ttft_s": 11.977326433741208
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 21.741870475682223,
+          "median_ttft_s": 21.958325791591705
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "policy": "default",
+      "duration_s": 40.053738720016554,
+      "last_arrival_s": 29.8390516234885,
+      "drain_after_last_arrival_s": 10.214687096528053,
+      "slo_met": 104,
+      "slo_attainment_percent": 43.333333333333336,
+      "slo_goodput_rps": 2.5965116696591117,
+      "admitted_requests_time_weighted_mean_from_events": 67.91674084113427,
+      "admitted_requests_peak_from_events": 122,
+      "telemetry_admitted_requests_arithmetic_mean": 67.835,
+      "telemetry_admitted_requests_max": 122,
+      "telemetry_reserved_token_estimate_max": 114688,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0006834991157814718,
+          "median_ttft_s": 0.08210551755544993
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 8,
+          "slo_attainment_percent": 16.666666666666668,
+          "median_admission_wait_s": 0.0008091873379081349,
+          "median_ttft_s": 5.983795905995222
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 0.0006513721409593387,
+          "median_ttft_s": 9.664230834308865
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "policy": "fixed32",
+      "duration_s": 45.71091850101948,
+      "last_arrival_s": 29.8390516234885,
+      "drain_after_last_arrival_s": 15.871866877530977,
+      "slo_met": 104,
+      "slo_attainment_percent": 43.333333333333336,
+      "slo_goodput_rps": 2.275167583816556,
+      "admitted_requests_time_weighted_mean_from_events": 29.079342096826572,
+      "admitted_requests_peak_from_events": 32,
+      "telemetry_admitted_requests_arithmetic_mean": 29.05701754385965,
+      "telemetry_admitted_requests_max": 32,
+      "telemetry_reserved_token_estimate_max": 69632,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0009750228343952116,
+          "median_ttft_s": 0.08525097054850361
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 8,
+          "slo_attainment_percent": 16.666666666666668,
+          "median_admission_wait_s": 6.357467480862552,
+          "median_ttft_s": 7.007934258945325
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 12.913930121757573,
+          "median_ttft_s": 13.013247371965303
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "policy": "context_budget",
+      "duration_s": 50.651749483076856,
+      "last_arrival_s": 29.8390516234885,
+      "drain_after_last_arrival_s": 20.812697859588354,
+      "slo_met": 102,
+      "slo_attainment_percent": 42.5,
+      "slo_goodput_rps": 2.013750779409485,
+      "admitted_requests_time_weighted_mean_from_events": 22.42265943647604,
+      "admitted_requests_peak_from_events": 78,
+      "telemetry_admitted_requests_arithmetic_mean": 22.399209486166008,
+      "telemetry_admitted_requests_max": 78,
+      "telemetry_reserved_token_estimate_max": 19968,
+      "phases": [
+        {
+          "phase": "initial_short",
+          "request_id_start": 0,
+          "request_id_stop_exclusive": 96,
+          "requests": 96,
+          "slo_met": 96,
+          "slo_attainment_percent": 100.0,
+          "median_admission_wait_s": 0.0006162030633031224,
+          "median_ttft_s": 0.08202364606684753
+        },
+        {
+          "phase": "long_context",
+          "request_id_start": 96,
+          "request_id_stop_exclusive": 144,
+          "requests": 48,
+          "slo_met": 6,
+          "slo_attainment_percent": 12.5,
+          "median_admission_wait_s": 10.652162906361092,
+          "median_ttft_s": 11.38926447762504
+        },
+        {
+          "phase": "recovery_short",
+          "request_id_start": 144,
+          "request_id_stop_exclusive": 240,
+          "requests": 96,
+          "slo_met": 0,
+          "slo_attainment_percent": 0.0,
+          "median_admission_wait_s": 20.253852516635902,
+          "median_ttft_s": 20.636927644075886
+        }
+      ]
+    }
+  ]
+}

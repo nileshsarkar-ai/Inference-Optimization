@@ -1,0 +1,10 @@
+wandb: [wandb.login()] Using explicit session credentials for https://api.wandb.ai.
+wandb: Appending key for api.wandb.ai to your netrc file: /home/.netrc
+wandb: Currently logged in as: nileshsarkar (nileshsarkar-ai) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+W&B authentication verified. Group: Qwen2.5-7B-a100-20260908T150848Z
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Completed: default
+Completed: matched
+Completed: coarse
+Timing comparison and figures complete: /home/SaturateLLM/graph_size_pilot/results/Qwen2.5-7B-a100-20260908T150848Z
+Controlled experiment complete: /home/SaturateLLM/graph_size_pilot/results/Qwen2.5-7B-a100-20260908T150848Z

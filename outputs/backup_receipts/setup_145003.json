@@ -1,0 +1,39 @@
+{
+  "verified_at_utc": "2026-09-08T16:52:55.230607+00:00",
+  "machine_id": 500717,
+  "remote": "/home/SaturateLLM/graph_size_pilot/results/a100-pilot-20260908T145003Z",
+  "local": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/archived_attempts/setup_145003",
+  "status": "all_remote_files_match_local_sha256",
+  "file_count": 7,
+  "total_bytes": 220009,
+  "files": {
+    "default/gpu.csv": {
+      "sha256": "bf4c79cdd46d3c3a494c515f075af085c3bfc85c940d20629eb3eb0faa91c2bb",
+      "bytes": 160
+    },
+    "default/package-versions.txt": {
+      "sha256": "580d5415cb0997bd77c2c2d93fd89d187137f3f45ed8853f2addf542ec7cd378",
+      "bytes": 4574
+    },
+    "default/requested-config.json": {
+      "sha256": "c962bdde4eb324d621a6a5674698ed4af5ac2630a6291d07a3bacf1c5f6894a3",
+      "bytes": 515
+    },
+    "default/wandb-url.txt": {
+      "sha256": "438fa07027048dac038c2094f6eeef9e1527bb3154550c0ee5718bdcd5b02e4f",
+      "bytes": 71
+    },
+    "default.log": {
+      "sha256": "cd37a650466cea981c2de855426946d167a8329a24b7c1cb716d3c1c8dc536a7",
+      "bytes": 16339
+    },
+    "prepared/manifest.json": {
+      "sha256": "0690d77dc6556d3ed376a5610b3006410bf4f2f1459857427329e294de4bf274",
+      "bytes": 502
+    },
+    "prepared/prompts.json": {
+      "sha256": "aeb83ac4ad12c1c7b64b95855917b61f964efc5c801bf8a430b3a2a9360ca8b0",
+      "bytes": 197848
+    }
+  }
+}

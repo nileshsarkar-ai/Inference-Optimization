@@ -1,0 +1,42 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "tokenizer_revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "dtype": "bfloat16",
+  "tensor_parallel_size": 1,
+  "seed": 20260908,
+  "max_model_len": 512,
+  "max_num_seqs": 128,
+  "max_num_batched_tokens": 4096,
+  "gpu_memory_utilization": 0.85,
+  "enable_prefix_caching": false,
+  "enable_chunked_prefill": true,
+  "compilation_config": {
+    "max_cudagraph_capture_size": 256,
+    "cudagraph_capture_sizes": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      24,
+      31,
+      32,
+      48,
+      63,
+      64,
+      80,
+      95,
+      112,
+      127,
+      128,
+      256
+    ]
+  },
+  "disable_log_stats": false,
+  "profiler_config": {
+    "profiler": "torch",
+    "torch_profiler_dir": "/home/SaturateLLM/graph_size_pilot/results/a100-pilot-20260908T145422Z/profile-matched/traces",
+    "torch_profiler_record_shapes": true
+  }
+}

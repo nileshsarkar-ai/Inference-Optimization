@@ -1,0 +1,58 @@
+{
+  "manifest": {
+    "model": "Qwen/Qwen3.5-9B",
+    "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "dataset": "Salesforce/wikitext",
+    "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "dataset_config": "wikitext-2-raw-v1",
+    "split": "test",
+    "seed": 20260908,
+    "prompt_tokens": 128,
+    "output_tokens": 128,
+    "batches": [
+      24,
+      31,
+      48,
+      63,
+      80,
+      95,
+      112,
+      127
+    ],
+    "prompts_sha256": "d9fc6de2c6091630a0023704625427d8d38f73dc2d46c1f8fb8bb42c33625813"
+  },
+  "capture": "matched",
+  "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+  "vllm_version": "0.28.0",
+  "torch_version": "2.13.0",
+  "cuda_visible_devices": "0",
+  "resolved_capture_sizes": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    24,
+    31,
+    32,
+    48,
+    63,
+    64,
+    80,
+    95,
+    112,
+    127,
+    128,
+    256
+  ],
+  "resolved_graph_mode": "FULL_AND_PIECEWISE",
+  "startup_s": 117.78150531905703,
+  "resources_after_init": {
+    "device_used_mib": 33159.0,
+    "kv_blocks": 742,
+    "kv_block_size": 512,
+    "kv_capacity_tokens": 379904
+  },
+  "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+  "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+}

@@ -1,0 +1,128 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from WANDB_API_KEY.
+wandb: Currently logged in as: nileshsarkar (nileshsarkar-ai) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using an existing wandb-core service via WANDB_SERVICE.
+wandb: setting up run vs3zqwsl
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/SaturateLLM/model_suite/wandb/run-20260908_162339-vs3zqwsl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run coarse-timing
+wandb: ⭐️ View project at https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility
+wandb: 🚀 View run at https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/vs3zqwsl
+wandb: Detected [openai] in use.
+wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+wandb: For more information, check out the docs at: https://weave-docs.wandb.ai
+INFO 09-08 16:23:42 [api_utils.py:272] non-default args: {'dtype': 'bfloat16', 'seed': 20260908, 'max_model_len': 512, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.85, 'max_num_batched_tokens': 4096, 'max_num_seqs': 128, 'revision': '411aa17b749aa952df1359d2dcea73917a544d9a', 'tokenizer_revision': '411aa17b749aa952df1359d2dcea73917a544d9a', 'language_model_only': True, 'enable_chunked_prefill': True, 'compilation_config': {'mode': None, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': [], 'ir_enable_torch_wrap': None, 'splitting_ops': None, 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': None, 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': None, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 32, 64, 128, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': None, 'pass_config': {}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': None, 'static_all_moe_layers': []}, 'model': 'google/gemma-4-E4B'}
+INFO 09-08 16:23:42 [model.py:672] Resolved architecture: Gemma4ForConditionalGeneration
+INFO 09-08 16:23:42 [model.py:1965] Using max model len 512
+WARNING 09-08 16:23:43 [model.py:963] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+[transformers] `SiglipImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `SiglipImageProcessor` instead.
+INFO 09-08 16:23:46 [registry.py:141] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+INFO 09-08 16:23:46 [model.py:875] Disabled mm_prefix attention mode because multimodal inputs are configuration-disabled. Attention backends without mm_prefix support may now be selected.
+INFO 09-08 16:23:46 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=4096.
+INFO 09-08 16:23:46 [config.py:242] Gemma4 model has heterogeneous head dimensions {'sliding_attention': 256, 'full_attention': 512}. FA4 not available, forcing TRITON_ATTN backend.
+INFO 09-08 16:23:46 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(EngineCore pid=12132) INFO 09-08 16:23:57 [core.py:122] Initializing a V1 LLM engine (v0.28.0) with config: model='google/gemma-4-E4B', speculative_config=None, tokenizer='google/gemma-4-E4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=411aa17b749aa952df1359d2dcea73917a544d9a, tokenizer_revision=411aa17b749aa952df1359d2dcea73917a544d9a, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=512, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=20260908, served_model_name=google/gemma-4-E4B, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [4096], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 32, 64, 128, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto')
+(EngineCore pid=12132) [transformers] `SiglipImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `SiglipImageProcessor` instead.
+(EngineCore pid=12132) INFO 09-08 16:24:02 [registry.py:141] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+(EngineCore pid=12132) INFO 09-08 16:24:02 [parallel_state.py:1638] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_5427c05e1da345cc9d7aa3a8a3bed816 backend=nccl
+(EngineCore pid=12132) INFO 09-08 16:24:02 [parallel_state.py:1982] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=12132) INFO 09-08 16:24:02 [gpu_worker.py:396] Using V2 Model Runner
+(EngineCore pid=12132) INFO 09-08 16:24:03 [model_runner.py:358] Loading model from scratch...
+(EngineCore pid=12132) INFO 09-08 16:24:03 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(EngineCore pid=12132) INFO 09-08 16:24:03 [cuda.py:426] Using AttentionBackendEnum.TRITON_ATTN backend.
+(EngineCore pid=12132) INFO 09-08 16:24:03 [cuda.py:426] Using AttentionBackendEnum.TRITON_ATTN backend.
+(EngineCore pid=12132) INFO 09-08 16:24:05 [weight_utils.py:858] Filesystem type for checkpoints: XFS. Checkpoint size: 14.89 GiB. Available RAM: 25.51 GiB.
+(EngineCore pid=12132) INFO 09-08 16:24:05 [weight_utils.py:881] Auto-prefetch is disabled because the filesystem (XFS) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=12132) Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(EngineCore pid=12132) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.05it/s]
+(EngineCore pid=12132) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.05it/s]
+(EngineCore pid=12132) 
+(EngineCore pid=12132) INFO 09-08 16:24:06 [default_loader.py:430] Loading weights took 0.96 seconds
+(EngineCore pid=12132) INFO 09-08 16:24:06 [model_runner.py:380] Model loading took 14.32 GiB memory and 3.449301 seconds
+(EngineCore pid=12132) INFO 09-08 16:24:06 [topk_topp_sampler.py:62] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=12132) INFO 09-08 16:24:17 [backends.py:1094] Using cache directory: /home/.cache/vllm/torch_compile_cache/7f207914ac/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=12132) INFO 09-08 16:24:17 [backends.py:1155] Dynamo bytecode transform time: 10.15 s
+(EngineCore pid=12132) INFO 09-08 16:25:03 [backends.py:393] Compiling a graph for compile range (1, 4096) takes 45.67 s
+(EngineCore pid=12132) INFO 09-08 16:25:08 [backends.py:920] collected artifacts: 43 entries, 8 artifacts, 27492515 bytes total
+(EngineCore pid=12132) INFO 09-08 16:25:09 [decorators.py:708] saved AOT compiled function to /home/.cache/vllm/torch_compile_cache/torch_aot_compile/a8b14c0d69132d82a6e0efb739e16c24994fdbf1781a0f57895f37218da1c9c0/rank_0_0/model
+(EngineCore pid=12132) INFO 09-08 16:25:09 [monitor.py:53] torch.compile took 61.54 s in total
+(EngineCore pid=12132) INFO 09-08 16:25:09 [monitor.py:81] Initial profiling/warmup run took 0.43 s
+(EngineCore pid=12132) INFO 09-08 16:25:10 [gpu_worker.py:578] Available KV cache memory: 13.41 GiB
+(EngineCore pid=12132) INFO 09-08 16:25:10 [kv_cache_utils.py:1869] GPU KV cache size: 240,316 tokens, Maximum concurrency for 512 tokens per request: 469.37x
+(EngineCore pid=12132) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/9 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):  11%|█         | 1/9 [00:01<00:10,  1.36s/it]Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 3/9 [00:02<00:05,  1.16it/s]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 6/9 [00:04<00:01,  1.61it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 9/9 [00:05<00:00,  1.81it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 9/9 [00:05<00:00,  1.61it/s]
+(EngineCore pid=12132) Capturing CUDA graphs (FULL):   0%|          | 0/8 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  38%|███▊      | 3/8 [00:00<00:00, 26.81it/s]Capturing CUDA graphs (FULL):  75%|███████▌  | 6/8 [00:00<00:00, 26.37it/s]Capturing CUDA graphs (FULL): 100%|██████████| 8/8 [00:00<00:00, 26.44it/s]
+(EngineCore pid=12132) INFO 09-08 16:25:17 [model_runner.py:906] Graph capturing finished in 6 secs, took 0.21 GiB
+(EngineCore pid=12132) INFO 09-08 16:25:17 [gpu_worker.py:804] Free memory on device (39.08/39.49 GiB) on startup. Desired GPU memory utilization is (0.85, 33.57 GiB). Actual usage is 14.61 GiB for consumed memory (weights + non-torch), 5.55 GiB for peak activation, and 0.21 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=14012373812` (13.05 GiB) to fit into requested memory, or `--kv-cache-memory=19927803904` (18.56 GiB) to fully utilize gpu memory. Current kv cache memory in use is 13.41 GiB.
+(EngineCore pid=12132) INFO 09-08 16:25:19 [jit_monitor.py:85] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=12132) INFO 09-08 16:25:20 [torch_utils.py:262] Reducing Torch threads from 16 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=12132) INFO 09-08 16:25:20 [core.py:347] init engine (profile, create kv cache, warmup model) took 73.85 s (compilation: 61.54 s)
+(EngineCore pid=12132) INFO 09-08 16:25:20 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+INFO 09-08 16:25:27 [hf.py:551] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(EngineCore pid=12132) WARNING 09-08 16:25:28 [jit_monitor.py:141] Triton kernel JIT compilation during inference: kernel_unified_attention. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=12132) WARNING 09-08 16:25:29 [jit_monitor.py:141] Triton kernel JIT compilation during inference: _gumbel_sample_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+INFO 09-08 16:25:39 [loggers.py:310] Engine 000: Avg prompt throughput: 1699.8 tokens/s, Avg generation throughput: 1562.5 tokens/s, Running: 80 reqs, Waiting: 0 reqs, GPU KV cache usage: 7.5%, Prefix cache hit rate: 0.0%
+INFO 09-08 16:25:49 [loggers.py:310] Engine 000: Avg prompt throughput: 5292.3 tokens/s, Avg generation throughput: 5428.1 tokens/s, Running: 80 reqs, Waiting: 0 reqs, GPU KV cache usage: 8.1%, Prefix cache hit rate: 0.0%
+{"capture": "coarse", "repeat": 2, "batch": 80, "elapsed_s": 2.2259034630842507, "output_tokens": 10240, "output_tokens_s": 4600.3792032432875, "output_ids_sha256": "79075023f566281d26847fca9907145aa943b386d1adf9407d010174c3ae01e6", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 1, "batch": 127, "elapsed_s": 2.66558006987907, "output_tokens": 16256, "output_tokens_s": 6098.484972817751, "output_ids_sha256": "6120b1e743b8c06cf6101a916ac35a62caaae2e32e5ec94e01b1560d02ab028c", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 2, "batch": 31, "elapsed_s": 1.6276520809624344, "output_tokens": 3968, "output_tokens_s": 2437.8674327339736, "output_ids_sha256": "21771d7709fc62f52f535ff20e85ebc839c2a172443dbabef7ce7a3e301655f2", "nominal_next_graph": 32}
+{"capture": "coarse", "repeat": 2, "batch": 48, "elapsed_s": 1.8622223779093474, "output_tokens": 6144, "output_tokens_s": 3299.2837337169453, "output_ids_sha256": "27eab49835376a52821e25d88f01fe7e755b94abf30ed3509ac8b3526fd6902d", "nominal_next_graph": 64}
+{"capture": "coarse", "repeat": 0, "batch": 95, "elapsed_s": 2.3467966460157186, "output_tokens": 12160, "output_tokens_s": 5181.531182364982, "output_ids_sha256": "aa38bdaaa0d50b1c34b0b00a301bf17032f738ca0d4742519290a1b774f96d6d", "nominal_next_graph": 128}
+INFO 09-08 16:25:59 [loggers.py:310] Engine 000: Avg prompt throughput: 5062.7 tokens/s, Avg generation throughput: 4469.4 tokens/s, Running: 95 reqs, Waiting: 0 reqs, GPU KV cache usage: 7.3%, Prefix cache hit rate: 0.0%
+{"capture": "coarse", "repeat": 1, "batch": 95, "elapsed_s": 2.3425816188100725, "output_tokens": 12160, "output_tokens_s": 5190.854355877999, "output_ids_sha256": "aa38bdaaa0d50b1c34b0b00a301bf17032f738ca0d4742519290a1b774f96d6d", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 1, "batch": 80, "elapsed_s": 2.2257736842148006, "output_tokens": 10240, "output_tokens_s": 4600.647438965667, "output_ids_sha256": "79075023f566281d26847fca9907145aa943b386d1adf9407d010174c3ae01e6", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 1, "batch": 48, "elapsed_s": 1.8645381419919431, "output_tokens": 6144, "output_tokens_s": 3295.1860096764644, "output_ids_sha256": "27eab49835376a52821e25d88f01fe7e755b94abf30ed3509ac8b3526fd6902d", "nominal_next_graph": 64}
+{"capture": "coarse", "repeat": 1, "batch": 31, "elapsed_s": 1.6269691970665008, "output_tokens": 3968, "output_tokens_s": 2438.8906730099648, "output_ids_sha256": "21771d7709fc62f52f535ff20e85ebc839c2a172443dbabef7ce7a3e301655f2", "nominal_next_graph": 32}
+{"capture": "coarse", "repeat": 2, "batch": 63, "elapsed_s": 2.0212129140272737, "output_tokens": 8064, "output_tokens_s": 3989.683592478366, "output_ids_sha256": "3cdb247b1d6e3264b0d73a804a0b0acf783bc9f16e4ea69cc3ad6c19ae93c290", "nominal_next_graph": 64}
+INFO 09-08 16:26:09 [loggers.py:310] Engine 000: Avg prompt throughput: 3646.0 tokens/s, Avg generation throughput: 3958.4 tokens/s, Running: 63 reqs, Waiting: 0 reqs, GPU KV cache usage: 5.2%, Prefix cache hit rate: 0.0%
+{"capture": "coarse", "repeat": 0, "batch": 63, "elapsed_s": 2.0219852891750634, "output_tokens": 8064, "output_tokens_s": 3988.1595791876302, "output_ids_sha256": "3cdb247b1d6e3264b0d73a804a0b0acf783bc9f16e4ea69cc3ad6c19ae93c290", "nominal_next_graph": 64}
+{"capture": "coarse", "repeat": 2, "batch": 24, "elapsed_s": 1.5641410611569881, "output_tokens": 3072, "output_tokens_s": 1964.0172336679502, "output_ids_sha256": "e7c4810bce738f4d253bc1aa177f9ff857937d8f88ded06bddfbd7b40f45230b", "nominal_next_graph": 32}
+{"capture": "coarse", "repeat": 0, "batch": 31, "elapsed_s": 1.6252339298371226, "output_tokens": 3968, "output_tokens_s": 2441.4946840284492, "output_ids_sha256": "21771d7709fc62f52f535ff20e85ebc839c2a172443dbabef7ce7a3e301655f2", "nominal_next_graph": 32}
+{"capture": "coarse", "repeat": 2, "batch": 127, "elapsed_s": 2.675414663972333, "output_tokens": 16256, "output_tokens_s": 6076.067466814223, "output_ids_sha256": "6120b1e743b8c06cf6101a916ac35a62caaae2e32e5ec94e01b1560d02ab028c", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 0, "batch": 48, "elapsed_s": 1.8671954129822552, "output_tokens": 6144, "output_tokens_s": 3290.4965154059046, "output_ids_sha256": "27eab49835376a52821e25d88f01fe7e755b94abf30ed3509ac8b3526fd6902d", "nominal_next_graph": 64}
+INFO 09-08 16:26:19 [loggers.py:310] Engine 000: Avg prompt throughput: 3249.9 tokens/s, Avg generation throughput: 3618.4 tokens/s, Running: 24 reqs, Waiting: 0 reqs, GPU KV cache usage: 2.4%, Prefix cache hit rate: 0.0%
+{"capture": "coarse", "repeat": 0, "batch": 24, "elapsed_s": 1.5647222381085157, "output_tokens": 3072, "output_tokens_s": 1963.2877485741674, "output_ids_sha256": "e7c4810bce738f4d253bc1aa177f9ff857937d8f88ded06bddfbd7b40f45230b", "nominal_next_graph": 32}
+{"capture": "coarse", "repeat": 1, "batch": 24, "elapsed_s": 1.5618676990270615, "output_tokens": 3072, "output_tokens_s": 1966.8759408454694, "output_ids_sha256": "e7c4810bce738f4d253bc1aa177f9ff857937d8f88ded06bddfbd7b40f45230b", "nominal_next_graph": 32}
+{"capture": "coarse", "repeat": 2, "batch": 95, "elapsed_s": 2.3480297569185495, "output_tokens": 12160, "output_tokens_s": 5178.8100062063295, "output_ids_sha256": "aa38bdaaa0d50b1c34b0b00a301bf17032f738ca0d4742519290a1b774f96d6d", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 1, "batch": 112, "elapsed_s": 2.547580852173269, "output_tokens": 14336, "output_tokens_s": 5627.299321146321, "output_ids_sha256": "09d73409a0304c70f69cedd73d3d7d0e81824373658562e70a454fd883da7611", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 2, "batch": 112, "elapsed_s": 2.5562058510258794, "output_tokens": 14336, "output_tokens_s": 5608.312020038037, "output_ids_sha256": "8d8d7913707ddc96a83f9b019a313199dbe417640e5d4d67eff85605e8d8c180", "nominal_next_graph": 128}
+INFO 09-08 16:26:29 [loggers.py:310] Engine 000: Avg prompt throughput: 5412.3 tokens/s, Avg generation throughput: 4637.4 tokens/s, Running: 80 reqs, Waiting: 0 reqs, GPU KV cache usage: 5.1%, Prefix cache hit rate: 0.0%
+{"capture": "coarse", "repeat": 0, "batch": 80, "elapsed_s": 2.232575163943693, "output_tokens": 10240, "output_tokens_s": 4586.631691231274, "output_ids_sha256": "79075023f566281d26847fca9907145aa943b386d1adf9407d010174c3ae01e6", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 1, "batch": 63, "elapsed_s": 2.0211115488782525, "output_tokens": 8064, "output_tokens_s": 3989.8836877537224, "output_ids_sha256": "3cdb247b1d6e3264b0d73a804a0b0acf783bc9f16e4ea69cc3ad6c19ae93c290", "nominal_next_graph": 64}
+{"capture": "coarse", "repeat": 0, "batch": 112, "elapsed_s": 2.555787767050788, "output_tokens": 14336, "output_tokens_s": 5609.229445738684, "output_ids_sha256": "09d73409a0304c70f69cedd73d3d7d0e81824373658562e70a454fd883da7611", "nominal_next_graph": 128}
+{"capture": "coarse", "repeat": 0, "batch": 127, "elapsed_s": 2.6802192949689925, "output_tokens": 16256, "output_tokens_s": 6065.1753498357175, "output_ids_sha256": "6120b1e743b8c06cf6101a916ac35a62caaae2e32e5ec94e01b1560d02ab028c", "nominal_next_graph": 128}
+wandb: uploading artifact pilot-coarse; updating run metadata
+wandb: uploading artifact pilot-coarse
+wandb: uploading artifact pilot-coarse; uploading history steps 19-23, summary, console lines 39-44
+wandb: uploading artifact pilot-coarse
+wandb: uploading artifact pilot-coarse; uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: uploading config.yaml
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb:              batch ▅█▁▃▆▆▅▃▁▄▄▁▁█▃▁▁▆▇▇▅▄▇█
+wandb:          elapsed_s ▅█▁▃▆▆▅▃▁▄▄▁▁█▃▁▁▆▇▇▅▄▇█
+wandb: nominal_next_graph ██▁▃███▃▁▃▃▁▁█▃▁▁████▃██
+wandb:      output_tokens ▅█▁▃▆▆▅▃▁▄▄▁▁█▃▁▁▆▇▇▅▄▇█
+wandb:    output_tokens_s ▅█▂▃▆▆▅▃▂▄▄▁▂█▃▁▁▆▇▇▅▄▇█
+wandb:             repeat █▅██▁▅▅▅▅█▁█▁█▁▁▅█▅█▁▅▁▁
+wandb: 
+wandb: Run summary:
+wandb:              batch 127
+wandb:          elapsed_s 2.68022
+wandb: nominal_next_graph 128
+wandb:      output_tokens 16256
+wandb:    output_tokens_s 6065.17535
+wandb:             repeat 0
+wandb:          startup_s 105.81865
+wandb: 
+wandb: 🚀 View run coarse-timing at: https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/vs3zqwsl
+wandb: ⭐️ View project at: https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility
+wandb: Synced 5 W&B file(s), 0 media file(s), 5 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260908_162339-vs3zqwsl/logs
+INFO 09-08 16:26:47 [utils.py:615] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=12132) INFO 09-08 16:26:47 [core.py:1329] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=12132) INFO 09-08 16:26:47 [core.py:1465] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=12132) INFO 09-08 16:26:47 [core.py:1496] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=12132) INFO 09-08 16:26:47 [core.py:1342] [shutdown] EngineCore: exiting busy loop

@@ -1,0 +1,22 @@
+{
+  "model": "google/gemma-4-E4B",
+  "model_revision": "411aa17b749aa952df1359d2dcea73917a544d9a",
+  "dataset": "Salesforce/wikitext",
+  "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+  "dataset_config": "wikitext-2-raw-v1",
+  "split": "test",
+  "seed": 20260908,
+  "prompt_tokens": 128,
+  "output_tokens": 128,
+  "batches": [
+    24,
+    31,
+    48,
+    63,
+    80,
+    95,
+    112,
+    127
+  ],
+  "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+}

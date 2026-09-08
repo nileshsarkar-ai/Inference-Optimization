@@ -1,0 +1,32 @@
+{
+  "created_at_utc": "2026-09-08T16:37:40.341072+00:00",
+  "model": "google/gemma-4-12B",
+  "model_revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+  "dataset": "Salesforce/wikitext",
+  "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+  "dataset_config": "wikitext-2-raw-v1",
+  "split": "test",
+  "prompt_construction": "Contiguous token slices of concatenated real WikiText paragraphs; slices may cross paragraph boundaries.",
+  "seed": 20260908,
+  "requests_per_trace": 240,
+  "offered_rate_rps": 8.0,
+  "trace_phases": "96 short (128), 48 long (2048), 96 short (128)",
+  "output_tokens": 128,
+  "policies": [
+    "default",
+    "fixed32",
+    "context_budget"
+  ],
+  "fixed_limit": 32,
+  "estimated_token_budget": 20000,
+  "age_protection_s": 2.0,
+  "ttft_slo_s": 2.0,
+  "tpot_slo_s": 0.1,
+  "decision_rule": "Candidate must improve SLO goodput by at least 5% over both controls in each of three balanced independent engine runs, without worsening p99 TTFT or p99 stream gap in any paired run.",
+  "limitations": "A controlled finite burst, not a production trace. Token reservation uses the declared output budget, not a prediction of unknown production output length. NVML busy time is not SM utilization.",
+  "trace_sha256": {
+    "0": "48fc0e89ebafe5f0d8412fc5d925d2323f08a8d38059f43fffdb477e2ce963ac",
+    "1": "98aed2222fab5e79e819dfecff8dc31c56f14e179672fecd3c8c50116e6f4f2e",
+    "2": "3d8c6060d15bfd5c0f0adae94880d3719f98bc94888d66432753d54dcd812f94"
+  }
+}

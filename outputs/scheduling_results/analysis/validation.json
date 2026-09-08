@@ -1,0 +1,387 @@
+{
+  "status": "complete",
+  "predeclared_rule_pass": false,
+  "comparisons": [
+    {
+      "repeat": 0,
+      "baseline": "default",
+      "goodput_delta_percent": -19.968689964492835,
+      "goodput_rule_pass": false,
+      "latency_rule_pass": false,
+      "pass": false
+    },
+    {
+      "repeat": 0,
+      "baseline": "fixed32",
+      "goodput_delta_percent": -6.574443413467157,
+      "goodput_rule_pass": false,
+      "latency_rule_pass": false,
+      "pass": false
+    },
+    {
+      "repeat": 1,
+      "baseline": "default",
+      "goodput_delta_percent": -24.014096413931075,
+      "goodput_rule_pass": false,
+      "latency_rule_pass": false,
+      "pass": false
+    },
+    {
+      "repeat": 1,
+      "baseline": "fixed32",
+      "goodput_delta_percent": -7.46006330511565,
+      "goodput_rule_pass": false,
+      "latency_rule_pass": false,
+      "pass": false
+    },
+    {
+      "repeat": 2,
+      "baseline": "default",
+      "goodput_delta_percent": -22.44399272529115,
+      "goodput_rule_pass": false,
+      "latency_rule_pass": false,
+      "pass": false
+    },
+    {
+      "repeat": 2,
+      "baseline": "fixed32",
+      "goodput_delta_percent": -11.490002154854405,
+      "goodput_rule_pass": false,
+      "latency_rule_pass": false,
+      "pass": false
+    }
+  ],
+  "output_hash_mismatches": {
+    "repeat-0/fixed32": 116,
+    "repeat-0/context_budget": 107,
+    "repeat-1/fixed32": 130,
+    "repeat-1/context_budget": 100,
+    "repeat-2/fixed32": 113,
+    "repeat-2/context_budget": 95
+  },
+  "wandb_runs": [
+    "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/bqi747dz",
+    "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/8uxhnbwe",
+    "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/jxmojkaz"
+  ],
+  "observations": [
+    {
+      "policy": "default",
+      "requests": 240,
+      "duration_s": 41.21998356003314,
+      "output_tokens_s": 745.2695839933833,
+      "slo_goodput_rps": 2.4745279156030304,
+      "slo_attainment_percent": 42.5,
+      "p99_ttft_s": 16.419807188770783,
+      "p99_tpot_s": 0.08393843755344163,
+      "p99_stream_gap_s": 0.5626838520565071,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.98543689320388,
+      "max_device_memory_bytes": 36563255296,
+      "repeat": 0
+    },
+    {
+      "policy": "fixed32",
+      "requests": 240,
+      "duration_s": 47.64691473683342,
+      "output_tokens_s": 644.7426904695661,
+      "slo_goodput_rps": 2.1197594966610085,
+      "slo_attainment_percent": 42.083333333333336,
+      "p99_ttft_s": 16.09526979188725,
+      "p99_tpot_s": 0.08031490466130282,
+      "p99_stream_gap_s": 0.3071433073049411,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.50840336134453,
+      "max_device_memory_bytes": 36563255296,
+      "repeat": 0
+    },
+    {
+      "policy": "context_budget",
+      "requests": 240,
+      "duration_s": 50.999872494954616,
+      "output_tokens_s": 602.3544471221787,
+      "slo_goodput_rps": 1.9803971080514342,
+      "slo_attainment_percent": 42.083333333333336,
+      "p99_ttft_s": 24.324802519696814,
+      "p99_tpot_s": 0.04605541499844921,
+      "p99_stream_gap_s": 0.3028468741313554,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.48425196850394,
+      "max_device_memory_bytes": 36563255296,
+      "repeat": 0
+    },
+    {
+      "policy": "default",
+      "requests": 240,
+      "duration_s": 39.00219755782746,
+      "output_tokens_s": 787.6479255932264,
+      "slo_goodput_rps": 2.692155995679973,
+      "slo_attainment_percent": 43.75,
+      "p99_ttft_s": 12.793508926257138,
+      "p99_tpot_s": 0.08940222387290082,
+      "p99_stream_gap_s": 0.5668508843169547,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.3076923076923,
+      "max_device_memory_bytes": 38100467712,
+      "repeat": 1
+    },
+    {
+      "policy": "fixed32",
+      "requests": 240,
+      "duration_s": 45.237223806092516,
+      "output_tokens_s": 679.0867656176251,
+      "slo_goodput_rps": 2.2105688984948735,
+      "slo_attainment_percent": 41.666666666666664,
+      "p99_ttft_s": 15.458787793681243,
+      "p99_tpot_s": 0.08809561353996322,
+      "p99_stream_gap_s": 0.3072507347189821,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.99115044247787,
+      "max_device_memory_bytes": 38100467712,
+      "repeat": 1
+    },
+    {
+      "policy": "context_budget",
+      "requests": 240,
+      "duration_s": 49.86168126994744,
+      "output_tokens_s": 616.1043754959686,
+      "slo_goodput_rps": 2.0456590592639583,
+      "slo_attainment_percent": 42.5,
+      "p99_ttft_s": 24.31618816193404,
+      "p99_tpot_s": 0.04634432504045241,
+      "p99_stream_gap_s": 0.3021961512695998,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.87951807228916,
+      "max_device_memory_bytes": 38100467712,
+      "repeat": 1
+    },
+    {
+      "policy": "default",
+      "requests": 240,
+      "duration_s": 40.053738720016554,
+      "output_tokens_s": 766.9696008839222,
+      "slo_goodput_rps": 2.5965116696591117,
+      "slo_attainment_percent": 43.333333333333336,
+      "p99_ttft_s": 11.900900651428332,
+      "p99_tpot_s": 0.0915359631017415,
+      "p99_stream_gap_s": 0.5656490907957777,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.085,
+      "max_device_memory_bytes": 38154993664,
+      "repeat": 2
+    },
+    {
+      "policy": "fixed32",
+      "requests": 240,
+      "duration_s": 45.71091850101948,
+      "output_tokens_s": 672.0495016811981,
+      "slo_goodput_rps": 2.275167583816556,
+      "slo_attainment_percent": 43.333333333333336,
+      "p99_ttft_s": 13.413896871000807,
+      "p99_tpot_s": 0.08788040574784867,
+      "p99_stream_gap_s": 0.30879045931156723,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.51754385964912,
+      "max_device_memory_bytes": 38154993664,
+      "repeat": 2
+    },
+    {
+      "policy": "context_budget",
+      "requests": 240,
+      "duration_s": 50.651749483076856,
+      "output_tokens_s": 606.4943523868567,
+      "slo_goodput_rps": 2.013750779409485,
+      "slo_attainment_percent": 42.5,
+      "p99_ttft_s": 23.042387865392357,
+      "p99_tpot_s": 0.045282554895998396,
+      "p99_stream_gap_s": 0.30144931172020734,
+      "max_stream_chunk_tokens": 1,
+      "mean_gpu_busy_percent": 99.9802371541502,
+      "max_device_memory_bytes": 38154993664,
+      "repeat": 2
+    }
+  ],
+  "per_class": [
+    {
+      "repeat": 0,
+      "policy": "default",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 16.220232586571306,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 0,
+      "policy": "default",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 16.639647713928845,
+      "slo_attainment_percent": 12.5
+    },
+    {
+      "repeat": 0,
+      "policy": "fixed32",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 16.079813775640293,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 0,
+      "policy": "fixed32",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 16.230166977936296,
+      "slo_attainment_percent": 10.416666666666666
+    },
+    {
+      "repeat": 0,
+      "policy": "context_budget",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 24.025319503053048,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 0,
+      "policy": "context_budget",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 24.487252506638306,
+      "slo_attainment_percent": 10.416666666666666
+    },
+    {
+      "repeat": 1,
+      "policy": "default",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 12.78392301066605,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 1,
+      "policy": "default",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 12.86834074844461,
+      "slo_attainment_percent": 18.75
+    },
+    {
+      "repeat": 1,
+      "policy": "fixed32",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 15.468403019604096,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 1,
+      "policy": "fixed32",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 14.397650554688592,
+      "slo_attainment_percent": 8.333333333333334
+    },
+    {
+      "repeat": 1,
+      "policy": "context_budget",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 24.274862406068713,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 1,
+      "policy": "context_budget",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 24.238663224476333,
+      "slo_attainment_percent": 12.5
+    },
+    {
+      "repeat": 2,
+      "policy": "default",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 11.757316353879332,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 2,
+      "policy": "default",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 12.01180546285774,
+      "slo_attainment_percent": 16.666666666666668
+    },
+    {
+      "repeat": 2,
+      "policy": "fixed32",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 13.425111321979864,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 2,
+      "policy": "fixed32",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 13.118835098193525,
+      "slo_attainment_percent": 16.666666666666668
+    },
+    {
+      "repeat": 2,
+      "policy": "context_budget",
+      "input_tokens": 128,
+      "requests": 192,
+      "p99_ttft_s": 22.360080948408438,
+      "slo_attainment_percent": 50.0
+    },
+    {
+      "repeat": 2,
+      "policy": "context_budget",
+      "input_tokens": 2048,
+      "requests": 48,
+      "p99_ttft_s": 23.19123680723322,
+      "slo_attainment_percent": 12.5
+    }
+  ],
+  "provenance": {
+    "root": "/home/SaturateLLM/scheduling_validation/results/scheduling-a100-20260908T163730Z",
+    "script_sha256": "c04c55ddd258e4acf3e9f5789e2e8ba8e23e3611fdfa70a837d6128b75942a51",
+    "manifest": {
+      "created_at_utc": "2026-09-08T16:37:40.341072+00:00",
+      "model": "google/gemma-4-12B",
+      "model_revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+      "dataset": "Salesforce/wikitext",
+      "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+      "dataset_config": "wikitext-2-raw-v1",
+      "split": "test",
+      "prompt_construction": "Contiguous token slices of concatenated real WikiText paragraphs; slices may cross paragraph boundaries.",
+      "seed": 20260908,
+      "requests_per_trace": 240,
+      "offered_rate_rps": 8.0,
+      "trace_phases": "96 short (128), 48 long (2048), 96 short (128)",
+      "output_tokens": 128,
+      "policies": [
+        "default",
+        "fixed32",
+        "context_budget"
+      ],
+      "fixed_limit": 32,
+      "estimated_token_budget": 20000,
+      "age_protection_s": 2.0,
+      "ttft_slo_s": 2.0,
+      "tpot_slo_s": 0.1,
+      "decision_rule": "Candidate must improve SLO goodput by at least 5% over both controls in each of three balanced independent engine runs, without worsening p99 TTFT or p99 stream gap in any paired run.",
+      "limitations": "A controlled finite burst, not a production trace. Token reservation uses the declared output budget, not a prediction of unknown production output length. NVML busy time is not SM utilization.",
+      "trace_sha256": {
+        "0": "48fc0e89ebafe5f0d8412fc5d925d2323f08a8d38059f43fffdb477e2ce963ac",
+        "1": "98aed2222fab5e79e819dfecff8dc31c56f14e179672fecd3c8c50116e6f4f2e",
+        "2": "3d8c6060d15bfd5c0f0adae94880d3719f98bc94888d66432753d54dcd812f94"
+      }
+    }
+  },
+  "interpretation": "Three independent engine repetitions with balanced policy order. Success is a predeclared practical threshold, not a significance test. NVML busy time is not SM utilization. No model-quality or non-LLM generalization claim."
+}

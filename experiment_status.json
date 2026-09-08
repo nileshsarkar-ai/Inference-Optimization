@@ -1,0 +1,68 @@
+{
+  "machine_id": 500717,
+  "gpu": "NVIDIA A100-PCIE-40GB",
+  "status": "complete",
+  "shutdown_requested": true,
+  "shutdown_action": "destroyed after verified local backup",
+  "active_runs": {},
+  "completed_controls": {
+    "Qwen2.5-1.5B": "r_3ef68da2",
+    "Qwen2.5-7B": "r_280f8ded"
+  },
+  "recent_models": [
+    "google/gemma-4-12B",
+    "Qwen/Qwen3.5-9B",
+    "google/gemma-4-E4B"
+  ],
+  "remote_results": "/home/SaturateLLM/model_suite/results",
+  "wandb_project": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility",
+  "local_codebase": "/Users/nileshsarkar/Documents/SaturateLLM",
+  "presentation_scope": "15-slide main deck: broader useful GPU utilization goal, SOTA evidence including original paper results, research question, hypotheses, our three-model capture study, actual scheduling validation and one eventual experiment.",
+  "updated_at_utc": "2026-09-08T17:20:33.800112+00:00",
+  "completed_current_models": {
+    "google/gemma-4-12B": {
+      "status": "complete",
+      "timed_calls": 72,
+      "local_data": "outputs/experiment_data_gemma12b",
+      "backup_receipt": "outputs/backup_receipts/gemma12b.json"
+    },
+    "Qwen/Qwen3.5-9B": {
+      "status": "complete",
+      "timed_calls": 72,
+      "local_data": "outputs/experiment_data_qwen35",
+      "backup_receipt": "outputs/backup_receipts/qwen35.json"
+    },
+    "google/gemma-4-E4B": {
+      "status": "complete",
+      "timed_calls": 72,
+      "local_data": "outputs/experiment_data_gemma_e4b",
+      "backup_receipt": "outputs/backup_receipts/gemma_e4b.json"
+    }
+  },
+  "active_model": null,
+  "queued_model": null,
+  "presentations": {
+    "status": "Complete: 15 slides, all unique measured graph panels and visible references; each slide reviewed",
+    "main_slides": 15,
+    "file": "Inference_Optimization_Final.pptx",
+    "native_experiment_charts": 9,
+    "capture_measurements_shown": 360,
+    "scheduling_metric_observations_shown": 36
+  },
+  "scheduling_validation": {
+    "run_id": "r_6d73eb1e",
+    "status": "complete",
+    "requests": 2160,
+    "independent_engine_runs": 3,
+    "predeclared_rule_pass": false,
+    "local_data": "outputs/scheduling_results",
+    "backup_receipt": "outputs/backup_receipts/scheduling.json"
+  },
+  "gpu_status": "destroyed",
+  "shutdown_response": {
+    "success": true,
+    "machine_id": 500717
+  },
+  "project_name": "Inference Optimization",
+  "repository": "https://github.com/nileshsarkar-ai/Inference-Optimization"
+}

@@ -1,0 +1,12 @@
+{
+  "machine_id": 500717,
+  "action": "destroy",
+  "success": true,
+  "recorded_at_utc": "2026-09-08T16:57:04.858210+00:00",
+  "result_directories_verified": 8,
+  "result_files_verified": 525,
+  "managed_run_records": "outputs/managed_run_records",
+  "remote_code": "outputs/remote_reproduction",
+  "codebase_backup": "/Users/nileshsarkar/Documents/SaturateLLM/reports/zeroth_review/final",
+  "verification": "Instance 500717 absent from jl list after successful destroy"
+}

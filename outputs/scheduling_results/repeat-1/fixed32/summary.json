@@ -1,0 +1,14 @@
+{
+  "policy": "fixed32",
+  "requests": 240,
+  "duration_s": 45.237223806092516,
+  "output_tokens_s": 679.0867656176251,
+  "slo_goodput_rps": 2.2105688984948735,
+  "slo_attainment_percent": 41.666666666666664,
+  "p99_ttft_s": 15.458787793681243,
+  "p99_tpot_s": 0.08809561353996322,
+  "p99_stream_gap_s": 0.3072507347189821,
+  "max_stream_chunk_tokens": 1,
+  "mean_gpu_busy_percent": 99.99115044247787,
+  "max_device_memory_bytes": 38100467712
+}

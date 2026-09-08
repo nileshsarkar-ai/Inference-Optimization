@@ -1,0 +1,14 @@
+{
+  "policy": "context_budget",
+  "requests": 240,
+  "duration_s": 49.86168126994744,
+  "output_tokens_s": 616.1043754959686,
+  "slo_goodput_rps": 2.0456590592639583,
+  "slo_attainment_percent": 42.5,
+  "p99_ttft_s": 24.31618816193404,
+  "p99_tpot_s": 0.04634432504045241,
+  "p99_stream_gap_s": 0.3021961512695998,
+  "max_stream_chunk_tokens": 1,
+  "mean_gpu_busy_percent": 99.87951807228916,
+  "max_device_memory_bytes": 38100467712
+}

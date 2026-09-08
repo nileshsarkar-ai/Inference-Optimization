@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen2.5-7B",
+  "model_revision": "d149729398750b98c0af14eb82c78cfe92750796",
+  "dataset": "Salesforce/wikitext",
+  "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+  "dataset_config": "wikitext-2-raw-v1",
+  "split": "test",
+  "seed": 20260908,
+  "prompt_tokens": 128,
+  "output_tokens": 128,
+  "batches": [
+    24,
+    31,
+    48,
+    63,
+    80,
+    95,
+    112,
+    127
+  ],
+  "prompts_sha256": "aeb83ac4ad12c1c7b64b95855917b61f964efc5c801bf8a430b3a2a9360ca8b0"
+}

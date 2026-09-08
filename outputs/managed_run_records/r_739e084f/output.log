@@ -1,0 +1,26 @@
+Waiting for the existing 7B job to release the GPU.
+Previous job exit code: 0
+Starting: google/gemma-4-12B
+wandb: [wandb.login()] Using explicit session credentials for https://api.wandb.ai.
+wandb: Appending key for api.wandb.ai to your netrc file: /home/.netrc
+wandb: Currently logged in as: nileshsarkar (nileshsarkar-ai) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+W&B authentication verified. Group: gemma-4-12B-a100-20260908T152242Z
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Completed: default
+Completed: matched
+Completed: coarse
+Timing comparison and figures complete: /home/SaturateLLM/model_suite/results/gemma-4-12B-a100-20260908T152242Z
+Controlled experiment complete: /home/SaturateLLM/model_suite/results/gemma-4-12B-a100-20260908T152242Z
+Finished: google/gemma-4-12B exit code: 0
+Starting: Qwen/Qwen3.5-9B
+wandb: [wandb.login()] Using explicit session credentials for https://api.wandb.ai.
+wandb: Appending key for api.wandb.ai to your netrc file: /home/.netrc
+wandb: Currently logged in as: nileshsarkar (nileshsarkar-ai) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+W&B authentication verified. Group: Qwen3.5-9B-a100-20260908T155049Z
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Completed: default
+Completed: matched
+Completed: coarse
+Timing comparison and figures complete: /home/SaturateLLM/model_suite/results/Qwen3.5-9B-a100-20260908T155049Z
+Controlled experiment complete: /home/SaturateLLM/model_suite/results/Qwen3.5-9B-a100-20260908T155049Z
+Finished: Qwen/Qwen3.5-9B exit code: 0

@@ -1,0 +1,15 @@
+{
+  "summary_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/current_model_summary/suite.json",
+  "measurement_sources": [
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b/default/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b/matched/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b/coarse/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35/default/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35/matched/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35/coarse/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b/default/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b/matched/measurements.jsonl",
+    "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b/coarse/measurements.jsonl"
+  ],
+  "interpretation": "Unprofiled end-to-end fixed-batch throughput, includes prefill and host work. No independent-run confidence interval or model-quality comparison."
+}

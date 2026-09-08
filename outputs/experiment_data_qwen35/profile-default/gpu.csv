@@ -1,0 +1,2 @@
+uuid, name, memory.total [MiB], driver_version, power.limit [W]
+GPU-a283ea3d-1a6f-1391-668d-78195929ec49, NVIDIA A100-PCIE-40GB, 40960 MiB, 595.58.03, 250.00 W

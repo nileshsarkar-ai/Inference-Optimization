@@ -1,0 +1,2243 @@
+[
+  {
+    "time_s": 9.008310735225677e-05,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 95,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 1,
+    "reserved_token_estimate": 256
+  },
+  {
+    "time_s": 0.20129302516579628,
+    "gpu_busy_percent": 70,
+    "memory_busy_percent": 49,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 5,
+    "reserved_token_estimate": 1280
+  },
+  {
+    "time_s": 0.4034578870050609,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 6,
+    "reserved_token_estimate": 1536
+  },
+  {
+    "time_s": 0.604076876072213,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 8,
+    "reserved_token_estimate": 2048
+  },
+  {
+    "time_s": 0.8044649111106992,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 2304
+  },
+  {
+    "time_s": 1.0054790400899947,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 90,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 10,
+    "reserved_token_estimate": 2560
+  },
+  {
+    "time_s": 1.2068769270554185,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 82,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 12,
+    "reserved_token_estimate": 3072
+  },
+  {
+    "time_s": 1.4086914551444352,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 90,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 13,
+    "reserved_token_estimate": 3328
+  },
+  {
+    "time_s": 1.6099853119812906,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 77,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 16,
+    "reserved_token_estimate": 4096
+  },
+  {
+    "time_s": 1.810669707134366,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 84,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 18,
+    "reserved_token_estimate": 4608
+  },
+  {
+    "time_s": 2.011028766166419,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 18,
+    "reserved_token_estimate": 4608
+  },
+  {
+    "time_s": 2.212268900126219,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 19,
+    "reserved_token_estimate": 4864
+  },
+  {
+    "time_s": 2.4131607131566852,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 78,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 22,
+    "reserved_token_estimate": 5632
+  },
+  {
+    "time_s": 2.6134817390702665,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 5888
+  },
+  {
+    "time_s": 2.8155542640015483,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 75,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 6400
+  },
+  {
+    "time_s": 3.016461006132886,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 87,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 26,
+    "reserved_token_estimate": 6656
+  },
+  {
+    "time_s": 3.217223701067269,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 27,
+    "reserved_token_estimate": 6912
+  },
+  {
+    "time_s": 3.418228561989963,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 5888
+  },
+  {
+    "time_s": 3.6184710471425205,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 87,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 5888
+  },
+  {
+    "time_s": 3.818767555989325,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 84,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 24,
+    "reserved_token_estimate": 6144
+  },
+  {
+    "time_s": 4.019871938973665,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 5888
+  },
+  {
+    "time_s": 4.221068689133972,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 76,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 26,
+    "reserved_token_estimate": 6656
+  },
+  {
+    "time_s": 4.421461172169074,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 76,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 24,
+    "reserved_token_estimate": 6144
+  },
+  {
+    "time_s": 4.621795624028891,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 82,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 5888
+  },
+  {
+    "time_s": 4.822592044016346,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 88,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 6400
+  },
+  {
+    "time_s": 5.023559163091704,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 5888
+  },
+  {
+    "time_s": 5.223919745068997,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 26,
+    "reserved_token_estimate": 6656
+  },
+  {
+    "time_s": 5.424547911155969,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 78,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 30,
+    "reserved_token_estimate": 7680
+  },
+  {
+    "time_s": 5.625314153032377,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 69,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 31,
+    "reserved_token_estimate": 7936
+  },
+  {
+    "time_s": 5.825778465019539,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 30,
+    "reserved_token_estimate": 7680
+  },
+  {
+    "time_s": 6.026501624146476,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 30,
+    "reserved_token_estimate": 7680
+  },
+  {
+    "time_s": 6.227157654007897,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 82,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 28,
+    "reserved_token_estimate": 7168
+  },
+  {
+    "time_s": 6.427550949156284,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 31,
+    "reserved_token_estimate": 7936
+  },
+  {
+    "time_s": 6.628161462023854,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 34,
+    "reserved_token_estimate": 8704
+  },
+  {
+    "time_s": 6.828413174953312,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 34,
+    "reserved_token_estimate": 8704
+  },
+  {
+    "time_s": 7.029232257977128,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 70,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 9216
+  },
+  {
+    "time_s": 7.229532354045659,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 70,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 9216
+  },
+  {
+    "time_s": 7.429714864119887,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 10240
+  },
+  {
+    "time_s": 7.630471056094393,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 70,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 38,
+    "reserved_token_estimate": 9728
+  },
+  {
+    "time_s": 7.830855274107307,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 10240
+  },
+  {
+    "time_s": 8.031804197002202,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 76,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 10240
+  },
+  {
+    "time_s": 8.232543698046356,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 64,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 43,
+    "reserved_token_estimate": 11008
+  },
+  {
+    "time_s": 8.432773969136178,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 70,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 45,
+    "reserved_token_estimate": 11520
+  },
+  {
+    "time_s": 8.633303005015478,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 45,
+    "reserved_token_estimate": 11520
+  },
+  {
+    "time_s": 8.83416491211392,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 47,
+    "reserved_token_estimate": 12032
+  },
+  {
+    "time_s": 9.034366137115285,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 47,
+    "reserved_token_estimate": 12032
+  },
+  {
+    "time_s": 9.235380355967209,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 43,
+    "reserved_token_estimate": 11008
+  },
+  {
+    "time_s": 9.435808658134192,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 39,
+    "reserved_token_estimate": 9984
+  },
+  {
+    "time_s": 9.636950984131545,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 37,
+    "reserved_token_estimate": 9472
+  },
+  {
+    "time_s": 9.837377803167328,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 77,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 37,
+    "reserved_token_estimate": 9472
+  },
+  {
+    "time_s": 10.038252805126831,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 77,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 41,
+    "reserved_token_estimate": 10496
+  },
+  {
+    "time_s": 10.238746422110125,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 64,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 10240
+  },
+  {
+    "time_s": 10.439688412938267,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 38,
+    "reserved_token_estimate": 9728
+  },
+  {
+    "time_s": 10.640561620006338,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 76,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 35,
+    "reserved_token_estimate": 8960
+  },
+  {
+    "time_s": 10.841474655084312,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 35,
+    "reserved_token_estimate": 8960
+  },
+  {
+    "time_s": 11.042379724094644,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 32,
+    "reserved_token_estimate": 10112
+  },
+  {
+    "time_s": 11.243024934083223,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 64,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 35,
+    "reserved_token_estimate": 16640
+  },
+  {
+    "time_s": 11.443538580089808,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 35,
+    "reserved_token_estimate": 16640
+  },
+  {
+    "time_s": 11.643868122017011,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 34,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 18816
+  },
+  {
+    "time_s": 11.84432643209584,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 25,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 1,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 18816
+  },
+  {
+    "time_s": 12.04447083803825,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 26,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 3,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 18816
+  },
+  {
+    "time_s": 12.245109355077147,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 8,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 18816
+  },
+  {
+    "time_s": 12.445661265170202,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 31,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 10,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 18816
+  },
+  {
+    "time_s": 12.646003602072597,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 11,
+    "admitted_requests": 36,
+    "reserved_token_estimate": 18816
+  },
+  {
+    "time_s": 12.846702525159344,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 67,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 12,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 13.047612102003768,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 49,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 16,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 13.249192360090092,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 36,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 19,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 13.449375681113452,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 19,
+    "admitted_requests": 29,
+    "reserved_token_estimate": 18944
+  },
+  {
+    "time_s": 13.649945606011897,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 78,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 19,
+    "admitted_requests": 26,
+    "reserved_token_estimate": 18176
+  },
+  {
+    "time_s": 13.850737407105044,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 18,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 14.051708544138819,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 47,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 22,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 14.252450539031997,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 39,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 22,
+    "admitted_requests": 23,
+    "reserved_token_estimate": 19328
+  },
+  {
+    "time_s": 14.453183236997575,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 24,
+    "admitted_requests": 19,
+    "reserved_token_estimate": 18304
+  },
+  {
+    "time_s": 14.654344018083066,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 27,
+    "admitted_requests": 18,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 14.855330183170736,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 77,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 29,
+    "admitted_requests": 17,
+    "reserved_token_estimate": 19712
+  },
+  {
+    "time_s": 15.055967546999454,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 31,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 29,
+    "admitted_requests": 17,
+    "reserved_token_estimate": 19712
+  },
+  {
+    "time_s": 15.257862590020522,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 57,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 31,
+    "admitted_requests": 17,
+    "reserved_token_estimate": 19712
+  },
+  {
+    "time_s": 15.458439538022503,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 32,
+    "admitted_requests": 17,
+    "reserved_token_estimate": 19712
+  },
+  {
+    "time_s": 15.660084299976006,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 34,
+    "admitted_requests": 16,
+    "reserved_token_estimate": 19456
+  },
+  {
+    "time_s": 15.861158445011824,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 34,
+    "admitted_requests": 13,
+    "reserved_token_estimate": 18688
+  },
+  {
+    "time_s": 16.062268789159134,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 38,
+    "admitted_requests": 11,
+    "reserved_token_estimate": 18176
+  },
+  {
+    "time_s": 16.263248121133074,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 43,
+    "admitted_requests": 10,
+    "reserved_token_estimate": 17920
+  },
+  {
+    "time_s": 16.46367793600075,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 42,
+    "admitted_requests": 10,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 16.665798132074997,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 42,
+    "admitted_requests": 10,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 16.8668257270474,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 43,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 17.067330015124753,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 75,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 44,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 17.267682121135294,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 62,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 44,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 17.468910421943292,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 33,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 41,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 17.669999595033005,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 35,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 46,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 17.870401116088033,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 28,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 47,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 18.071149233030155,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 25,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 50,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 18.271492341067642,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 26,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 53,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 18.47186848311685,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 29,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 53,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 18.672089867061004,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 39,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 55,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 18.872367771109566,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 82,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 56,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 19.072806503158063,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 56,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 19.273080107057467,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 75,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 60,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 19.47516956506297,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 62,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 19.675515237962827,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 63,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 19.877482139039785,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 33,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 64,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 20.078597854124382,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 60,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 65,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 20.27933228504844,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 65,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 20.48019553301856,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 64,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 20.68083337903954,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 40,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 66,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 20.881265948992223,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 53,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 21.081771258963272,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 21.283662094036117,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 71,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 21.484577734023333,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 71,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 21.68475467315875,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 73,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 21.88609939813614,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 75,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 22.08713390608318,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 80,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 22.28747705416754,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 80,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 22.490497461985797,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 67,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 83,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 22.691480711102486,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 81,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 22.891843347111717,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 89,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 81,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 23.092431877972558,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 47,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 79,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 23.29287353507243,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 38,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 82,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 23.493415086064488,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 84,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 23.69461546302773,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 84,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 23.895183203043416,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 29,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 86,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 24.095830966951326,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 25,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 88,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 24.296257416019216,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 25,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 87,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 24.49739542300813,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 49,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 87,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 24.698302617063746,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 69,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 87,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 24.899853236973286,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 91,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 25.100147851975635,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 88,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 93,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 25.30115480814129,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 95,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 25.502107918960974,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 96,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 25.7040427189786,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 97,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 25.90508815809153,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 98,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 26.106140290154144,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 26.306519557954744,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 90,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 101,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 26.507129980018362,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 102,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 26.708486658055335,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 66,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 106,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 26.908766004024073,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 108,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 27.10951110511087,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 108,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 27.311433610972017,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 108,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 27.5117941130884,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 27.71276890602894,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 110,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 27.91386171709746,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 110,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 28.11435894202441,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 53,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 114,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 28.314637986943126,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 39,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 115,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 28.51494798110798,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 115,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 28.71564711513929,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 33,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 113,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 28.91719325701706,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 38,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 112,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 29.11749566695653,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 112,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 29.318524053087458,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 112,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 29.51909115212038,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 112,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 29.719450121046975,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 112,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 29.920204060152173,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 31,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 112,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 30.121418865164742,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 55,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 111,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 30.32218570797704,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 59,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 111,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 30.522695326944813,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 36,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 111,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 30.723225685069337,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 111,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 30.923687621951103,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 110,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 31.124033506028354,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 110,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 31.324634249089286,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 110,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 31.52476829616353,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 83,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 110,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 31.725805008085445,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 31.926100715063512,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 32.12694841413759,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 32.327699998160824,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 76,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 32.52784663904458,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 32.72836897196248,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 32.92905847611837,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 33.12997121014632,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 109,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 33.33147252607159,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 108,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 33.53195682610385,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 108,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 33.73259801813401,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 43,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 108,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 33.93365523009561,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 49,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 106,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 34.13400443014689,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 88,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 106,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 34.334705697139725,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 104,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 34.535032073035836,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 38,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 104,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 34.73619536915794,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 103,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 34.93726769997738,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 103,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 35.13759967708029,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 31,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 103,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 35.338018520968035,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 31,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 103,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 35.538388170069084,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 103,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 35.738802375039086,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 62,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 102,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 35.93936798116192,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 51,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 102,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 36.13959588808939,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 43,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 102,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 36.340044510085136,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 102,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 36.54109412711114,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 101,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 36.741379162995145,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 66,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 101,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 36.941564799053594,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 101,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 37.14181716297753,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 90,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 101,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 37.3423802240286,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 37.5426873229444,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 74,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 37.74303318699822,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 37.94366611307487,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 84,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 38.14470318611711,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 38.34562835399993,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 38.54587221099064,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 38.746586102992296,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 94,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 38.9471428419929,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 100,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 39.148242535069585,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 93,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 99,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 39.34852528804913,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 37,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 99,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 39.54929928504862,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 55,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 97,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 39.74958065408282,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 97,
+    "admitted_requests": 9,
+    "reserved_token_estimate": 19584
+  },
+  {
+    "time_s": 39.94985907804221,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 86,
+    "admitted_requests": 18,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 40.150144004961476,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 38,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 86,
+    "admitted_requests": 18,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 40.35140726296231,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 30,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 78,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 40.55185477202758,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 29,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 78,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 40.75252888700925,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 34,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 78,
+    "admitted_requests": 25,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 40.95350879011676,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 34,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 41.1540871609468,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 42,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 41.354784219991416,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 46,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 41.555868704104796,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 46,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 41.75716723012738,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 72,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 69,
+    "admitted_requests": 33,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 41.95757777802646,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 61,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 42.157917170086876,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 61,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 42.38198565901257,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 54,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 61,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 42.58328123902902,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 69,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 61,
+    "admitted_requests": 40,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 42.78353821206838,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 42.98463874706067,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 43.18554784404114,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 58,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 43.3860066649504,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 59,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 43.5863815441262,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 43.78749934211373,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 43.98841288802214,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 44.188815149944276,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 44.38911567698233,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 44.59011469595134,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 52,
+    "admitted_requests": 48,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 44.79096394800581,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 44,
+    "admitted_requests": 55,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 44.99278020998463,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 44,
+    "admitted_requests": 55,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 45.19473615009338,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 67,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 44,
+    "admitted_requests": 55,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 45.39592838194221,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 54,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 27,
+    "admitted_requests": 70,
+    "reserved_token_estimate": 19840
+  },
+  {
+    "time_s": 45.59641410410404,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 73,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 8,
+    "admitted_requests": 78,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 45.797051629051566,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 47,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 78,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 45.99759710696526,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 46,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 78,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 46.19826011010446,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 36,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 78,
+    "reserved_token_estimate": 19968
+  },
+  {
+    "time_s": 46.3993061510846,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 39,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 69,
+    "reserved_token_estimate": 17664
+  },
+  {
+    "time_s": 46.599715657066554,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 66,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 69,
+    "reserved_token_estimate": 17664
+  },
+  {
+    "time_s": 46.80007718014531,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 77,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 69,
+    "reserved_token_estimate": 17664
+  },
+  {
+    "time_s": 47.00037753698416,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 78,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 69,
+    "reserved_token_estimate": 17664
+  },
+  {
+    "time_s": 47.200840535108,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 78,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 61,
+    "reserved_token_estimate": 15616
+  },
+  {
+    "time_s": 47.401218401035294,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 78,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 61,
+    "reserved_token_estimate": 15616
+  },
+  {
+    "time_s": 47.60244057001546,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 79,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 61,
+    "reserved_token_estimate": 15616
+  },
+  {
+    "time_s": 47.8026833049953,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 48.00325662596151,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 48.20438131806441,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 48.404802246019244,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 48.60520167206414,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 48.805702675133944,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 49.00633342610672,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 49.20658204308711,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 80,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 49.40784420911223,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 52,
+    "reserved_token_estimate": 13312
+  },
+  {
+    "time_s": 49.608577026985586,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 44,
+    "reserved_token_estimate": 11264
+  },
+  {
+    "time_s": 49.80945710814558,
+    "gpu_busy_percent": 100,
+    "memory_busy_percent": 81,
+    "device_memory_bytes": 38100467712,
+    "pending_requests": 0,
+    "admitted_requests": 27,
+    "reserved_token_estimate": 6912
+  }
+]

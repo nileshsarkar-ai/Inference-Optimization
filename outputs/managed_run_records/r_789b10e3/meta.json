@@ -1,0 +1,9 @@
+{
+  "run_id": "r_789b10e3",
+  "machine_id": 500717,
+  "target_kind": "command",
+  "remote_target": null,
+  "working_dir": null,
+  "launch_command": "if [ -x \"$HOME/.venv/bin/python\" ]; then export PATH=\"$HOME/.venv/bin:$PATH\"; fi && bash -lc '/home/SaturateLLM/.venv/bin/python -u /home/SaturateLLM/graph_size_pilot/orchestrate.py'",
+  "started_at": "2026-09-08T14:50:01.539289+00:00"
+}

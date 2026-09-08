@@ -1,0 +1,108 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from WANDB_API_KEY.
+wandb: Currently logged in as: nileshsarkar (nileshsarkar-ai) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run jxmojkaz
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/SaturateLLM/scheduling_validation/wandb/run-20260908_164651-jxmojkaz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run scheduling-repetition-2
+wandb: ⭐️ View project at https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility
+wandb: 🚀 View run at https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/jxmojkaz
+wandb: Detected [openai] in use.
+wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+wandb: For more information, check out the docs at: https://weave-docs.wandb.ai
+INFO 09-08 16:46:55 [model.py:672] Resolved architecture: Gemma4UnifiedForConditionalGeneration
+INFO 09-08 16:46:55 [model.py:1965] Using max model len 4096
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING 09-08 16:46:55 [model.py:963] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+[transformers] `SiglipImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `SiglipImageProcessor` instead.
+INFO 09-08 16:46:58 [registry.py:141] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+INFO 09-08 16:46:58 [model.py:875] Disabled mm_prefix attention mode because multimodal inputs are configuration-disabled. Attention backends without mm_prefix support may now be selected.
+INFO 09-08 16:46:58 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=4096.
+INFO 09-08 16:46:58 [config.py:242] Gemma4 model has heterogeneous head dimensions {'sliding_attention': 256, 'full_attention': 512}. FA4 not available, forcing TRITON_ATTN backend.
+INFO 09-08 16:46:58 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(EngineCore pid=14363) INFO 09-08 16:47:09 [core.py:122] Initializing a V1 LLM engine (v0.28.0) with config: model='google/gemma-4-12B', speculative_config=None, tokenizer='google/gemma-4-12B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=023679ed352de9bb66cc873c9009ce3482585c08, tokenizer_revision=023679ed352de9bb66cc873c9009ce3482585c08, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=20260908, served_model_name=google/gemma-4-12B, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [4096], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto')
+(EngineCore pid=14363) [transformers] `SiglipImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `SiglipImageProcessor` instead.
+(EngineCore pid=14363) INFO 09-08 16:47:14 [registry.py:141] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+(EngineCore pid=14363) INFO 09-08 16:47:14 [parallel_state.py:1638] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_114b795f0fcc48bab28ea40345fac5be backend=nccl
+(EngineCore pid=14363) INFO 09-08 16:47:14 [parallel_state.py:1982] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=14363) INFO 09-08 16:47:14 [gpu_worker.py:396] Using V2 Model Runner
+(EngineCore pid=14363) INFO 09-08 16:47:14 [model_runner.py:358] Loading model from scratch...
+(EngineCore pid=14363) INFO 09-08 16:47:14 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(EngineCore pid=14363) INFO 09-08 16:47:14 [cuda.py:426] Using AttentionBackendEnum.TRITON_ATTN backend.
+(EngineCore pid=14363) INFO 09-08 16:47:14 [cuda.py:426] Using AttentionBackendEnum.TRITON_ATTN backend.
+(EngineCore pid=14363) INFO 09-08 16:47:16 [weight_utils.py:858] Filesystem type for checkpoints: XFS. Checkpoint size: 22.28 GiB. Available RAM: 25.26 GiB.
+(EngineCore pid=14363) INFO 09-08 16:47:16 [weight_utils.py:881] Auto-prefetch is disabled because the filesystem (XFS) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=14363) Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(EngineCore pid=14363) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.35s/it]
+(EngineCore pid=14363) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.36s/it]
+(EngineCore pid=14363) 
+(EngineCore pid=14363) INFO 09-08 16:47:17 [default_loader.py:430] Loading weights took 1.37 seconds
+(EngineCore pid=14363) INFO 09-08 16:47:18 [model_runner.py:380] Model loading took 22.83 GiB memory and 3.619608 seconds
+(EngineCore pid=14363) INFO 09-08 16:47:18 [topk_topp_sampler.py:62] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=14363) INFO 09-08 16:47:19 [caching.py:343] reconstructed serializable fn from standalone compile artifacts. num_artifacts=5 num_submods=49
+(EngineCore pid=14363) INFO 09-08 16:47:19 [decorators.py:311] Directly load AOT compilation from path /home/.cache/vllm/torch_compile_cache/torch_aot_compile/30825543efbb6d00086d45ff78102e32099addbd27901a442f4613796b4112b7/rank_0_0/model
+(EngineCore pid=14363) INFO 09-08 16:47:19 [monitor.py:53] torch.compile took 0.29 s in total
+(EngineCore pid=14363) INFO 09-08 16:47:20 [monitor.py:81] Initial profiling/warmup run took 0.80 s
+(EngineCore pid=14363) INFO 09-08 16:47:20 [gpu_worker.py:578] Available KV cache memory: 9.99 GiB
+(EngineCore pid=14363) INFO 09-08 16:47:20 [kv_cache_utils.py:1869] GPU KV cache size: 31,064 tokens, Maximum concurrency for 4,096 tokens per request: 7.58x
+(EngineCore pid=14363) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 2/35 [00:00<00:02, 12.84it/s]Capturing CUDA graphs (PIECEWISE):  11%|█▏        | 4/35 [00:00<00:02, 14.20it/s]Capturing CUDA graphs (PIECEWISE):  17%|█▋        | 6/35 [00:00<00:01, 14.80it/s]Capturing CUDA graphs (PIECEWISE):  23%|██▎       | 8/35 [00:00<00:01, 15.09it/s]Capturing CUDA graphs (PIECEWISE):  29%|██▊       | 10/35 [00:00<00:01, 15.02it/s]Capturing CUDA graphs (PIECEWISE):  34%|███▍      | 12/35 [00:00<00:01, 15.34it/s]Capturing CUDA graphs (PIECEWISE):  40%|████      | 14/35 [00:00<00:01, 15.56it/s]Capturing CUDA graphs (PIECEWISE):  46%|████▌     | 16/35 [00:01<00:01, 15.70it/s]Capturing CUDA graphs (PIECEWISE):  51%|█████▏    | 18/35 [00:01<00:01, 15.80it/s]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 20/35 [00:01<00:00, 16.09it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 22/35 [00:01<00:00, 16.37it/s]Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 24/35 [00:01<00:00, 16.61it/s]Capturing CUDA graphs (PIECEWISE):  74%|███████▍  | 26/35 [00:01<00:00, 16.84it/s]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 28/35 [00:01<00:00, 17.11it/s]Capturing CUDA graphs (PIECEWISE):  86%|████████▌ | 30/35 [00:01<00:00, 17.54it/s]Capturing CUDA graphs (PIECEWISE):  91%|█████████▏| 32/35 [00:01<00:00, 17.23it/s]Capturing CUDA graphs (PIECEWISE):  97%|█████████▋| 34/35 [00:02<00:00, 17.60it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 35/35 [00:02<00:00, 16.26it/s]
+(EngineCore pid=14363) Capturing CUDA graphs (FULL):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  16%|█▌        | 3/19 [00:00<00:00, 20.44it/s]Capturing CUDA graphs (FULL):  32%|███▏      | 6/19 [00:00<00:00, 20.89it/s]Capturing CUDA graphs (FULL):  47%|████▋     | 9/19 [00:00<00:00, 21.24it/s]Capturing CUDA graphs (FULL):  63%|██████▎   | 12/19 [00:00<00:00, 21.66it/s]Capturing CUDA graphs (FULL):  79%|███████▉  | 15/19 [00:00<00:00, 22.33it/s]Capturing CUDA graphs (FULL):  95%|█████████▍| 18/19 [00:00<00:00, 23.01it/s]Capturing CUDA graphs (FULL): 100%|██████████| 19/19 [00:00<00:00, 22.30it/s]
+(EngineCore pid=14363) INFO 09-08 16:47:24 [model_runner.py:906] Graph capturing finished in 3 secs, took 0.48 GiB
+(EngineCore pid=14363) INFO 09-08 16:47:24 [gpu_worker.py:804] Free memory on device (39.08/39.49 GiB) on startup. Desired GPU memory utilization is (0.85, 33.57 GiB). Actual usage is 23.11 GiB for consumed memory (weights + non-torch), 0.47 GiB for peak activation, and 0.48 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=10057050420` (9.37 GiB) to fit into requested memory, or `--kv-cache-memory=15972480512` (14.88 GiB) to fully utilize gpu memory. Current kv cache memory in use is 9.99 GiB.
+(EngineCore pid=14363) INFO 09-08 16:47:25 [jit_monitor.py:85] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=14363) INFO 09-08 16:47:25 [torch_utils.py:262] Reducing Torch threads from 16 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=14363) INFO 09-08 16:47:25 [core.py:347] init engine (profile, create kv cache, warmup model) took 7.31 s (compilation: 0.29 s)
+(EngineCore pid=14363) INFO 09-08 16:47:25 [kernel.py:308] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+WARNING 09-08 16:47:25 [input_processor.py:296] Passing raw prompts to InputProcessor is deprecated and will be removed in v0.18. You should instead pass the outputs of Renderer.render_cmpl() or Renderer.render_chat().
+(EngineCore pid=14363) WARNING 09-08 16:47:25 [jit_monitor.py:141] Triton kernel JIT compilation during inference: kernel_unified_attention. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=14363) WARNING 09-08 16:47:25 [jit_monitor.py:141] Triton kernel JIT compilation during inference: _gumbel_sample_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+{"policy": "context_budget", "requests": 240, "duration_s": 50.651749483076856, "output_tokens_s": 606.4943523868567, "slo_goodput_rps": 2.013750779409485, "slo_attainment_percent": 42.5, "p99_ttft_s": 23.042387865392357, "p99_tpot_s": 0.045282554895998396, "p99_stream_gap_s": 0.30144931172020734, "max_stream_chunk_tokens": 1, "mean_gpu_busy_percent": 99.9802371541502, "max_device_memory_bytes": 38154993664, "repeat": 2}
+{"policy": "default", "requests": 240, "duration_s": 40.053738720016554, "output_tokens_s": 766.9696008839222, "slo_goodput_rps": 2.5965116696591117, "slo_attainment_percent": 43.333333333333336, "p99_ttft_s": 11.900900651428332, "p99_tpot_s": 0.0915359631017415, "p99_stream_gap_s": 0.5656490907957777, "max_stream_chunk_tokens": 1, "mean_gpu_busy_percent": 99.085, "max_device_memory_bytes": 38154993664, "repeat": 2}
+{"policy": "fixed32", "requests": 240, "duration_s": 45.71091850101948, "output_tokens_s": 672.0495016811981, "slo_goodput_rps": 2.275167583816556, "slo_attainment_percent": 43.333333333333336, "p99_ttft_s": 13.413896871000807, "p99_tpot_s": 0.08788040574784867, "p99_stream_gap_s": 0.30879045931156723, "max_stream_chunk_tokens": 1, "mean_gpu_busy_percent": 99.51754385964912, "max_device_memory_bytes": 38154993664, "repeat": 2}
+INFO 09-08 16:50:10 [core_client.py:689] [shutdown] MPClient: start timeout=default
+INFO 09-08 16:50:10 [core_client.py:691] [shutdown] MPClient: stopping engine manager
+INFO 09-08 16:50:10 [utils.py:615] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=14363) INFO 09-08 16:50:10 [core.py:1329] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=14363) INFO 09-08 16:50:10 [core.py:1465] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=14363) INFO 09-08 16:50:10 [core.py:1496] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=14363) INFO 09-08 16:50:10 [core.py:1342] [shutdown] EngineCore: exiting busy loop
+INFO 09-08 16:50:13 [core_client.py:693] [shutdown] MPClient: engine manager stopped
+INFO 09-08 16:50:13 [core_client.py:694] [shutdown] MPClient: cleaning up background resources
+INFO 09-08 16:50:13 [core_client.py:696] [shutdown] MPClient: complete
+wandb: Adding directory to artifact (/home/SaturateLLM/scheduling_validation/results/scheduling-a100-20260908T163730Z/repeat-2)... Done. 0.0s
+wandb: uploading artifact scheduling-repeat-2; updating run metadata
+wandb: uploading artifact scheduling-repeat-2
+wandb: uploading artifact scheduling-repeat-2; uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: uploading history steps 2-2, summary, console lines 16-23
+wandb: 
+wandb: Run history:
+wandb:              duration_s █▁▅
+wandb: max_device_memory_bytes ▁▁▁
+wandb: max_stream_chunk_tokens ▁▁▁
+wandb:   mean_gpu_busy_percent █▁▄
+wandb:         output_tokens_s ▁█▄
+wandb:        p99_stream_gap_s ▁█▁
+wandb:              p99_tpot_s ▁█▇
+wandb:              p99_ttft_s █▁▂
+wandb:                  repeat ▁▁▁
+wandb:                requests ▁▁▁
+wandb:                      +2 ...
+wandb: 
+wandb: Run summary:
+wandb:              duration_s 45.71092
+wandb: max_device_memory_bytes 38154993664
+wandb: max_stream_chunk_tokens 1
+wandb:   mean_gpu_busy_percent 99.51754
+wandb:         output_tokens_s 672.0495
+wandb:        p99_stream_gap_s 0.30879
+wandb:              p99_tpot_s 0.08788
+wandb:              p99_ttft_s 13.4139
+wandb:                  policy fixed32
+wandb:                  repeat 2
+wandb:                      +3 ...
+wandb: 
+wandb: 🚀 View run scheduling-repetition-2 at: https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/jxmojkaz
+wandb: ⭐️ View project at: https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility
+wandb: Synced 5 W&B file(s), 0 media file(s), 14 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260908_164651-jxmojkaz/logs

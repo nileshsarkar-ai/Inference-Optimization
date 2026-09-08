@@ -1,0 +1,9 @@
+{
+  "run_id": "r_b317ce96",
+  "machine_id": 500717,
+  "target_kind": "command",
+  "remote_target": null,
+  "working_dir": null,
+  "launch_command": "if [ -x \"$HOME/.venv/bin/python\" ]; then export PATH=\"$HOME/.venv/bin:$PATH\"; fi && bash /home/SaturateLLM/graph_size_pilot/bootstrap.sh",
+  "started_at": "2026-09-08T14:47:17.303664+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "run_id": "r_280f8ded",
+  "machine_id": 500717,
+  "target_kind": "command",
+  "remote_target": null,
+  "working_dir": null,
+  "launch_command": "if [ -x \"$HOME/.venv/bin/python\" ]; then export PATH=\"$HOME/.venv/bin:$PATH\"; fi && bash -lc 'cd /home/SaturateLLM/graph_size_pilot && /home/SaturateLLM/.venv/bin/python orchestrate.py --model Qwen/Qwen2.5-7B'",
+  "started_at": "2026-09-08T15:08:46.879697+00:00"
+}

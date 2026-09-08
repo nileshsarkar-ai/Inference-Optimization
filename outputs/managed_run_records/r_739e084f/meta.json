@@ -1,0 +1,9 @@
+{
+  "run_id": "r_739e084f",
+  "machine_id": 500717,
+  "target_kind": "command",
+  "remote_target": null,
+  "working_dir": null,
+  "launch_command": "if [ -x \"$HOME/.venv/bin/python\" ]; then export PATH=\"$HOME/.venv/bin:$PATH\"; fi && bash -lc 'cd /home/SaturateLLM/model_suite && /home/SaturateLLM/.venv/bin/python queue_models.py'",
+  "started_at": "2026-09-08T15:13:20.907674+00:00"
+}

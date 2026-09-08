@@ -1,0 +1,38 @@
+{
+  "model": "google/gemma-4-12B",
+  "revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+  "tokenizer_revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+  "dtype": "bfloat16",
+  "tensor_parallel_size": 1,
+  "seed": 20260908,
+  "max_model_len": 512,
+  "max_num_seqs": 128,
+  "max_num_batched_tokens": 4096,
+  "gpu_memory_utilization": 0.85,
+  "enable_prefix_caching": false,
+  "enable_chunked_prefill": true,
+  "language_model_only": true,
+  "compilation_config": {
+    "max_cudagraph_capture_size": 256,
+    "cudagraph_capture_sizes": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      24,
+      31,
+      32,
+      48,
+      63,
+      64,
+      80,
+      95,
+      112,
+      127,
+      128,
+      256
+    ]
+  },
+  "disable_log_stats": false
+}

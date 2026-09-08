@@ -1,0 +1,1493 @@
+[
+  {
+    "model": "google/gemma-4-12B",
+    "folder": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b",
+    "configs": {
+      "default": {
+        "environment": {
+          "manifest": {
+            "model": "google/gemma-4-12B",
+            "model_revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+          },
+          "capture": "default",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            24,
+            32,
+            40,
+            48,
+            56,
+            64,
+            72,
+            80,
+            88,
+            96,
+            104,
+            112,
+            120,
+            128,
+            136,
+            144,
+            152,
+            160,
+            168,
+            176,
+            184,
+            192,
+            200,
+            208,
+            216,
+            224,
+            232,
+            240,
+            248,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 185.15306532708928,
+          "resources_after_init": {
+            "device_used_mib": 33883.0,
+            "kv_blocks": 8729,
+            "kv_block_size": 16,
+            "kv_capacity_tokens": 139664
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 900.0262915186485,
+            "min": 898.2765959016666,
+            "max": 901.5040143438532,
+            "values": [
+              901.5040143438532,
+              900.2982643104255,
+              898.2765959016666
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 1086.878509555852,
+            "min": 1084.635627756034,
+            "max": 1088.944951172669,
+            "values": [
+              1087.0549497388527,
+              1084.635627756034,
+              1088.944951172669
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 1411.5925728119448,
+            "min": 1409.8616559667412,
+            "max": 1413.144787258292,
+            "values": [
+              1413.144787258292,
+              1411.7712752108012,
+              1409.8616559667412
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 1686.367271289812,
+            "min": 1684.6006123639272,
+            "max": 1687.9245098257632,
+            "values": [
+              1687.9245098257632,
+              1686.5766916797456,
+              1684.6006123639272
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 1939.569993073963,
+            "min": 1937.6190121364573,
+            "max": 1940.6820954177272,
+            "values": [
+              1940.4088716677043,
+              1940.6820954177272,
+              1937.6190121364573
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 2129.9992105216097,
+            "min": 2128.146918323412,
+            "max": 2131.768512787358,
+            "values": [
+              2130.0822004540596,
+              2131.768512787358,
+              2128.146918323412
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 2031.5202953113608,
+            "min": 2030.20989169883,
+            "max": 2032.4143469553755,
+            "values": [
+              2032.4143469553755,
+              2031.9366472798768,
+              2030.20989169883
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 1913.9905439046722,
+            "min": 1911.5834533913776,
+            "max": 1917.1280887180064,
+            "values": [
+              1917.1280887180064,
+              1911.5834533913776,
+              1913.2600896046326
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/ff0adbic",
+        "graph_memory_gib": 0.48,
+        "max_logged_kv_usage_percent": 99.7,
+        "engine_reported_kv_tokens": 25833,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b/default/measurements.jsonl"
+      },
+      "matched": {
+        "environment": {
+          "manifest": {
+            "model": "google/gemma-4-12B",
+            "model_revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+          },
+          "capture": "matched",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            24,
+            31,
+            32,
+            48,
+            63,
+            64,
+            80,
+            95,
+            112,
+            127,
+            128,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 121.85001390008256,
+          "resources_after_init": {
+            "device_used_mib": 33729.0,
+            "kv_blocks": 8729,
+            "kv_block_size": 16,
+            "kv_capacity_tokens": 139664
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 894.684273464498,
+            "min": 893.901880012445,
+            "max": 895.8725490267399,
+            "values": [
+              893.901880012445,
+              895.8725490267399,
+              894.2783913543092
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 1080.4758920597646,
+            "min": 1078.778334052524,
+            "max": 1082.6561114938784,
+            "values": [
+              1082.6561114938784,
+              1079.9932306328917,
+              1078.778334052524
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 1408.1950402146817,
+            "min": 1407.7937415345289,
+            "max": 1408.9219219785564,
+            "values": [
+              1408.9219219785564,
+              1407.7937415345289,
+              1407.86945713096
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 1683.7839169832544,
+            "min": 1683.064617682179,
+            "max": 1684.420443522303,
+            "values": [
+              1684.420443522303,
+              1683.064617682179,
+              1683.8666897452808
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 1938.5039002110834,
+            "min": 1935.5998744137107,
+            "max": 1941.325853504934,
+            "values": [
+              1941.325853504934,
+              1938.5859727146053,
+              1935.5998744137107
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 2131.40369052745,
+            "min": 2128.069421782508,
+            "max": 2133.863087341691,
+            "values": [
+              2132.278562458152,
+              2133.863087341691,
+              2128.069421782508
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 2029.9613913264238,
+            "min": 2029.7195425656612,
+            "max": 2030.252336036607,
+            "values": [
+              2030.252336036607,
+              2029.9122953770034,
+              2029.7195425656612
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 1913.8152544920608,
+            "min": 1911.0305630414807,
+            "max": 1917.5095382410473,
+            "values": [
+              1917.5095382410473,
+              1912.9056621936543,
+              1911.0305630414807
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/90n8sruz",
+        "graph_memory_gib": 0.33,
+        "max_logged_kv_usage_percent": 99.6,
+        "engine_reported_kv_tokens": 25833,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b/matched/measurements.jsonl"
+      },
+      "coarse": {
+        "environment": {
+          "manifest": {
+            "model": "google/gemma-4-12B",
+            "model_revision": "023679ed352de9bb66cc873c9009ce3482585c08",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+          },
+          "capture": "coarse",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32,
+            64,
+            128,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 119.41000932897441,
+          "resources_after_init": {
+            "device_used_mib": 33633.0,
+            "kv_blocks": 8729,
+            "kv_block_size": 16,
+            "kv_capacity_tokens": 139664
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 894.5318166516718,
+            "min": 893.5351174366169,
+            "max": 895.2280275731922,
+            "values": [
+              895.2280275731922,
+              894.8323049452061,
+              893.5351174366169
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 1086.356923717195,
+            "min": 1085.4712595615,
+            "max": 1087.7472731477965,
+            "values": [
+              1087.7472731477965,
+              1085.8522384422888,
+              1085.4712595615
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 1398.1514533323113,
+            "min": 1397.7332707730964,
+            "max": 1398.4177607849138,
+            "values": [
+              1398.4177607849138,
+              1397.7332707730964,
+              1398.3033284389242
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 1687.2729065954165,
+            "min": 1685.264070868139,
+            "max": 1688.4972692856243,
+            "values": [
+              1688.0573796324863,
+              1688.4972692856243,
+              1685.264070868139
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 1889.7097480137304,
+            "min": 1886.9636136180725,
+            "max": 1892.2756569078554,
+            "values": [
+              1892.2756569078554,
+              1889.8899735152636,
+              1886.9636136180725
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 2099.7127762355194,
+            "min": 2094.9267908778497,
+            "max": 2102.7204679639585,
+            "values": [
+              2101.4910698647495,
+              2102.7204679639585,
+              2094.9267908778497
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 2021.2597057065561,
+            "min": 2019.7719972633356,
+            "max": 2022.9826612760223,
+            "values": [
+              2022.9826612760223,
+              2019.7719972633356,
+              2021.0244585803107
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 1911.3057041375598,
+            "min": 1907.9489338094081,
+            "max": 1915.2982421410295,
+            "values": [
+              1915.2982421410295,
+              1910.669936462242,
+              1907.9489338094081
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/e705328c",
+        "graph_memory_gib": 0.23,
+        "max_logged_kv_usage_percent": 99.6,
+        "engine_reported_kv_tokens": 25833,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma12b/coarse/measurements.jsonl"
+      }
+    },
+    "matched_delta_percent": [
+      -0.593540222601352,
+      -0.589083088845288,
+      -0.24068790546942775,
+      -0.1531904912137949,
+      -0.05496542360865497,
+      0.0659380528829745,
+      -0.07673583121639016,
+      -0.009158321767555044
+    ],
+    "hash_mismatches": {
+      "default": 0,
+      "coarse": 24,
+      "matched": 24
+    },
+    "interpretation": "Within-model descriptive fixed-batch comparison. Includes prefill and host work. Logged KV occupancy includes warmup and is not GPU utilization. No independent-process significance or model-quality claim."
+  },
+  {
+    "model": "Qwen/Qwen3.5-9B",
+    "folder": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35",
+    "configs": {
+      "default": {
+        "environment": {
+          "manifest": {
+            "model": "Qwen/Qwen3.5-9B",
+            "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "d9fc6de2c6091630a0023704625427d8d38f73dc2d46c1f8fb8bb42c33625813"
+          },
+          "capture": "default",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            24,
+            32,
+            40,
+            48,
+            56,
+            64,
+            72,
+            80,
+            88,
+            96,
+            104,
+            112,
+            120,
+            128,
+            136,
+            144,
+            152,
+            160,
+            168,
+            176,
+            184,
+            192,
+            200,
+            208,
+            216,
+            224,
+            232,
+            240,
+            248,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 167.35609214380383,
+          "resources_after_init": {
+            "device_used_mib": 33241.0,
+            "kv_blocks": 740,
+            "kv_block_size": 512,
+            "kv_capacity_tokens": 378880
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 1322.50789232324,
+            "min": 1321.0933165864983,
+            "max": 1323.9141250408454,
+            "values": [
+              1323.9141250408454,
+              1322.5162353423761,
+              1321.0933165864983
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 1587.132296790021,
+            "min": 1585.6457279592323,
+            "max": 1589.3431993309232,
+            "values": [
+              1589.3431993309232,
+              1586.4079630799072,
+              1585.6457279592323
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 2137.436154641828,
+            "min": 2134.239800597027,
+            "max": 2139.6651820488796,
+            "values": [
+              2139.6651820488796,
+              2138.403481279578,
+              2134.239800597027
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 2509.9121284936186,
+            "min": 2508.705663641542,
+            "max": 2510.6852564844144,
+            "values": [
+              2510.6852564844144,
+              2510.3454653548993,
+              2508.705663641542
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 2756.9692406874574,
+            "min": 2751.9305130132007,
+            "max": 2762.470293144234,
+            "values": [
+              2762.470293144234,
+              2756.5069159049376,
+              2751.9305130132007
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 2957.513530801043,
+            "min": 2952.288296181747,
+            "max": 2960.7518520088956,
+            "values": [
+              2960.7518520088956,
+              2959.500444212487,
+              2952.288296181747
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 3193.1113891477153,
+            "min": 3186.431037962127,
+            "max": 3200.049124374463,
+            "values": [
+              3192.854005106556,
+              3200.049124374463,
+              3186.431037962127
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 3377.9734064708246,
+            "min": 3375.208000836515,
+            "max": 3382.667270075746,
+            "values": [
+              3382.667270075746,
+              3376.0449485002123,
+              3375.208000836515
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/mipeho1t",
+        "graph_memory_gib": 0.32,
+        "max_logged_kv_usage_percent": 68.7,
+        "engine_reported_kv_tokens": 94720,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35/default/measurements.jsonl"
+      },
+      "matched": {
+        "environment": {
+          "manifest": {
+            "model": "Qwen/Qwen3.5-9B",
+            "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "d9fc6de2c6091630a0023704625427d8d38f73dc2d46c1f8fb8bb42c33625813"
+          },
+          "capture": "matched",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            24,
+            31,
+            32,
+            48,
+            63,
+            64,
+            80,
+            95,
+            112,
+            127,
+            128,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 117.78150531905703,
+          "resources_after_init": {
+            "device_used_mib": 33159.0,
+            "kv_blocks": 742,
+            "kv_block_size": 512,
+            "kv_capacity_tokens": 379904
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 1321.1707648885674,
+            "min": 1318.602869234489,
+            "max": 1323.2364088404363,
+            "values": [
+              1323.2364088404363,
+              1318.602869234489,
+              1321.6730165907773
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 1590.0535020893772,
+            "min": 1588.9532797151767,
+            "max": 1591.798092233221,
+            "values": [
+              1591.798092233221,
+              1589.4091343197335,
+              1588.9532797151767
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 2135.4031747988506,
+            "min": 2132.7608589102197,
+            "max": 2138.6165643148365,
+            "values": [
+              2138.6165643148365,
+              2134.832101171496,
+              2132.7608589102197
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 2511.3271186909183,
+            "min": 2508.717745154859,
+            "max": 2515.0320320983196,
+            "values": [
+              2515.0320320983196,
+              2510.231578819576,
+              2508.717745154859
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 2754.923831695322,
+            "min": 2750.578511483194,
+            "max": 2760.347553193709,
+            "values": [
+              2760.347553193709,
+              2753.8454304090633,
+              2750.578511483194
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 2958.690166587383,
+            "min": 2958.4600656398475,
+            "max": 2959.0861398839797,
+            "values": [
+              2959.0861398839797,
+              2958.524294238322,
+              2958.4600656398475
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 3190.4048150006565,
+            "min": 3188.9960047224467,
+            "max": 3191.561261412839,
+            "values": [
+              3191.561261412839,
+              3188.9960047224467,
+              3190.657178866684
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 3376.1991709484278,
+            "min": 3371.0248374358766,
+            "max": 3383.5588517139427,
+            "values": [
+              3383.5588517139427,
+              3374.013823695464,
+              3371.0248374358766
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/7rh9afa6",
+        "graph_memory_gib": 0.21,
+        "max_logged_kv_usage_percent": 68.6,
+        "engine_reported_kv_tokens": 94976,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35/matched/measurements.jsonl"
+      },
+      "coarse": {
+        "environment": {
+          "manifest": {
+            "model": "Qwen/Qwen3.5-9B",
+            "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "d9fc6de2c6091630a0023704625427d8d38f73dc2d46c1f8fb8bb42c33625813"
+          },
+          "capture": "coarse",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32,
+            64,
+            128,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 120.7049941229634,
+          "resources_after_init": {
+            "device_used_mib": 33189.0,
+            "kv_blocks": 749,
+            "kv_block_size": 512,
+            "kv_capacity_tokens": 383488
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 1306.3472445628734,
+            "min": 1304.8749514142085,
+            "max": 1307.3942773527199,
+            "values": [
+              1307.3942773527199,
+              1306.7725049216917,
+              1304.8749514142085
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 1587.9084350082474,
+            "min": 1585.4155557644856,
+            "max": 1589.246657864777,
+            "values": [
+              1589.0630913954792,
+              1589.246657864777,
+              1585.4155557644856
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 2124.1021884714605,
+            "min": 2122.721625357253,
+            "max": 2125.6359258596003,
+            "values": [
+              2123.949014197528,
+              2125.6359258596003,
+              2122.721625357253
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 2511.272852312629,
+            "min": 2509.1511549474126,
+            "max": 2513.5016025088835,
+            "values": [
+              2513.5016025088835,
+              2511.1657994815905,
+              2509.1511549474126
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 2675.412627113919,
+            "min": 2674.2059274498733,
+            "max": 2676.7604492847136,
+            "values": [
+              2676.7604492847136,
+              2675.2715046071703,
+              2674.2059274498733
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 2934.0412324068398,
+            "min": 2932.19089341386,
+            "max": 2935.424049105815,
+            "values": [
+              2935.424049105815,
+              2934.5087547008443,
+              2932.19089341386
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 3174.8199222269604,
+            "min": 3170.4283341540568,
+            "max": 3180.36630533372,
+            "values": [
+              3173.665127193105,
+              3180.36630533372,
+              3170.4283341540568
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 3379.578496328158,
+            "min": 3375.356200339527,
+            "max": 3385.953084891022,
+            "values": [
+              3385.953084891022,
+              3377.426203753925,
+              3375.356200339527
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/lnclmaf5",
+        "graph_memory_gib": 0.13,
+        "max_logged_kv_usage_percent": 67.9,
+        "engine_reported_kv_tokens": 95872,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen35/coarse/measurements.jsonl"
+      }
+    },
+    "matched_delta_percent": [
+      -0.1011054408396439,
+      0.1840555639416097,
+      -0.0951130090394714,
+      0.056376085092235684,
+      -0.07419049012042933,
+      0.0397846290164372,
+      -0.08476291044081652,
+      -0.05252366756346438
+    ],
+    "hash_mismatches": {
+      "default": 0,
+      "coarse": 24,
+      "matched": 24
+    },
+    "interpretation": "Within-model descriptive fixed-batch comparison. Includes prefill and host work. Logged KV occupancy includes warmup and is not GPU utilization. No independent-process significance or model-quality claim."
+  },
+  {
+    "model": "google/gemma-4-E4B",
+    "folder": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b",
+    "configs": {
+      "default": {
+        "environment": {
+          "manifest": {
+            "model": "google/gemma-4-E4B",
+            "model_revision": "411aa17b749aa952df1359d2dcea73917a544d9a",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+          },
+          "capture": "default",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            24,
+            32,
+            40,
+            48,
+            56,
+            64,
+            72,
+            80,
+            88,
+            96,
+            104,
+            112,
+            120,
+            128,
+            136,
+            144,
+            152,
+            160,
+            168,
+            176,
+            184,
+            192,
+            200,
+            208,
+            216,
+            224,
+            232,
+            240,
+            248,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 153.65463420399465,
+          "resources_after_init": {
+            "device_used_mib": 30219.0,
+            "kv_blocks": 54916,
+            "kv_block_size": 16,
+            "kv_capacity_tokens": 878656
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 1967.0043213528666,
+            "min": 1966.5043812319761,
+            "max": 1967.8257431577038,
+            "values": [
+              1966.68283966892,
+              1966.5043812319761,
+              1967.8257431577038
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 2436.2584794148893,
+            "min": 2432.673321324012,
+            "max": 2439.078833565376,
+            "values": [
+              2432.673321324012,
+              2437.02328335528,
+              2439.078833565376
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 3344.8377205038123,
+            "min": 3341.5059328717075,
+            "max": 3348.2751148194925,
+            "values": [
+              3344.7321138202365,
+              3348.2751148194925,
+              3341.5059328717075
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 3983.4624353970967,
+            "min": 3976.8395277749382,
+            "max": 3992.8643058184966,
+            "values": [
+              3992.8643058184966,
+              3976.8395277749382,
+              3980.6834725978547
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 4775.490640928915,
+            "min": 4771.240551347445,
+            "max": 4779.850473221179,
+            "values": [
+              4779.850473221179,
+              4771.240551347445,
+              4775.380898218123
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 5317.520088093175,
+            "min": 5311.363101344704,
+            "max": 5329.292161518573,
+            "values": [
+              5311.9050014162485,
+              5329.292161518573,
+              5311.363101344704
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 5674.003346669018,
+            "min": 5664.818309305314,
+            "max": 5681.137315458297,
+            "values": [
+              5681.137315458297,
+              5676.054415243445,
+              5664.818309305314
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 6075.754284075289,
+            "min": 6064.900473849626,
+            "max": 6092.749580590578,
+            "values": [
+              6092.749580590578,
+              6064.900473849626,
+              6069.612797785663
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/9gyjulic",
+        "graph_memory_gib": 0.49,
+        "max_logged_kv_usage_percent": 9.2,
+        "engine_reported_kv_tokens": 240316,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b/default/measurements.jsonl"
+      },
+      "matched": {
+        "environment": {
+          "manifest": {
+            "model": "google/gemma-4-E4B",
+            "model_revision": "411aa17b749aa952df1359d2dcea73917a544d9a",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+          },
+          "capture": "matched",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            24,
+            31,
+            32,
+            48,
+            63,
+            64,
+            80,
+            95,
+            112,
+            127,
+            128,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 105.76489339303225,
+          "resources_after_init": {
+            "device_used_mib": 30051.0,
+            "kv_blocks": 54916,
+            "kv_block_size": 16,
+            "kv_capacity_tokens": 878656
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 1972.4873102304653,
+            "min": 1971.7745530975255,
+            "max": 1973.066101156471,
+            "values": [
+              1971.7745530975255,
+              1973.066101156471,
+              1972.6212764373993
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 2443.823385279774,
+            "min": 2440.4460391647867,
+            "max": 2446.2303721679696,
+            "values": [
+              2440.4460391647867,
+              2444.793744506566,
+              2446.2303721679696
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 3351.2993541149895,
+            "min": 3343.967028841893,
+            "max": 3357.332629834461,
+            "values": [
+              3357.332629834461,
+              3352.5984036686145,
+              3343.967028841893
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 3986.6178067730016,
+            "min": 3983.985419897037,
+            "max": 3990.3413887654306,
+            "values": [
+              3985.526611656537,
+              3990.3413887654306,
+              3983.985419897037
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 4783.261346143625,
+            "min": 4769.488474775422,
+            "max": 4799.329675027359,
+            "values": [
+              4799.329675027359,
+              4780.965888628094,
+              4769.488474775422
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 5327.221156892236,
+            "min": 5312.320190014297,
+            "max": 5341.367638055295,
+            "values": [
+              5327.975642607116,
+              5341.367638055295,
+              5312.320190014297
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 5685.588463035296,
+            "min": 5674.018459396126,
+            "max": 5697.342374567336,
+            "values": [
+              5685.404555142426,
+              5697.342374567336,
+              5674.018459396126
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 6093.866958448367,
+            "min": 6079.297340955876,
+            "max": 6113.753746720747,
+            "values": [
+              6113.753746720747,
+              6088.549787668478,
+              6079.297340955876
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/380ymsza",
+        "graph_memory_gib": 0.32,
+        "max_logged_kv_usage_percent": 8.5,
+        "engine_reported_kv_tokens": 240316,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b/matched/measurements.jsonl"
+      },
+      "coarse": {
+        "environment": {
+          "manifest": {
+            "model": "google/gemma-4-E4B",
+            "model_revision": "411aa17b749aa952df1359d2dcea73917a544d9a",
+            "dataset": "Salesforce/wikitext",
+            "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+            "dataset_config": "wikitext-2-raw-v1",
+            "split": "test",
+            "seed": 20260908,
+            "prompt_tokens": 128,
+            "output_tokens": 128,
+            "batches": [
+              24,
+              31,
+              48,
+              63,
+              80,
+              95,
+              112,
+              127
+            ],
+            "prompts_sha256": "7e7b3b6e8a841222da206ce038306204bba894bb3891c952e141cc80573ba3f8"
+          },
+          "capture": "coarse",
+          "python": "3.12.13 (main, May  4 2026, 21:09:48) [Clang 22.1.3 ]",
+          "vllm_version": "0.28.0",
+          "torch_version": "2.13.0",
+          "cuda_visible_devices": "0",
+          "resolved_capture_sizes": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32,
+            64,
+            128,
+            256
+          ],
+          "resolved_graph_mode": "FULL_AND_PIECEWISE",
+          "startup_s": 105.81864758697338,
+          "resources_after_init": {
+            "device_used_mib": 29935.0,
+            "kv_blocks": 54916,
+            "kv_block_size": 16,
+            "kv_capacity_tokens": 878656
+          },
+          "script_sha256": "f533707ef02101dbc75cd8e0ae16b34424328c193b1eec8888ff0cfdd946ef18",
+          "measurement_type": "offline fixed-batch generation; includes prefill and host work"
+        },
+        "stats": [
+          {
+            "batch": 24,
+            "mean": 1964.726974362529,
+            "min": 1963.2877485741674,
+            "max": 1966.8759408454694,
+            "values": [
+              1964.0172336679502,
+              1963.2877485741674,
+              1966.8759408454694
+            ]
+          },
+          {
+            "batch": 31,
+            "mean": 2439.4175965907957,
+            "min": 2437.8674327339736,
+            "max": 2441.4946840284492,
+            "values": [
+              2437.8674327339736,
+              2438.8906730099648,
+              2441.4946840284492
+            ]
+          },
+          {
+            "batch": 48,
+            "mean": 3294.988752933105,
+            "min": 3290.4965154059046,
+            "max": 3299.2837337169453,
+            "values": [
+              3299.2837337169453,
+              3295.1860096764644,
+              3290.4965154059046
+            ]
+          },
+          {
+            "batch": 63,
+            "mean": 3989.2422864732393,
+            "min": 3988.1595791876302,
+            "max": 3989.8836877537224,
+            "values": [
+              3989.683592478366,
+              3988.1595791876302,
+              3989.8836877537224
+            ]
+          },
+          {
+            "batch": 80,
+            "mean": 4595.886111146743,
+            "min": 4586.631691231274,
+            "max": 4600.647438965667,
+            "values": [
+              4600.3792032432875,
+              4600.647438965667,
+              4586.631691231274
+            ]
+          },
+          {
+            "batch": 95,
+            "mean": 5183.7318481497705,
+            "min": 5178.8100062063295,
+            "max": 5190.854355877999,
+            "values": [
+              5181.531182364982,
+              5190.854355877999,
+              5178.8100062063295
+            ]
+          },
+          {
+            "batch": 112,
+            "mean": 5614.946928974347,
+            "min": 5608.312020038037,
+            "max": 5627.299321146321,
+            "values": [
+              5627.299321146321,
+              5608.312020038037,
+              5609.229445738684
+            ]
+          },
+          {
+            "batch": 127,
+            "mean": 6079.909263155897,
+            "min": 6065.1753498357175,
+            "max": 6098.484972817751,
+            "values": [
+              6098.484972817751,
+              6076.067466814223,
+              6065.1753498357175
+            ]
+          }
+        ],
+        "wandb_url": "https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility/runs/vs3zqwsl",
+        "graph_memory_gib": 0.21,
+        "max_logged_kv_usage_percent": 8.1,
+        "engine_reported_kv_tokens": 240316,
+        "measurement_source": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_gemma_e4b/coarse/measurements.jsonl"
+      }
+    },
+    "matched_delta_percent": [
+      0.2787481866754371,
+      0.3105132697866164,
+      0.19318227522870934,
+      0.0792117768669387,
+      0.16272056211585895,
+      0.1824359595891778,
+      0.20417887791832623,
+      0.29811400405956867
+    ],
+    "hash_mismatches": {
+      "default": 0,
+      "coarse": 24,
+      "matched": 24
+    },
+    "interpretation": "Within-model descriptive fixed-batch comparison. Includes prefill and host work. Logged KV occupancy includes warmup and is not GPU utilization. No independent-process significance or model-quality claim."
+  }
+]

@@ -1,0 +1,203 @@
+{
+  "verified_at_utc": "2026-09-08T15:56:58.328684+00:00",
+  "machine_id": 500717,
+  "remote": "/home/SaturateLLM/graph_size_pilot/results/Qwen2.5-7B-a100-20260908T150848Z",
+  "local": "/Users/nileshsarkar/Documents/Codex/2026-09-08/so-x20/outputs/experiment_data_qwen7b_complete",
+  "status": "all_remote_files_match_local_sha256",
+  "file_count": 48,
+  "total_bytes": 41856052,
+  "files": {
+    "coarse/environment.json": {
+      "sha256": "7de8b36c98d30653d0540ff648fd3e19d3d9c44b1fb0c51fea5c09dfa351bb8b",
+      "bytes": 1248
+    },
+    "coarse/gpu.csv": {
+      "sha256": "bf4c79cdd46d3c3a494c515f075af085c3bfc85c940d20629eb3eb0faa91c2bb",
+      "bytes": 160
+    },
+    "coarse/measurements.jsonl": {
+      "sha256": "46eb73a7829b8622f3b95a31d021c686ebe1d2199d1474059a2220ecba23b362",
+      "bytes": 6200
+    },
+    "coarse/package-versions.txt": {
+      "sha256": "580d5415cb0997bd77c2c2d93fd89d187137f3f45ed8853f2addf542ec7cd378",
+      "bytes": 4574
+    },
+    "coarse/requested-config.json": {
+      "sha256": "8553380a720fadda3586e521dbfa40d6b351230affd7202316bf6079e977b16c",
+      "bytes": 640
+    },
+    "coarse/wandb-url.txt": {
+      "sha256": "cd19570632835c6f7b82bd5927d1d4742dd14d21b6a8d27622f352653574b2ac",
+      "bytes": 71
+    },
+    "coarse/worker-resources-final.json": {
+      "sha256": "489996d11da81edc401bc40dd69795c2c85ff9d366bd170f31c770be9678d5d6",
+      "bytes": 110
+    },
+    "coarse.log": {
+      "sha256": "75bbf30f32a8fb442bb751b64b73a762a45dbae571749d38dc1787136f199af8",
+      "bytes": 22695
+    },
+    "complete.json": {
+      "sha256": "5a367d11ee271a40e531b58e236ab9a7526f96c6543ff94616d836cd8f6843e9",
+      "bytes": 68
+    },
+    "default/environment.json": {
+      "sha256": "33baa9c2fa8f43e58ac12a89799575c8c1bce06e39e05680be61a6257add03d6",
+      "bytes": 1474
+    },
+    "default/gpu.csv": {
+      "sha256": "bf4c79cdd46d3c3a494c515f075af085c3bfc85c940d20629eb3eb0faa91c2bb",
+      "bytes": 160
+    },
+    "default/measurements.jsonl": {
+      "sha256": "fb1568515fc47e31e3e200bc14822f2854a1da09ac888d09947a091aafe4ffc3",
+      "bytes": 6217
+    },
+    "default/package-versions.txt": {
+      "sha256": "580d5415cb0997bd77c2c2d93fd89d187137f3f45ed8853f2addf542ec7cd378",
+      "bytes": 4574
+    },
+    "default/requested-config.json": {
+      "sha256": "de17106b4b5678bdaf72aa5f99441324e2ff02a66f7e5d86add239321f1a1fb9",
+      "bytes": 513
+    },
+    "default/wandb-url.txt": {
+      "sha256": "3a35610fe4a679e22e1b3d1e0543d5638bbb9b0c94fb08774bf333c2c3132eba",
+      "bytes": 71
+    },
+    "default/worker-resources-final.json": {
+      "sha256": "f071a8a7f90d7b123c52989e6453ffe8ed390cec4916e4d3757e607e5de09fac",
+      "bytes": 110
+    },
+    "default.log": {
+      "sha256": "c1b9b82bd4373b2df78cdd015abb3ad1ac86c60a46a44dd20cce4614eb13e5f6",
+      "bytes": 24176
+    },
+    "figures/output-consistency.json": {
+      "sha256": "f93ea99f3b3779ecf847bdf0eea2c3991d5e7067bdbc41c3dea2f6f132c59e0e",
+      "bytes": 51
+    },
+    "figures/provenance.json": {
+      "sha256": "06a24578dd352ab98325de5313b24134b0a093b271ce87213ed9f4d8e518ec75",
+      "bytes": 5396
+    },
+    "figures/summary.csv": {
+      "sha256": "4f62fef7cfc7b8171467b8c9cd630481143c7f5633788b5221b4c22da95e985e",
+      "bytes": 1747
+    },
+    "figures/throughput.pdf": {
+      "sha256": "1e81ddf398cc1f2924aa8c0c7a563d0ca6632c9d6c533f7ebb3f678339492e0e",
+      "bytes": 29869
+    },
+    "figures/throughput.png": {
+      "sha256": "1866c05d300e7d82a803b57f629306c49018da78e9d0e88a1f5bc50864d73f8c",
+      "bytes": 145253
+    },
+    "matched/environment.json": {
+      "sha256": "b313f80cc41d84eca443da9d5efab4a9ffa94c15c6ea634399fccce8bd776026",
+      "bytes": 1314
+    },
+    "matched/gpu.csv": {
+      "sha256": "bf4c79cdd46d3c3a494c515f075af085c3bfc85c940d20629eb3eb0faa91c2bb",
+      "bytes": 160
+    },
+    "matched/measurements.jsonl": {
+      "sha256": "09656339b63c1ebff12493170af357111ff67b7c90d68570ddbf66edcf33e55d",
+      "bytes": 6216
+    },
+    "matched/package-versions.txt": {
+      "sha256": "580d5415cb0997bd77c2c2d93fd89d187137f3f45ed8853f2addf542ec7cd378",
+      "bytes": 4574
+    },
+    "matched/requested-config.json": {
+      "sha256": "cc93134c33eed79888b580ad92445dfaf0c0bc0cf79a988a76351f0882eb867d",
+      "bytes": 722
+    },
+    "matched/wandb-url.txt": {
+      "sha256": "07dd2e826b13694aedd109fed0ec91b33434d97635d93c2e34efa68de54c963f",
+      "bytes": 71
+    },
+    "matched/worker-resources-final.json": {
+      "sha256": "abb9f5abf4f84630f16a3c69af371bb4cb134b8c64e7eea0960ad05c13549345",
+      "bytes": 110
+    },
+    "matched.log": {
+      "sha256": "ff16f69dfe2d6a89ebee4f41065ddfc7f82e9fd82e0d53ffc5956cf25721edb8",
+      "bytes": 23281
+    },
+    "prepared/manifest.json": {
+      "sha256": "cab4780c0accc7ba10761a92962316ad60e54d2adb531b7d83fd51969ee2ce37",
+      "bytes": 500
+    },
+    "prepared/prompts.json": {
+      "sha256": "aeb83ac4ad12c1c7b64b95855917b61f964efc5c801bf8a430b3a2a9360ca8b0",
+      "bytes": 197848
+    },
+    "profile-default/environment.json": {
+      "sha256": "8aec0abc25e31422fa9754e1851608888356f645f227103056fd0ad4e5172a52",
+      "bytes": 1475
+    },
+    "profile-default/gpu.csv": {
+      "sha256": "bf4c79cdd46d3c3a494c515f075af085c3bfc85c940d20629eb3eb0faa91c2bb",
+      "bytes": 160
+    },
+    "profile-default/package-versions.txt": {
+      "sha256": "580d5415cb0997bd77c2c2d93fd89d187137f3f45ed8853f2addf542ec7cd378",
+      "bytes": 4574
+    },
+    "profile-default/requested-config.json": {
+      "sha256": "67f9e64c35e5ecc16801e2fb41563621b7350608d8f2aee6ed39d104a6e3c690",
+      "bytes": 735
+    },
+    "profile-default/traces/profiler_out_0.txt": {
+      "sha256": "8e8487a5aec88baafc28ba1e548275c54c592d94d5aa8c11dafe25198af3e789",
+      "bytes": 20652
+    },
+    "profile-default/traces/rank0.1788880666543382007.pt.trace.json.gz": {
+      "sha256": "365a5b2b6a455030d94d7c8cb4012a970fb7f645844526d3ab481847ff7552e3",
+      "bytes": 20709229
+    },
+    "profile-default/wandb-url.txt": {
+      "sha256": "0ca420ccd36ccc1f88146ac40d0425bc22db575c4cd191a86376576ac2f2dc86",
+      "bytes": 71
+    },
+    "profile-default.log": {
+      "sha256": "5590f960862a64d696d0b6770718e7f71131a8e9c6c91a33f2048e2331360c60",
+      "bytes": 39389
+    },
+    "profile-matched/environment.json": {
+      "sha256": "58fd4acdab7ec14438417d18a7b2ca4a8a212c8345b44dece74d8f9a3ecbdee2",
+      "bytes": 1315
+    },
+    "profile-matched/gpu.csv": {
+      "sha256": "bf4c79cdd46d3c3a494c515f075af085c3bfc85c940d20629eb3eb0faa91c2bb",
+      "bytes": 160
+    },
+    "profile-matched/package-versions.txt": {
+      "sha256": "580d5415cb0997bd77c2c2d93fd89d187137f3f45ed8853f2addf542ec7cd378",
+      "bytes": 4574
+    },
+    "profile-matched/requested-config.json": {
+      "sha256": "1af916d37c49c4ad651172e202433bfec3c35f9dbe314723e82faca4c35d095b",
+      "bytes": 944
+    },
+    "profile-matched/traces/profiler_out_0.txt": {
+      "sha256": "96dde4a346d961392a541a85787c3a61e9879fb3656a22706cc94f6f0cd3e7e7",
+      "bytes": 20652
+    },
+    "profile-matched/traces/rank0.1788880830466741082.pt.trace.json.gz": {
+      "sha256": "bd007b09b4e01c505d178c1dac6cdd89b1b58fe87ec79f339696380fa00225d5",
+      "bytes": 20523124
+    },
+    "profile-matched/wandb-url.txt": {
+      "sha256": "ae3a0b32d1c15f80d505a163baa2b3458d1553dddf1c8c2925045c2732feafe8",
+      "bytes": 71
+    },
+    "profile-matched.log": {
+      "sha256": "c486d055bbede722b40e90861c286dcaec2ebb549e11aa5ddf0965bf62963e2b",
+      "bytes": 38754
+    }
+  }
+}
