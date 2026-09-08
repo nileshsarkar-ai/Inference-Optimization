@@ -2,17 +2,17 @@
 
 ## Problem statement
 
-**Investigate whether inference admission and scheduling can adapt to changing request resource demands to complete more useful work per GPU within declared latency limits.**
+**Can better admission decisions increase SLO goodput during bursts of long prompts? SLO goodput is the number of requests completed within latency targets per second.**
 
-Our first bounded question is: **can inference scheduling increase requests completed within latency targets on the same GPU when a burst of long prompts delays subsequent short requests, relative to current vLLM continuous batching and a calibrated simple admission limit?**
+The comparison uses the same GPU and model, with current vLLM continuous batching and a calibrated simple admission limit as controls. The workload changes from short prompts to a burst of long prompts and back to short prompts.
 
-The hypothesis to test is whether measured service cost and remaining latency slack can guide admission while preserving useful concurrency. Improvement must include tail-latency and long-request fairness checks.
+The next hypothesis is that estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond both controls. Improvement must include tail-latency and long-request fairness checks.
 
 LLM inference on one A100 40 GB is the first test bed. Request and stage routing, and inference beyond LLMs, belong to the wider project scope. The current experiments do not establish transfer to those settings. The context-budget gate is a simple experimental candidate, not a claimed new SOTA algorithm.
 
 ## Meaning of useful utilization
 
-The objective is more completed inference work from the same GPU. NVML's GPU utilization measures sampled time during which a kernel executes. It does not measure achieved SM efficiency, FLOP efficiency or useful work. A nearly continuously busy GPU can still deliver poor tail latency. [NVIDIA NVML definition](https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html).
+The objective in this investigation is more requests meeting their latency SLOs per second on the same GPU. NVML's GPU utilization measures sampled time during which a kernel executes. It does not measure achieved SM efficiency, FLOP efficiency or useful work. A nearly continuously busy GPU can still deliver poor tail latency. [NVIDIA NVML definition](https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html).
 
 We measure output tokens/s and **SLO goodput**: requests meeting both declared latency targets divided by the full replay-and-drain time. Latencies include admission waiting from the request's scheduled arrival. Occupied VRAM alone is not a benefit.
 
@@ -32,7 +32,7 @@ Also relevant: [Sarathi-Serve](https://www.usenix.org/system/files/osdi24-agrawa
 
 ## Hypothesis and execution study
 
-**Hypothesis:** accounting for request resource demand and latency slack may avoid harmful overload and improve useful completed work during a workload shift. **Competing explanation:** conservative admission may reduce useful concurrency, and current vLLM may already make better decisions.
+**Next hypothesis:** admission informed by estimated processing cost, system state and remaining latency budget may improve SLO goodput during a workload shift. **Competing explanation:** conservative admission may reduce useful concurrency, and current vLLM may already make better decisions.
 
 The first experiment compared current-default, manually matched and coarse CUDA-graph capture sets on Gemma 4 12B, Qwen3.5-9B and Gemma 4 E4B on the same A100 40 GB. Each model has 72 timed calls: eight fixed batch sizes, three configurations and three warmed repetitions. Inputs and outputs each contain 128 tokens. Precision is BF16, engine vLLM 0.28.0. Initialization and separate profiling are excluded.
 
@@ -48,14 +48,16 @@ Declared targets: TTFT ≤2 seconds and mean TPOT ≤100 ms. Success requires at
 
 ## What the completed test exposes
 
+Near-100% GPU busy time coexisted with missed latency targets, while the tested context-budget gate reduced SLO goodput by 20–24% relative to default vLLM. We therefore do not yet have a better scheduler. The research progression is an observed problem, measured baselines, a tested simple hypothesis, rejection of that setting and a better-controlled next hypothesis. The negative result concerns this gate and its settings; it does not rule out every size-based policy. [Measured comparison](scheduling_results/analysis/validation.json).
+
 A post-hoc analysis of the saved request records found that all 96 initial short requests meet the declared targets, while all 96 short requests after the long-context burst miss them, in every policy and repetition. The context-budget candidate also takes longer to drain the workload. This establishes a reproducible burst-recovery problem under the tested conditions. It does not establish that scheduling can eliminate the misses at the offered load. [Phase analysis](scheduling_results/analysis/phase_diagnostics.json).
 
 ## One eventual experiment
 
-Run one controlled comparison of an adaptive admission rule against current vLLM and a calibrated fixed admission limit. Use separate data to diagnose queueing and processing cost, select baseline settings, and calibrate the candidate. Freeze the rules before replaying unseen burst traces across a predeclared range of arrival rates on the same model and GPU. Use the same fairness rule for controlled admission comparisons and compare a version without the adaptive decision to isolate what it adds.
+Run one controlled comparison of an adaptive admission rule against current vLLM and a calibrated fixed admission limit. Use separate data to diagnose queueing and processing cost, identify useful system-state signals, select baseline settings, and calibrate the candidate. Freeze the rules before replaying unseen burst traces across a predeclared range of arrival rates on the same model and GPU. Use the same fairness rule for controlled admission comparisons and compare a version without the adaptive decision to isolate what it adds.
 
 Measure SLO goodput and output throughput, phase-specific attainment, external waiting and long-request tail latency. Preserve complete output accounting, report any drops, and use balanced independent engine repetitions. Keep detailed GPU profiling separate from timing if claiming changes in hardware efficiency. Latency targets and evaluation conditions must be fixed before evaluation. The earlier 8-request/s test alone does not establish sustainable serving capacity.
 
-The next investigation will measure whether the policy improves useful completed work and identify where it succeeds or fails.
+The next investigation will measure whether the policy increases SLO goodput and identify where it succeeds or fails.
 
 Research and source check: 8 September 2026. Exact model/dataset revisions, package versions, traces, output token IDs, code and measurements are saved locally and tracked in [W&B](https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility).

@@ -85,10 +85,17 @@
   "package_check": "pass",
   "layout_findings": 0,
   "layout_warnings": 0,
-  "presentation_sha256": "eab4b15284de4618467099efeeab59b92afa2dbe3baa51cec5ce222b6cdcf128",
-  "subtitle_update": {
-    "keynote_cover_reviewed": true,
-    "keynote_slides_2_to_18_pixel_identical_to_previous": true,
-    "chart_and_native_notes_xml_unchanged": true
+  "presentation_sha256": "6fcab10de6f1028bae6d574b24828cf4e34ab7b0853103ca882ab61bb7462ec2",
+  "slo_goodput_revision": {
+    "visually_changed_slides": [
+      2,
+      15,
+      16,
+      17
+    ],
+    "remaining_slide_images_identical": true,
+    "native_chart_xml_unchanged": true,
+    "question_defines_slo_goodput": true,
+    "research_progression_and_next_hypothesis_explicit": true
   }
 }

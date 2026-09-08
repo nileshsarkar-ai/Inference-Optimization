@@ -4,21 +4,21 @@ Extracted directly from the latest 18-slide PowerPoint on 9 September 2026. The 
 
 ## Slide 1 — Inference Optimization
 
-Our project is called Inference Optimization. The goal is to get more useful inference work from the same GPU while keeping response times acceptable.
+Our project is called Inference Optimization. We want better admission decisions to increase SLO goodput: the number of requests completed within their latency targets per second on the same GPU.
 
-We are studying the software decisions around an already trained model. We are not training a new language model. I will first explain the question, then show what published systems do, followed by our own experiments and their results.
+The completed tests give us a research progression. We observed a burst-recovery problem, measured default vLLM and a simple admission limit, and tested a context-budget rule. That rule performed worse, so we do not yet have a better scheduler.
 
-The important starting point is that our current experiment did not produce a better scheduler. It gave us a reproducible problem and evidence about a rule that failed.
+Our next question is whether estimated processing cost, system state and remaining latency budget can guide better admission decisions. The presentation separates published results, our measurements and this untested next hypothesis.
 
 ---
 
 ## Slide 2 — Research question
 
-Imagine an AI service receiving short questions, followed by several long documents, and then more short questions. Processing the long inputs takes work, and the later requests may wait.
+Can better admission decisions increase SLO goodput during bursts of long prompts? SLO goodput means the number of requests completed within latency targets per second. In our finite replay experiment, the denominator includes the arrival period and the time required to finish all outstanding work.
 
-The research question is whether scheduling can make more requests finish within our latency targets on the same GPU. Admission means deciding when a waiting request is submitted to the model-serving engine. Continuous batching means the engine can bring requests into an ongoing batch as other requests finish.
+Imagine short questions arriving, followed by long documents and then more short questions. The later questions may spend their latency budget waiting for the backlog to clear. Admission decides when and how many waiting requests enter the serving engine.
 
-Our hypothesis is that an estimate of processing cost and remaining deadline time may improve those decisions. The alternative is that an extra admission gate simply delays requests and reduces useful concurrency. Both outcomes must remain possible.
+Our hypothesis is that estimated processing cost, system state and remaining latency budget can improve SLO goodput without worsening tail latency. System state could include queued work and available resources; the useful signals still need to be tested. The competing explanation is that an extra gate suppresses useful concurrency and delays work that vLLM handles more effectively.
 
 Evidence: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Research_Question.md
 
@@ -94,7 +94,7 @@ There are two different studies. The first changes CUDA-graph capture sizes on f
 
 This is the system we actually used. All experiments ran on the same A100 PCIe 40 GB GPU, with BF16 precision and one GPU per model. The table records the installed software versions. CPU model and total host RAM were not reliably recorded, so we do not claim those specifications.
 
-Throughput counts output tokens per second. Goodput counts requests that meet both response-time targets per second. In the scheduling study, the denominator includes replaying arrivals and finishing outstanding work.
+Throughput counts output tokens per second. SLO goodput counts requests that meet both response-time targets per second. In the scheduling study, the denominator includes replaying arrivals and finishing outstanding work.
 
 GPU busy time comes from NVIDIA telemetry. It reports time with a kernel running, not achieved compute efficiency. More VRAM occupied is not itself a performance improvement.
 
@@ -173,9 +173,9 @@ https://github.com/nileshsarkar-ai/Inference-Optimization/tree/master/outputs/ex
 
 These are the four performance measures for our scheduling comparison. Each point represents a policy in one independent engine repetition, and each diamond is its mean. Some points overlap.
 
-The upper-left panel is requests meeting both latency targets per second, where higher is better. The upper-right is total generated tokens per second. The lower-left is first-token tail latency, where lower is better. The lower-right is the GPU-busy percentage.
+The upper-left panel is SLO goodput: requests meeting both latency targets per second, where higher is better. The upper-right is total generated tokens per second. The lower-left is first-token tail latency, where lower is better. The lower-right is the GPU-busy percentage.
 
-The context-budget rule performs worse on goodput and throughput and increases first-token delay. Yet GPU busy time is near one hundred percent for every policy. This shows why that percentage alone is an inadequate optimization target.
+The context-budget rule performs worse on SLO goodput and output throughput and increases first-token delay. Yet GPU busy time is near one hundred percent for every policy. This shows why that percentage alone is an inadequate optimization target.
 
 These are timed burst workloads. Do not compare the tokens-per-second values directly against the fixed-batch graphs as a performance regression because the inputs, arrival behavior and timing procedure differ.
 
@@ -185,26 +185,30 @@ Data: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outp
 
 ## Slide 16 — Our results: what the scheduling comparison means
 
-This table gives the exact means behind the scheduling graphs. Direct vLLM produces about 2.588 latency-compliant requests per second, compared with 2.013 for the context rule. Across paired repetitions, that is a twenty-to-twenty-four-percent loss. The latency column is the mean of each run's p99, not a percentile pooled across all requests.
+This table gives the means behind the scheduling graphs. Default vLLM produces about 2.588 requests meeting the latency targets per second, compared with 2.013 for the context-budget rule. Across paired repetitions, the rule reduces SLO goodput by twenty to twenty-four percent. The latency column averages each run's p99; it is not a percentile pooled across all requests.
 
-The phase analysis exposes the specific problem: all ninety-six initial short requests meet our targets, while none of the ninety-six short requests after the long burst meet them in any trial. The candidate takes longer to finish the outstanding workload. Almost the same number of requests pass, so a longer replay-and-drain time explains much of the goodput difference.
+We established two observations under these test conditions. Near-one-hundred-percent GPU busy time coexists with requests missing their latency targets. Also, our first context-budget admission rule performs worse than default vLLM. GPU activity alone therefore does not tell us how much timely service the system provides.
 
-This rejects the tested setting. It does not prove the causal bottleneck, and it does not establish sustainable capacity at eight requests per second.
+The phase analysis identifies the burst-recovery problem. All ninety-six initial short requests meet the targets, while none of the ninety-six short requests after the long burst meet them in any policy or repetition. Similar numbers pass across policies, but the candidate takes longer to drain the workload, which explains much of its lower SLO goodput.
+
+These results reject this tested setting. They do not isolate the causal bottleneck or establish sustainable capacity at eight requests per second.
 
 Results: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/scheduling_results/analysis/validation.json
 Phase analysis: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/scheduling_results/analysis/phase_diagnostics.json
 
 ---
 
-## Slide 17 — The research question and one next experiment
+## Slide 17 — Research progression and next hypothesis
 
-The research question remains open: can better admission preserve useful concurrency and improve recovery after a long-prompt burst?
+Our research progression is: problem observed, baselines measured, a simple hypothesis tested, the tested rule rejected, then a better-controlled next hypothesis.
 
-Our next experiment should test whether measured processing cost and remaining deadline time add value beyond a calibrated simple limit. We would use separate data for calibration, freeze the decision rule and compare on unseen bursts at declared arrival rates. All requested work and waiting must remain accounted for, including any dropped requests and long-request fairness.
+We do not yet have a better scheduler. We have a reproducible burst-recovery problem and evidence that this simple size-based gate is insufficient under the tested conditions. The next question is whether admission decisions informed by estimated processing cost, system state and remaining latency budget can increase SLO goodput beyond both default vLLM and simpler admission limits.
 
-The current rule admits at most nine requests when all are long. It changes throttling, ordering and age protection together, so we cannot isolate their contributions. A controlled comparison should hold fairness conditions fixed and include a version without the adaptive decision.
+We propose one controlled comparison. Use separate data to estimate processing cost, identify useful state signals and calibrate a strong simple admission limit. Freeze the candidate and controls before testing on unseen burst traces at predeclared arrival rates, with independent engine repetitions on the same GPU and model. Include a version with adaptation removed to test what the adaptive decision adds.
 
-One model and one workload do not establish generalization. We did not measure achieved SM efficiency or answer-quality equivalence. A negative result remains informative if the experiment honestly determines where a policy helps or fails.
+All requests and waiting time must count. Keep fairness conditions matched and check tail latency for long requests as well as SLO goodput. Report any dropped requests. The current gate admits at most nine all-long requests and changes throttling, ordering and age protection together, so its failure does not identify the best replacement or rule out every size-based policy.
+
+The outcome remains open: the adaptive candidate may help, fail, or reveal a load beyond what this hardware can serve within the targets. One model and workload do not establish generalization or improved GPU compute efficiency.
 
 Assessment: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/Methodology_Assessment.md
 
@@ -216,6 +220,6 @@ These links identify the original published figures, official engineering docume
 
 NVIDIA's graph-tuning article is an engineering report, not a peer-reviewed paper. The vLLM and NVML links document implementation behavior and metric definitions. The repository contains model and dataset revisions, the executed code, raw requests, measurements, plots and the full bibliography.
 
-The final research message is that we have measured a burst-recovery failure and rejected one simple admission rule. We are proposing a controlled investigation into better decisions, without claiming a solved algorithm or a proven increase in compute efficiency.
+The final research message is that we have measured a burst-recovery failure and rejected one simple admission rule. The next hypothesis tests whether processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond default vLLM and calibrated simple limits. The algorithm and any improvement remain to be established.
 
 Full references: https://github.com/nileshsarkar-ai/Inference-Optimization/blob/master/outputs/References.md

@@ -93,10 +93,11 @@ divider('experiments','Our Experiments','');
 divider('results','Our Results','');
 
 title(2,'Research question');
-add(2,'Can workload-aware admission improve goodput during long-prompt bursts on the same GPU?',41,144,1197,105,33,true);
-block(2,'Scheduling trade-offs','Admission limits can leave capacity unused or delay requests. Increased GPU busy time need not improve timely completions.',41,300,565,126,25);
-block(2,'Controlled workload','Short prompts, a burst of long prompts, then short prompts. Measure recovery, goodput and tail latency.',657,300,581,126,25);
-add(2,'Hypothesis: estimated processing cost and remaining latency budget can guide admission to improve goodput without worse tail latency.',41,505,1197,92,27,true);
+add(2,'Can better admission decisions increase SLO goodput during bursts of long prompts?',41,144,1197,99,33,true);
+add(2,'SLO goodput: requests completed within latency targets per second.',41,253,1197,48,26);
+block(2,'Scheduling trade-offs','Admission limits can leave capacity unused or delay requests. Increased GPU busy time need not improve SLO goodput.',41,333,565,126,25);
+block(2,'Controlled workload','Short prompts, a burst of long prompts, then short prompts. Measure recovery, SLO goodput and tail latency.',657,333,581,126,25);
+add(2,'Hypothesis: estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput without worse tail latency.',41,531,1197,77,26,true);
 add(2,'Initial scope: single-GPU LLM serving, with all requests and waiting time included.',41,619,1197,35,22);
 foot(2,[['Research question and evidence',`${REPO}/blob/master/outputs/Research_Question.md`]]);
 
@@ -198,7 +199,7 @@ foot(11,[['Our frozen protocol and exact settings',`${REPO}/blob/master/outputs/
 title(12,'Our experiment 2 results: throughput, latency and GPU activity');
 add(12,'Gemma 4 12B, A100 40 GB, timed burst workload. Points: 3 runs/policy. Diamonds: means.',41,135,1197,59,23);
 const policies=['default','fixed32','context_budget'],policyLabels=['Direct vLLM','Fixed 32','Context budget'];
-const metrics=[['slo_goodput_rps','Requests meeting targets/s, higher is better',4,1],['output_tokens_s','Output tokens/s, higher is better',1000,250],['p99_ttft_s','p99 first-token delay (s), lower is better',30,10],['mean_gpu_busy_percent','NVML GPU busy time (%)',105,25]];
+const metrics=[['slo_goodput_rps','SLO goodput (requests/s), higher is better',4,1],['output_tokens_s','Output tokens/s, higher is better',1000,250],['p99_ttft_s','p99 first-token delay (s), lower is better',30,10],['mean_gpu_busy_percent','NVML GPU busy time (%)',105,25]];
 for(const [idx,[metric,label,max,unit]] of metrics.entries()){
  const x=41+(idx%2)*617,y=201+Math.floor(idx/2)*220;
  add(12,label,x,y,577,35,22,true);
@@ -213,18 +214,21 @@ title(13,'Our results: what the scheduling comparison means');
 add(13,'Means across three engine runs on Gemma 4 12B and the A100 40 GB.',41,144,1197,44,25);
 const mean=(policy,metric)=>scheduling.observations.filter(r=>r.policy===policy).reduce((a,r)=>a+r[metric],0)/3;
 table(13,[['Policy','SLO goodput\nrequests/s','Output\ntokens/s','p99 first-token\ndelay (s)','GPU busy\n(%)'],...policies.map((k,i)=>[policyLabels[i],mean(k,'slo_goodput_rps').toFixed(3),mean(k,'output_tokens_s').toFixed(1),mean(k,'p99_ttft_s').toFixed(2),mean(k,'mean_gpu_busy_percent').toFixed(2)])],[41,215,1197,218],[311,220,217,236,213],23);
-add(13,'The context-budget rule loses 20–24% goodput versus direct vLLM across paired runs.',41,463,1197,42,26,true);
-add(13,'It keeps the GPU busy while completing less useful work and increasing first-token delay.',41,513,1197,42,24);
+add(13,'The context-budget rule reduces SLO goodput by 20–24% versus default vLLM.',41,463,1197,42,26,true);
+add(13,'Near-100% GPU busy time coexists with missed latency targets and lower SLO goodput.',41,513,1197,42,24);
 add(13,'Burst finding: in every trial, 96/96 initial short requests meet our targets.\nAfter the long prompts, 0/96 later short requests meet them.',41,557,1197,66,25);
 add(13,'The p99 column averages per-run p99s. This finite workload does not measure sustainable serving capacity.',41,633,1197,27,20);
 foot(13,[['Our measured comparison',`${REPO}/blob/master/outputs/scheduling_results/analysis/validation.json`],['Post-hoc phase analysis',`${REPO}/blob/master/outputs/scheduling_results/analysis/phase_diagnostics.json`]]);
 
-title(14,'The research question and one next experiment');
-add(14,'Can better admission decisions preserve useful concurrency and improve recovery after a burst of long prompts?',41,146,1197,102,33,true);
-block(14,'One controlled comparison','Calibrate processing-cost estimates on separate data. Freeze one adaptive rule, then replay unseen burst traces at several arrival rates.',41,302,565,138,25);
-block(14,'What makes the comparison fair','Compare with direct vLLM and a calibrated fixed limit. Count all requests and waiting time. Check goodput, tail latency and long-request fairness.',657,302,581,141,25);
-add(14,'What remains uncertain: our current rule mixes throttling and ordering. One workload cannot establish the best mechanism or cross-model improvement.',41,525,1197,82,25);
-add(14,'The completed tests motivate the question. They have not demonstrated an improved scheduler.',41,622,1197,36,24,true);
+title(14,'Research progression and next hypothesis');
+add(14,'A reproducible burst-recovery problem. We have not yet demonstrated a better scheduler.',41,146,1197,101,32,true);
+add(14,'Evidence so far',41,265,565,38,28,true);
+for(const [i,t] of ['1. Burst-recovery problem observed','2. Default vLLM and fixed-32 baselines measured','3. Context-budget admission hypothesis tested','4. Tested gate rejected: 20–24% lower SLO goodput'].entries())add(14,t,41,319+i*71,565,65,24);
+add(14,'Next hypothesis',657,265,581,38,28,true);
+add(14,'Admission informed by estimated processing cost, system state and remaining latency budget can outperform default vLLM and calibrated simple limits.',657,319,581,141,25);
+add(14,'One controlled comparison',657,474,581,38,28,true);
+add(14,'Calibrate separately, freeze the rule, then test on unseen bursts. Count all requests and waiting. Check tail latency and long-request fairness.',657,522,581,101,23);
+add(14,'Include a comparison with adaptation removed. One workload does not establish causal mechanism or generalization.',41,634,1197,28,20);
 foot(14,[['Research question and methodology assessment',`${REPO}/blob/master/outputs/Methodology_Assessment.md`]]);
 
 title(15,'References and reproducibility records');

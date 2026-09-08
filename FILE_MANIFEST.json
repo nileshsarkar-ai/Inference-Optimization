@@ -1,8 +1,8 @@
 {
-  "created_at_utc": "2026-09-08T19:37:57.418209+00:00",
+  "created_at_utc": "2026-09-08T20:24:55.673292+00:00",
   "description": "Current Inference Optimization research snapshot; excludes this manifest and Git metadata. Historical paths and W&B identifiers in immutable experiment records retain their original names.",
   "file_count": 677,
-  "total_bytes": 420294293,
+  "total_bytes": 420298944,
   "original_result_files_verified": 525,
   "files": [
     {
@@ -12,8 +12,8 @@
     },
     {
       "path": "Inference_Optimization_Final.pptx",
-      "bytes": 496718,
-      "sha256": "eab4b15284de4618467099efeeab59b92afa2dbe3baa51cec5ce222b6cdcf128"
+      "bytes": 497669,
+      "sha256": "6fcab10de6f1028bae6d574b24828cf4e34ab7b0853103ca882ab61bb7462ec2"
     },
     {
       "path": "README.md",
@@ -122,8 +122,8 @@
     },
     {
       "path": "outputs/Inference_Optimization_Presenter_Notes.md",
-      "bytes": 16821,
-      "sha256": "ddfb17590d9706c257e99079b387e50d73c475b22c9aa6630c299ac10955f706"
+      "bytes": 18121,
+      "sha256": "9a301785c7a069d2569e1f34c380eb90b5da763d86160929ac8363ff474c761b"
     },
     {
       "path": "outputs/Keynote_Presenter_Setup.md",
@@ -132,8 +132,8 @@
     },
     {
       "path": "outputs/Methodology_Assessment.md",
-      "bytes": 6458,
-      "sha256": "d912d96739760194a43737df141a19da0b937eabd8248e5a94414be19105ad51"
+      "bytes": 6584,
+      "sha256": "89fa762dff6b844e8b153452827cd82b47e71f686c6a17393ed2f3396b83331e"
     },
     {
       "path": "outputs/README.md",
@@ -147,8 +147,8 @@
     },
     {
       "path": "outputs/Research_Question.md",
-      "bytes": 8282,
-      "sha256": "d89d77894dde7df44bce8c51b6b5e2a38b79de3ff0b40a134a4fb0d0349b92a1"
+      "bytes": 8868,
+      "sha256": "feb597018d59695f5ef9bd63c1d44f1dadf5e342976a743b03048ec49130814a"
     },
     {
       "path": "outputs/Results.md",
@@ -2922,13 +2922,13 @@
     },
     {
       "path": "outputs/presentation_source/build_review.mjs",
-      "bytes": 26945,
-      "sha256": "f7cdf0a57d2231405836818d047398220b429cdd720f2d39e9710993656b0600"
+      "bytes": 27200,
+      "sha256": "af6a63b1914c87ae840ed9669f97a5e75750a598a88bdca3c29f8080721f6c0a"
     },
     {
       "path": "outputs/presentation_source/presenter_notes.json",
-      "bytes": 15791,
-      "sha256": "5b96e6fce8f2e0e1115bf094dbdda79244a02d18c4f15933415f22adeffc516a"
+      "bytes": 17100,
+      "sha256": "7152fdb1c7ab282e3c09aef6d7f5bf930fdbc18758a773a20e3b6dd2f1abdb2c"
     },
     {
       "path": "outputs/presentation_source/source-notes.json",
@@ -2942,8 +2942,8 @@
     },
     {
       "path": "outputs/presentation_source/verification.json",
-      "bytes": 1838,
-      "sha256": "40b75d8abd9b4d8d60118c052c4371910b356e760b6822cff186451024b34e69"
+      "bytes": 1962,
+      "sha256": "55fe0e10701d60773beb641ff650c9491a02f76850f2bd97453593b8cf3a5d7d"
     },
     {
       "path": "outputs/presentation_source/write_results_report.py",

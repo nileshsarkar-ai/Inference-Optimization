@@ -4,11 +4,11 @@ The completed experiments support a bounded research investigation. They reject 
 
 ## The problem we can defend
 
-**Can inference scheduling complete more requests within latency targets on the same GPU when a burst of long prompts delays subsequent short requests?**
+**Can better admission decisions increase SLO goodput during bursts of long prompts? SLO goodput counts requests completed within latency targets per second.**
 
 LLM inference is the first test bed. The project objective is more useful inference work per GPU. The measurable objective here is SLO goodput, with throughput, tail latency and fairness constraints. NVML's GPU percentage reports time with a kernel executing, so it cannot establish achieved compute efficiency. [NVIDIA's metric definition](https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html).
 
-The hypothesis is that measured processing cost and remaining time before a deadline might improve admission decisions. The competing explanation is that an extra gate reduces useful concurrency and delays work that vLLM already schedules effectively.
+The next hypothesis is that estimated processing cost, system state and remaining latency budget can guide admission to increase SLO goodput beyond default vLLM and a calibrated simple admission limit. The competing explanation is that an extra gate reduces useful concurrency and delays work that vLLM already schedules effectively.
 
 ## What we did and learned
 
@@ -37,7 +37,7 @@ Scheduling was tested on one model. The five-model capture study does not demons
 
 ## One next experiment
 
-Use one comparison to test whether adaptive admission adds value beyond a calibrated simple limit. On separate calibration data, measure waiting and processing behavior, select baseline settings and fit a service-cost estimate. Freeze the resulting candidate before evaluation. Replay unseen burst traces at several predeclared arrival rates on the same GPU and model.
+Use one comparison to test whether adaptive admission adds value beyond a calibrated simple limit. On separate calibration data, measure waiting and processing behavior, identify useful system-state signals, select baseline settings and fit a service-cost estimate. Freeze the resulting candidate before evaluation. Replay unseen burst traces at several predeclared arrival rates on the same GPU and model.
 
 Compare default vLLM, the strongest calibrated fixed rule and the adaptive candidate. Keep fairness conditions equal where comparing admission rules, and include a version with the adaptive decision disabled to isolate its effect. Record goodput, throughput, phase-specific target attainment, external waiting and long-request tail latency. Preserve complete outputs and report any dropped requests. Use independent engine repetitions and keep detailed GPU profiling separate from timed runs.
 
