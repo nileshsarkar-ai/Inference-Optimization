@@ -2,6 +2,7 @@
 
 ## Current presentation and references
 
+- `Inference_Optimization_Presenter_Notes.md`: all 18 native presenter notes extracted verbatim from the final PPT, in slide order.
 - `../Inference_Optimization_Final.pptx`: current 18-slide presentation, organized into the research question, previous literature, our system and experiment protocols, measured results, and one next comparison. It retains all nine distinct experimental chart panels. Original paper figures have linked source footers; references are visible on slide 18. Each slide includes native presenter notes.
 - `Inference_Optimization_Explained.pdf`: a plain-language explanation of the problem, system, experiments, graphs and measured conclusions.
 - `Keynote_Presenter_Setup.md`: presenter-note and extended-display setup for a classroom presentation. Keynote import was checked; a physical HDMI/projector test remains room-specific.

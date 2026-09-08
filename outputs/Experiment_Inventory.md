@@ -4,6 +4,8 @@ This inventory describes the files actually saved on 8 September 2026. Paths are
 
 **18-slide PPT coverage:** slide 13 contains the three modern-model graphs, slide 14 contains the two earlier Qwen controls, and slide 15 contains all four scheduling metrics. All 360 capture observations and 36 scheduling metric observations match the saved data in nine editable charts, with means shown separately. System specifications and metric definitions appear on slide 9; the capture and scheduling protocols appear on slides 10 and 11. Slide 16 gives the numeric result table and phase finding, and slide 18 contains references. All 18 slides include native presenter notes.
 
+The complete speaking script is available in [Presenter notes](Inference_Optimization_Presenter_Notes.md), extracted verbatim from all 18 native PPT note sections. [Keynote and HDMI setup](Keynote_Presenter_Setup.md) explains how to keep notes on the MacBook while projecting slides.
+
 ## 1. Five completed configuration studies
 
 Each study contains a `complete.json` marker. File-level checks found exactly 24 records in each of `default/measurements.jsonl`, `coarse/measurements.jsonl` and `matched/measurements.jsonl`: eight batch sizes × three warmed repetitions = **72 timing calls per model**.
