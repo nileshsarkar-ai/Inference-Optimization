@@ -3,7 +3,7 @@
   "native_notes": 18,
   "native_charts": 9,
   "all_numeric_chart_vectors_unchanged": true,
-  "cover_text": "Inference Optimization    ",
+  "cover_text": "Inference Optimization \u2014 Improving GPU Utilization for LLM Inference",
   "removed_wording_absent": true,
   "keynote_notes_import": [
     {
@@ -85,5 +85,10 @@
   "package_check": "pass",
   "layout_findings": 0,
   "layout_warnings": 0,
-  "presentation_sha256": "31e0609a2de4c58959086a76ddcdb58e4fdf8d63f9b38a1a8d6b248d568edbc2"
+  "presentation_sha256": "eab4b15284de4618467099efeeab59b92afa2dbe3baa51cec5ce222b6cdcf128",
+  "subtitle_update": {
+    "keynote_cover_reviewed": true,
+    "keynote_slides_2_to_18_pixel_identical_to_previous": true,
+    "chart_and_native_notes_xml_unchanged": true
+  }
 }

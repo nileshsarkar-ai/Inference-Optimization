@@ -82,7 +82,7 @@ const shortPlain=m=>short(m).replace('Qwen2.5','Qwen2.5');
 function link(n,label,url,x,y,w,h,size=20){const s=add(n,'',x,y,w,h,size);s.text=[{runs:[{run:label,textStyle:{fontSize:`${size}px`,typeface:FONT,color:'#235E9C'},link:{uri:url,isExternal:true}}]}];return s;}
 for(const s of sl(1).shapes.items){const t=s.text.toString();if(t==='SaturateLLM'){s.text='Inference\nOptimization';textStyle(s,82);s.position={left:41,top:231,width:1180,height:190};}if(t.includes('8 September 2026')||t.startsWith('SOTA evidence'))s.text='';}
 set(1,6,'',[41,41,1100,45],18);
-set(1,5,'',[41,380,1150,130],40);
+set(1,5,'Improving GPU Utilization for LLM Inference',[41,449,1150,52],32);
 note(1,'Inference Optimization investigates how scheduling, admission, batching and request/stage routing can increase useful inference work per GPU. LLMs are the first experimental domain. The measured configuration and scheduling controls do not establish an improved policy.');
 
 

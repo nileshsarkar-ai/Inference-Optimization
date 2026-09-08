@@ -1,8 +1,8 @@
 {
-  "created_at_utc": "2026-09-08T18:20:07.606486+00:00",
+  "created_at_utc": "2026-09-08T18:26:13.437127+00:00",
   "description": "Current Inference Optimization research snapshot; excludes this manifest and Git metadata. Historical paths and W&B identifiers in immutable experiment records retain their original names.",
   "file_count": 676,
-  "total_bytes": 420276772,
+  "total_bytes": 420277055,
   "original_result_files_verified": 525,
   "files": [
     {
@@ -12,8 +12,8 @@
     },
     {
       "path": "Inference_Optimization_Final.pptx",
-      "bytes": 496701,
-      "sha256": "31e0609a2de4c58959086a76ddcdb58e4fdf8d63f9b38a1a8d6b248d568edbc2"
+      "bytes": 496718,
+      "sha256": "eab4b15284de4618467099efeeab59b92afa2dbe3baa51cec5ce222b6cdcf128"
     },
     {
       "path": "README.md",
@@ -2917,8 +2917,8 @@
     },
     {
       "path": "outputs/presentation_source/build_review.mjs",
-      "bytes": 26903,
-      "sha256": "8cec648a482e16115b0c642ed1809d92f379db66987f7478f0370b1918d9e20e"
+      "bytes": 26945,
+      "sha256": "f7cdf0a57d2231405836818d047398220b429cdd720f2d39e9710993656b0600"
     },
     {
       "path": "outputs/presentation_source/presenter_notes.json",
@@ -2937,8 +2937,8 @@
     },
     {
       "path": "outputs/presentation_source/verification.json",
-      "bytes": 1614,
-      "sha256": "8d4e53680923b26aebb4ab0396a53a461f823ab9622e42790d7c489f0f991027"
+      "bytes": 1838,
+      "sha256": "40b75d8abd9b4d8d60118c052c4371910b356e760b6822cff186451024b34e69"
     },
     {
       "path": "outputs/presentation_source/write_results_report.py",
