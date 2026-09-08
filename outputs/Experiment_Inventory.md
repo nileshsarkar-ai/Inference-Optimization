@@ -2,7 +2,7 @@
 
 This inventory describes the files actually saved on 8 September 2026. Paths are relative to the directory containing this document. The completed work comprises **five CUDA-graph configuration studies, 360 unprofiled timing calls, ten separate profiler passes, and a scheduling comparison with 2,160 completed requests**. No additional GPU experiments are implied by the presentation update.
 
-**Final PPT coverage verified:** slide 9 contains the three modern-model graphs, slide 10 contains the two earlier Qwen controls, and slide 13 contains all four scheduling metrics. All 360 capture observations and 36 scheduling metric observations match the saved data in nine editable charts, with means shown separately. Every final slide was individually reviewed.
+**18-slide PPT coverage:** slide 13 contains the three modern-model graphs, slide 14 contains the two earlier Qwen controls, and slide 15 contains all four scheduling metrics. All 360 capture observations and 36 scheduling metric observations match the saved data in nine editable charts, with means shown separately. System specifications and metric definitions appear on slide 9; the capture and scheduling protocols appear on slides 10 and 11. Slide 16 gives the numeric result table and phase finding, and slide 18 contains references. All 18 slides include native presenter notes.
 
 ## 1. Five completed configuration studies
 
@@ -60,23 +60,25 @@ The result directory contains:
 
 The candidate **did not meet the predeclared criterion**. GPU-busy readings were approximately 99–100% across policies, while useful completed work differed. NVML kernel-busy time is not achieved SM utilization; this test does not establish a rise in achieved compute utilization or generalization beyond this model and trace.
 
-A later descriptive analysis of the same saved requests is in [analysis/phase_diagnostics.json](scheduling_results/analysis/phase_diagnostics.json), reproduced by [analyze_phases.py](scheduling_validation/analyze_phases.py). It adds phase-specific SLO attainment, admission waiting, admitted-request counts and drain time. It does not add GPU runs or alter the original protocol. Slide 14 summarizes its burst-recovery finding. [Methodology assessment](Methodology_Assessment.md) explains what the design supports and the limits of causal interpretation.
+A later descriptive analysis of the same saved requests is in [analysis/phase_diagnostics.json](scheduling_results/analysis/phase_diagnostics.json), reproduced by [analyze_phases.py](scheduling_validation/analyze_phases.py). It adds phase-specific SLO attainment, admission waiting, admitted-request counts and drain time. It does not add GPU runs or alter the original protocol. Slide 16 summarizes its burst-recovery finding. [Methodology assessment](Methodology_Assessment.md) explains what the design supports and the limits of causal interpretation.
 
 ## 3. Complete graph coverage
 
-There are **seven saved experiment figure families**, each available as a PNG/PDF pair. Five are individual-model configuration figures, one combines the three modern models, and one contains the scheduling metrics. The combined modern figure reuses the same measurements as the three individual modern figures. PNG and PDF are alternate formats, not separate experiments.
+The original experiment archive contains **seven saved figure families**, each available as a PNG/PDF pair. Five are individual-model configuration figures, one combines the three modern models, and one contains the scheduling metrics. The combined modern figure reuses the same measurements as the three individual modern figures. PNG and PDF are alternate formats, not separate experiments.
 
 | Figure family and available files | Underlying observations | Verified final PPT coverage |
 |---|---|---|
-| Qwen2.5-1.5B: [PNG](experiment_data/figures/throughput.png), [PDF](experiment_data/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 10, earlier control panel |
-| Qwen2.5-7B: [PNG](experiment_data_qwen7b_complete/figures/throughput.png), [PDF](experiment_data_qwen7b_complete/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 10, earlier control panel |
-| Gemma 4 12B: [PNG](experiment_data_gemma12b/figures/throughput.png), [PDF](experiment_data_gemma12b/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 9, modern-model panel |
-| Qwen3.5-9B: [PNG](experiment_data_qwen35/figures/throughput.png), [PDF](experiment_data_qwen35/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 9, modern-model panel |
-| Gemma 4 E4B: [PNG](experiment_data_gemma_e4b/figures/throughput.png), [PDF](experiment_data_gemma_e4b/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 9, modern-model panel |
-| Three-model overview: [PNG](figures/throughput_all_models.png), [PDF](figures/throughput_all_models.pdf) | The same 216 modern-model timing calls; no additional experiment | Slide 9 covers these same three panels |
-| Scheduling: [PNG](scheduling_results/analysis/scheduling_results.png), [PDF](scheduling_results/analysis/scheduling_results.pdf) | SLO goodput, completed output tokens/s, p99 TTFT and mean NVML GPU busy; nine observations per metric plus means | Slide 13, all four metrics and all repetitions |
+| Qwen2.5-1.5B: [PNG](experiment_data/figures/throughput.png), [PDF](experiment_data/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 14, earlier control panel |
+| Qwen2.5-7B: [PNG](experiment_data_qwen7b_complete/figures/throughput.png), [PDF](experiment_data_qwen7b_complete/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 14, earlier control panel |
+| Gemma 4 12B: [PNG](experiment_data_gemma12b/figures/throughput.png), [PDF](experiment_data_gemma12b/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 13, modern-model panel |
+| Qwen3.5-9B: [PNG](experiment_data_qwen35/figures/throughput.png), [PDF](experiment_data_qwen35/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 13, modern-model panel |
+| Gemma 4 E4B: [PNG](experiment_data_gemma_e4b/figures/throughput.png), [PDF](experiment_data_gemma_e4b/figures/throughput.pdf) | 72 timing calls; all repetitions and means | Slide 13, modern-model panel |
+| Three-model overview: [PNG](figures/throughput_all_models.png), [PDF](figures/throughput_all_models.pdf) | The same 216 modern-model timing calls; no additional experiment | Slide 13 covers these same three panels |
+| Scheduling: [PNG](scheduling_results/analysis/scheduling_results.png), [PDF](scheduling_results/analysis/scheduling_results.pdf) | SLO goodput, completed output tokens/s, p99 TTFT and mean NVML GPU busy; nine observations per metric plus means | Slide 15, all four metrics and all repetitions |
 
 Complete unique coverage therefore means **five model-throughput panels plus four scheduling-metric panels**. It does not require inserting duplicates of each file format or both the individual and combined representations. The modern overview is derived from [current_model_summary/suite.json](current_model_summary/suite.json) and [summary.csv](current_model_summary/summary.csv); the plotting provenance lists the exact underlying JSONL paths. Scheduling plots are derived from the nine saved policy/run summaries.
+
+The accompanying [plain-language explainer](Inference_Optimization_Explained.pdf) uses two additional figure layouts saved as PNG/PDF pairs under [document_source/figures/](document_source/figures/): `capture_measurements` (the same 216 current-model observations) and `scheduling_measurements` (the same 36 metric observations). These are replots of existing measurements, not additional GPU experiments. The original seven figure families remain preserved.
 
 ## 4. Code, reproduction records and sources
 
@@ -87,7 +89,9 @@ Complete unique coverage therefore means **five model-throughput panels plus fou
 | Scheduling code and declared protocol | [scheduling_validation/](scheduling_validation/): `validate_scheduling.py`, `queue_validation.py`, `analyze_scheduling.py`, `PROTOCOL.md` |
 | Copies downloaded from the GPU | [remote_reproduction/](remote_reproduction/): `graph_size_pilot/`, `model_suite/`, `scheduling_validation/`; includes modern-suite queue status |
 | Run-local reproduction snapshots | [experiment_data/reproduction/](experiment_data/reproduction/); `experiment_data_qwen7b_complete/pilot.py` and `orchestrate.py`; [scheduling_results/reproduction/](scheduling_results/reproduction/) |
-| Presentation source | [presentation_source/](presentation_source/): current slide builder, zipped template source assets, source notes, report builder and README |
+| Presentation source | [presentation_source/](presentation_source/): current slide builder, `presenter_notes.json` for all 18 slides, zipped template source assets, source notes, report builder and README |
+| Plain-language explainer source | [document_source/](document_source/): PDF builder, derived figure pairs, build summary and README |
+| Classroom presentation setup | [Keynote_Presenter_Setup.md](Keynote_Presenter_Setup.md): native notes and extended-display instructions; Keynote import checked, physical HDMI/projector check not performed |
 | Original paper assets | [research_sources/](research_sources/): SOLA, DuetServe and Prism DLRM PDFs and original figure crops; the directory README records sources |
 | W&B tracking | [Project](https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility); exact run links are retained in each `wandb-url.txt` |
 

@@ -1,8 +1,8 @@
 {
-  "created_at_utc": "2026-09-08T17:31:52.966442+00:00",
-  "description": "Research files in the initial Inference Optimization commit; this manifest excludes itself and Git metadata. Historical paths and W&B identifiers in immutable run records retain their original names.",
-  "file_count": 665,
-  "total_bytes": 419625777,
+  "created_at_utc": "2026-09-08T18:20:07.606486+00:00",
+  "description": "Current Inference Optimization research snapshot; excludes this manifest and Git metadata. Historical paths and W&B identifiers in immutable experiment records retain their original names.",
+  "file_count": 676,
+  "total_bytes": 420276772,
   "original_result_files_verified": 525,
   "files": [
     {
@@ -12,13 +12,13 @@
     },
     {
       "path": "Inference_Optimization_Final.pptx",
-      "bytes": 484731,
-      "sha256": "b4b9e1efca50a701701f5b1c7d5dc7504fcca01969a7abc089854539ac6a1ae5"
+      "bytes": 496701,
+      "sha256": "31e0609a2de4c58959086a76ddcdb58e4fdf8d63f9b38a1a8d6b248d568edbc2"
     },
     {
       "path": "README.md",
-      "bytes": 5349,
-      "sha256": "a8b1e9c02554549f744837c9b070914414046612b42ff9062205330ce592683d"
+      "bytes": 6202,
+      "sha256": "92968f9f1ada9859f0ca1fe3f140fc96e7d8812d2cc4cff8ffc0db6f573b79ee"
     },
     {
       "path": "experiment_status.json",
@@ -112,8 +112,18 @@
     },
     {
       "path": "outputs/Experiment_Inventory.md",
-      "bytes": 14092,
-      "sha256": "2acd8852aeb3a60e9bbfef91b35157a3c277a27551c405ab334b6195335fbc37"
+      "bytes": 15181,
+      "sha256": "53eb2f2232499ce485e42dfaec0ed19e983d76231c478632ff1057bd1001bec0"
+    },
+    {
+      "path": "outputs/Inference_Optimization_Explained.pdf",
+      "bytes": 317302,
+      "sha256": "71d6cf8ec52cf8f1ab7d431eedd689b7f314bbf04f446b734eed1cb8c1451fa4"
+    },
+    {
+      "path": "outputs/Keynote_Presenter_Setup.md",
+      "bytes": 2420,
+      "sha256": "d9b2c33bb0085241b45a1b0d4df5fdd55447993aa79fe37778d21023d974a1fb"
     },
     {
       "path": "outputs/Methodology_Assessment.md",
@@ -122,13 +132,13 @@
     },
     {
       "path": "outputs/README.md",
-      "bytes": 3138,
-      "sha256": "d37f2b2e600da330d5a08f616261aac6dfe02f4e32e73ffeb62229f405e32ce0"
+      "bytes": 3858,
+      "sha256": "47f45a8413faffc738ddcfa4bccd1fee31cc9fe23b220d816debc89c86e70cb2"
     },
     {
       "path": "outputs/References.md",
-      "bytes": 5508,
-      "sha256": "42d147af4dec6f4f16b1fb9d3d01bf6078aa19d516bd8d859d9f1eeed14db22d"
+      "bytes": 5917,
+      "sha256": "8e39557563a94b4f5cbc2166d65e290369257440062f018975d9fb3a58ec8597"
     },
     {
       "path": "outputs/Research_Question.md",
@@ -249,6 +259,41 @@
       "path": "outputs/current_model_summary/summary.csv",
       "bytes": 6386,
       "sha256": "7d987985e2d92bea52ceed21f34402dad69956f6099f171c738c8ed208a7b6ad"
+    },
+    {
+      "path": "outputs/document_source/README.md",
+      "bytes": 2188,
+      "sha256": "e1975858e8ca17071dfbb1c46e086eea21f3ea193ebf5ba8f11258bde6a76546"
+    },
+    {
+      "path": "outputs/document_source/build_explainer.py",
+      "bytes": 26199,
+      "sha256": "e805b37e5e53a75134be9a1392a5f02b4be14a5d335147b9000928e2f30b8afd"
+    },
+    {
+      "path": "outputs/document_source/build_summary.json",
+      "bytes": 1995,
+      "sha256": "1b992399b031f86b6be4d8afda517c1ce9c6a9f2e1db17e4c9b9297cc1253f0c"
+    },
+    {
+      "path": "outputs/document_source/figures/capture_measurements.pdf",
+      "bytes": 25932,
+      "sha256": "e13b7b430afaa3752569577aa59f524fef2532850aefa94b5eaeb10d9d4363df"
+    },
+    {
+      "path": "outputs/document_source/figures/capture_measurements.png",
+      "bytes": 134348,
+      "sha256": "d4460aafc2984c125f2041578f7d1627ae8808d2247278789b4d7a45d66a777d"
+    },
+    {
+      "path": "outputs/document_source/figures/scheduling_measurements.pdf",
+      "bytes": 26702,
+      "sha256": "41eab3bff411bdf7e87c830285215159510fb23fdf29260e14875af07d1ad6c6"
+    },
+    {
+      "path": "outputs/document_source/figures/scheduling_measurements.png",
+      "bytes": 84942,
+      "sha256": "9390e7ef44e76bbe5adaccedad7a867cf5af5bfc032fec3a8c321bf9e33fb7b6"
     },
     {
       "path": "outputs/experiment_data/coarse.log",
@@ -2867,13 +2912,18 @@
     },
     {
       "path": "outputs/presentation_source/README.md",
-      "bytes": 2355,
-      "sha256": "dda6cff3eef592fc0a9e98b575916378e0287d01b9f475c99568560223cf09ff"
+      "bytes": 2886,
+      "sha256": "f0ef57a910f91b603459d92fef0171c13b27d10dc62e17adc1bf6dc2364a131b"
     },
     {
       "path": "outputs/presentation_source/build_review.mjs",
-      "bytes": 30913,
-      "sha256": "62138e0f07fbbdbd8a6a2e83fe7f8a0385feb32c3dc4b032502e376207967cea"
+      "bytes": 26903,
+      "sha256": "8cec648a482e16115b0c642ed1809d92f379db66987f7478f0370b1918d9e20e"
+    },
+    {
+      "path": "outputs/presentation_source/presenter_notes.json",
+      "bytes": 15791,
+      "sha256": "5b96e6fce8f2e0e1115bf094dbdda79244a02d18c4f15933415f22adeffc516a"
     },
     {
       "path": "outputs/presentation_source/source-notes.json",
@@ -2884,6 +2934,11 @@
       "path": "outputs/presentation_source/template_assets.zip",
       "bytes": 1888074,
       "sha256": "2af8ab2d5c2499b18e9a7d6a223e6474be55711c14ffce28042e78fceee74c66"
+    },
+    {
+      "path": "outputs/presentation_source/verification.json",
+      "bytes": 1614,
+      "sha256": "8d4e53680923b26aebb4ab0396a53a461f823ab9622e42790d7c489f0f991027"
     },
     {
       "path": "outputs/presentation_source/write_results_report.py",

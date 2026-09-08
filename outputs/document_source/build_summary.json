@@ -1,0 +1,65 @@
+{
+  "pdf": "Inference_Optimization_Explained.pdf",
+  "pages": 5,
+  "page_bottoms": [
+    {
+      "page": 1,
+      "content_bottom_pt": 105.29
+    },
+    {
+      "page": 2,
+      "content_bottom_pt": 110.29
+    },
+    {
+      "page": 3,
+      "content_bottom_pt": 76.79
+    },
+    {
+      "page": 4,
+      "content_bottom_pt": 80.99
+    },
+    {
+      "page": 5,
+      "content_bottom_pt": 85.59
+    }
+  ],
+  "capture_observations_shown": 216,
+  "scheduling_requests": 2160,
+  "scheduling_metric_observations_shown": 36,
+  "policy_means": {
+    "default": {
+      "slo_goodput_rps": 2.5877318603140385,
+      "output_tokens_s": 766.6290368235107,
+      "p99_ttft_s": 13.704738922152083,
+      "p99_stream_gap_s": 0.5650612757230798,
+      "mean_gpu_busy_percent": 99.45937640029872
+    },
+    "fixed32": {
+      "slo_goodput_rps": 2.2018319929908126,
+      "output_tokens_s": 665.2929859227964,
+      "p99_ttft_s": 14.989318152189767,
+      "p99_stream_gap_s": 0.30772816711183015,
+      "mean_gpu_busy_percent": 99.67236588782384
+    },
+    "context_budget": {
+      "slo_goodput_rps": 2.013268982241626,
+      "output_tokens_s": 608.317725001668,
+      "p99_ttft_s": 23.894459515674402,
+      "p99_stream_gap_s": 0.3021641123737209,
+      "mean_gpu_busy_percent": 99.78133573164777
+    }
+  },
+  "candidate_goodput_percent_vs_default": [
+    -19.968689964492835,
+    -24.014096413931075,
+    -22.44399272529115
+  ],
+  "sources": {
+    "1": "https://www.usenix.org/system/files/osdi24-agrawal.pdf",
+    "2": "https://docs.nvidia.com/deploy/nvml-api/structnvmlUtilization__t.html",
+    "3": "https://docs.vllm.ai/en/stable/design/cuda_graphs/",
+    "4": "https://proceedings.mlsys.org/paper_files/paper/2025/file/bc82dbfbfa43232be85b8d9838f49c3e-Paper-Conference.pdf",
+    "5": "https://github.com/nileshsarkar-ai/Inference-Optimization/tree/master/outputs/scheduling_results/",
+    "6": "https://github.com/nileshsarkar-ai/Inference-Optimization/tree/master/outputs/current_model_summary/"
+  }
+}

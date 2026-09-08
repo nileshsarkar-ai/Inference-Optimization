@@ -30,11 +30,12 @@ const proto=original.toProto();
 const blank=structuredClone(proto.slides[1]);
 blank.elements=blank.elements.filter(e=>['533','532','3'].includes(e.id));
 const cover=structuredClone(proto.slides[0]);
-proto.slides=[cover,...Array.from({length:14},()=>structuredClone(blank))];
+const order=[1,2,'literature',3,4,5,6,'experiments',7,8,11,'results',9,10,12,13,14,15];
+proto.slides=[cover,...Array.from({length:order.length-1},()=>structuredClone(blank))];
 proto.slides.forEach((s,i)=>{s.id=`review-${i+1}`;s.index=i;delete s.notesSlide;});
 proto.charts=[];
 const p=Presentation.load(proto);
-const sl=n=>p.slides.items[n-1];
+const sl=n=>p.slides.items[order.indexOf(n)];
 const shape=(n,id)=>sl(n).shapes.items.find(s=>s.id===String(id));
 function textStyle(s,size=24,bold=false,color='#000000'){
  s.text.style={typeface:FONT,fontSize:size,bold,color,verticalAlignment:'top',alignment:'left',autoFit:'none',insets:{left:0,right:0,top:0,bottom:0}};
@@ -71,67 +72,80 @@ function table(n,values,frame,widths,size=22){
 const short=m=>m.replace('google/','').replace('Qwen/','').replace('gemma-4-','Gemma 4 ');
 const confs=['default','matched','coarse'];
 const colors={default:'#222222',matched:BLUE,coarse:'#909AA8'};
-const labels={default:'Current default',matched:'Manual matched set',coarse:'Coarse grid'};
-for(let n=2;n<=15;n++)set(n,532,String(n),null,15);
+const labels={default:'vLLM default captures',matched:'Exact batch matches',coarse:'Coarse capture grid'};
+for(const n of order.slice(1))set(n,532,String(order.indexOf(n)+1),null,15);
 
 const REPO='https://github.com/nileshsarkar-ai/Inference-Optimization';
 const DATA=`${REPO}/tree/master/outputs`;
 source.sarathi='https://www.usenix.org/system/files/osdi24-agrawal.pdf';
 const shortPlain=m=>short(m).replace('Qwen2.5','Qwen2.5');
 function link(n,label,url,x,y,w,h,size=20){const s=add(n,'',x,y,w,h,size);s.text=[{runs:[{run:label,textStyle:{fontSize:`${size}px`,typeface:FONT,color:'#235E9C'},link:{uri:url,isExternal:true}}]}];return s;}
-for(const s of sl(1).shapes.items){const t=s.text.toString();if(t==='SaturateLLM'){s.text='Inference\nOptimization';textStyle(s,82);s.position={left:41,top:174,width:1180,height:190};}if(t.includes('8 September 2026')){s.text='8 September 2026     Research question and measured A100 results';textStyle(s,18);}if(t.startsWith('SOTA evidence')){s.text='Large language models (LLMs) provide the first test bed';textStyle(s,24);}}
-set(1,6,'RESEARCH PROJECT',[41,41,1100,45],18);
-set(1,5,'More useful GPU work\nthrough inference scheduling',[41,380,1150,130],40);
+for(const s of sl(1).shapes.items){const t=s.text.toString();if(t==='SaturateLLM'){s.text='Inference\nOptimization';textStyle(s,82);s.position={left:41,top:231,width:1180,height:190};}if(t.includes('8 September 2026')||t.startsWith('SOTA evidence'))s.text='';}
+set(1,6,'',[41,41,1100,45],18);
+set(1,5,'',[41,380,1150,130],40);
 note(1,'Inference Optimization investigates how scheduling, admission, batching and request/stage routing can increase useful inference work per GPU. LLMs are the first experimental domain. The measured configuration and scheduling controls do not establish an improved policy.');
 
-title(2,'Inference, GPU utilization and the metrics we use');
-sections(2,[['Inference','A model processes a request. An LLM first processes the prompt (prefill), then generates tokens (decode).'],['GPU busy time','NVIDIA telemetry (NVML) measures time with a GPU kernel running. It does not measure achieved compute efficiency.']],41,163,567,390,24);
-sections(2,[['Service-level objective (SLO)','A latency target. TTFT is time to the first token. TPOT is average time per later token. p99 is the 99th percentile.'],['Useful work per GPU','Throughput counts output tokens/s. SLO goodput counts requests meeting both latency targets per second.']],657,163,581,390,24);
-add(2,'Our target: more completed inference work within the latency targets.',41,585,1197,48,28,true);
-foot(2,[['NVIDIA metric definition',source.nvml],['Our protocol and measurements',source.wandb]]);
-note(2,'A token is a unit of text represented by a model tokenizer. Scheduling SLO: TTFT ≤2 seconds and mean TPOT ≤100 milliseconds, with all queueing measured from scheduled arrival. Goodput denominator is the full replay-and-drain duration. Different published papers use different latency targets. NVML busy time is not achieved SM utilization. '+source.nvml);
 
-title(3,'Research question and hypothesis');
-sections(3,[['Research question','Can scheduling decisions increase requests meeting latency targets on the same GPU as prompt lengths and arrival rates change?'],['First investigation','We vary GPU replay batch sizes, then compare ways of deciding when waiting requests enter the inference engine.']],41,170,574,420,25);
-sections(3,[['Hypothesis','Accounting for each request’s processing demand may improve useful work compared with a fixed request limit.'],['What could go wrong','An extra queue can leave capacity unused or delay requests. The engine’s existing batching may already work better.']],657,170,581,420,25);
-foot(3,[['Scheduling background: SOLA',source.sola],['Routing background: Dynamo',source.dynamo]]);
-note(3,'This is an open question, not an established optimization. The initial scheduling candidate estimates demand using prompt length plus the known 128-token output budget. It changes admission to one vLLM engine. It does not test multi-worker routing or generalization to non-LLM workloads. Future decisions can include batching and request/stage routing, but one bounded next experiment appears on slide14.');
+function block(n,heading,body,x,y,w,h=105,size=23){add(n,heading,x,y,w,36,size+4,true);add(n,body,x,y+43,w,h,size);}
+function divider(n,heading,sub){set(n,533,heading,[65,231,1150,112],66);set(n,3,'',null,15);add(n,sub,69,369,1090,94,29);}
+divider('literature','Previous Literature Review','');
+divider('experiments','Our Experiments','');
+divider('results','Our Results','');
 
-title(4,'State of the art in inference resource use');
-add(4,'SOTA means current leading techniques. Performance depends on the workload.\nvLLM is the open-source inference engine we use as the baseline.',41,140,1197,62,25);
-table(4,[['Decision','What existing systems optimize','Examples'],['Routing and pooling','Choose workers using cached context and active load','Dynamo docs (2026)\nAegaeon (SOSP 2025)'],['Scheduling and batching','Mix prompt processing and token generation','SOLA (MLSys 2025)\nSarathi-Serve (OSDI 2024)'],['GPU execution','Overlap work and choose GPU replay batch sizes','DuetServe (ICML 2026)\nvLLM and NVIDIA docs (2026)'],['Resource allocation','Separate CPU/GPU stages and share GPU memory','Prism recommendations (NSDI 2025)\nPrism LLMs (OSDI 2026)']],[41,231,1197,372],[233,535,429],21);
-foot(4,[['SOLA',source.sola],['DuetServe',source.duet],['Dynamo',source.dynamo],['Full references: slide 15',null]]);
-note(4,'vLLM is the open-source LLM inference engine used for our controls. This is a map of systems, not a cross-paper performance leaderboard. Cached context is prior-token state reusable by a worker. Prism recommendation-model serving and Prism multi-LLM memory ballooning are distinct systems. Full sources: '+Object.values(source).join('\n'));
+title(2,'Research question');
+add(2,'Can workload-aware admission improve goodput during long-prompt bursts on the same GPU?',41,144,1197,105,33,true);
+block(2,'Scheduling trade-offs','Admission limits can leave capacity unused or delay requests. Increased GPU busy time need not improve timely completions.',41,300,565,126,25);
+block(2,'Controlled workload','Short prompts, a burst of long prompts, then short prompts. Measure recovery, goodput and tail latency.',657,300,581,126,25);
+add(2,'Hypothesis: estimated processing cost and remaining latency budget can guide admission to improve goodput without worse tail latency.',41,505,1197,92,27,true);
+add(2,'Initial scope: single-GPU LLM serving, with all requests and waiting time included.',41,619,1197,35,22);
+foot(2,[['Research question and evidence',`${REPO}/blob/master/outputs/Research_Question.md`]]);
 
-title(5,'SOLA: more requests meet the latency targets');
-await img(5,'sola-figure1.png',41,222,588,320,'Original SOLA Figure 1 comparing vLLM and SOLA request latency');
-sections(5,[['Published result','SLO attainment rises from 65% to 98% compared with the paper’s vLLM baseline.'],['Measured setting','Llama3-70B on four A100s. ShareGPT at 4.6 requests/s. Targets: TTFT 500 ms and TPOT 200 ms.']],675,183,563,390,25);
-add(5,'Original Figure 1. Each point is a request.',41,580,610,38,21);
-foot(5,[['Hong et al., SOLA, MLSys 2025. Figure 1',source.sola]]);
-note(5,'SOLA uses request and system state to guide scheduling. The original figure shows per-request TTFT/TPOT. The authors’ 65% and 98% SLO-attainment values are not GPU busy percentages and are not our results. The paper’s vLLM version differs from our vLLM0.28.0. '+source.sola);
+title(3,'What existing inference systems optimize');
+add(3,'Selected systems address request scheduling, GPU execution overlap and resource allocation.',41,143,1197,70,26);
+table(3,[['System','What it tries to improve','How the selected experiment tests it'],['SOLA\nMLSys 2025','Request order and work per GPU iteration, using request and system state','Compare first-token and per-token latency against the paper’s vLLM baseline'],['DuetServe\nICML 2026','Sharing GPU execution resources between prefill and decode','Increase offered request rate and compare completed requests/s'],['Prism\nNSDI 2025','CPU/GPU resource use in recommendation inference','Vary CPU-side and GPU-side instances and compare goodput per GPU node']],[41,239,1197,323],[225,501,471],23);
+add(3,'Their gains use different hardware, workloads and latency targets. They do not form a single performance ranking.',41,598,1197,58,23);
+foot(3,[['SOLA',source.sola],['DuetServe',source.duet],['Prism recommendation serving',source.prism]]);
 
-title(6,'DuetServe: overlap and dispatch improve throughput');
-await img(6,'duet-figure6-legend.png',230,153,220,143,'Original DuetServe Figure6 legend');
-await img(6,'duet-figure6-azure-throughput.png',41,313,588,294,'Original DuetServe Figure6 AzureCode throughput panel');
-sections(6,[['Published result','SGLang-Default: 12.43 requests/s. DuetServe: 13.57 requests/s. This is a calculated 9.2% increase.'],['Measured setting','Qwen3-8B on one H100 80 GB. The incoming rate is 16 requests/s. DuetServe shares prefill/decode resources and looks ahead at execution.']],675,183,563,430,24);
-foot(6,[['Gao et al., DuetServe, ICML 2026. Figure 6 and §5.2',source.duet]]);
-note(6,'QPS means offered queries/requests per second. Original Figure6 AzureCode panel and legend. The 12.43 and13.57 exact values come from §5.2. Calculated gain=(13.57/12.43-1)*100=9.17%. SGLang-Default is the stated numerical baseline. Paper vLLM0.10.1/SGLang0.5 baseline versions differ from our environment. '+source.duet);
+title(4,'SOLA: scheduling to meet latency targets');
+await img(4,'sola-figure1.png',41,229,588,309,'Original SOLA Figure 1, showing per-request first-token and output-token latency');
+add(4,'Read the graph: each point is a request.\nx = first-token delay (TTFT), y = time per output token (TPOT). The shaded corner meets both targets.',41,556,588,92,22);
+block(4,'Goal and method','SOLA changes request order and work per iteration using current request and engine state.',683,153,555,92,24);
+block(4,'Experiment shown','Llama3-70B on 4 A100s. ShareGPT at 4.6 requests/s. Targets: TTFT 0.5 s and TPOT 0.2 s.',683,308,555,104,24);
+block(4,'Result and relevance','Target attainment rises from 65% to 98%. Scheduling can change useful completions. This is the paper’s result, under its own setup.',683,478,555,120,24);
+foot(4,[['Hong et al., SOLA, MLSys 2025. Original Figure 1',source.sola]]);
 
-title(7,'Prism: the problem also appears in recommendations');
-await img(7,'prism-figure17.png',41,262,620,250,'Original Prism recommendation-model Figure17 goodput comparison');
-sections(7,[['Published result','Prism reports 5–9× higher goodput per GPU node for the shown recommendation models.'],['Why resources matter','CPU and memory limits can leave GPUs waiting. Prism separates CPU-heavy and GPU-heavy work and adds CPU nodes.']],705,180,533,395,25);
-add(7,'Eight A100 80 GB GPUs per node.\nThe 9× case also uses GPU partitioning (MIG).',41,556,620,70,21);
-foot(7,[['Yang et al., GPU-Disaggregated DLRM Serving, NSDI 2025. Figure 17',source.prism]]);
-note(7,'Prism recommendation-model serving is distinct from the2026 LLM system. Figure17 measures total goodput on an eight-GPU node with additional CPU nodes. Baseline(n) identifies monolithic DLRM instances on the GPU node. Prism(CN,HN) identifies counts of CPU-side and GPU-side inference instances. The9× Model-XS configuration uses MIG, which partitions a GPU. This is evidence that inference utilization concerns extend beyond LLMs. It does not validate our candidate beyond LLMs. '+source.prism);
+title(5,'DuetServe: sharing GPU resources across inference stages');
+await img(5,'duet-figure6-legend.png',41,169,216,140,'Original DuetServe Figure 6 legend');
+add(5,'QPS is incoming requests/s.\nThe vertical axis counts completed requests/s. Higher lines mean greater throughput.',288,170,340,122,23);
+await img(5,'duet-figure6-azure-throughput.png',41,326,588,294,'Original DuetServe Figure 6 AzureCode throughput panel');
+block(5,'Goal and method','DuetServe overlaps prompt processing with token generation using adaptive GPU resource sharing.',683,153,555,95,24);
+block(5,'Experiment shown','Qwen3-8B on 1 H100 80 GB. The AzureCode workload increases incoming rate from 10 to 16 requests/s.',683,314,555,100,24);
+block(5,'Result and relevance','At 16 incoming requests/s: 12.43 for SGLang-Default, 13.57 for DuetServe (+9.2%, calculated). Execution scheduling affects completed work.',683,476,555,139,24);
+foot(5,[['Gao et al., DuetServe, ICML 2026. Figure 6 and §5.2',source.duet]]);
 
-title(8,'Experiment 1: changing CUDA graph batch sizes');
-add(8,'CUDA graphs replay recorded GPU operations. Captured batch sizes affect padding and memory use.',41,139,1197,66,25);
-table(8,[['Configuration','Captured batch sizes','Question'],['Current default','35 sizes selected by vLLM','How well does the current engine work?'],['Coarse grid','9 powers-of-two sizes','Does a sparse set lose throughput?'],['Matched set','Coarse grid plus 8 tested sizes (17 total)','Does exact coverage help?']],[41,234,1197,251],[257,461,479],22);
-add(8,'Same A100 40 GB, vLLM 0.28.0, BF16 precision and capture ceiling 256.',41,515,1197,39,23);
-add(8,'128 input + 128 output tokens. 8 batches × 3 configurations × 3 repeats = 72 calls/model.',41,565,1197,61,23);
-foot(8,[['vLLM CUDA graph design',source.vllm],['Measured data and W&B',source.wandb]]);
-note(8,'All five models use the same fixed batches[24,31,48,63,80,95,112,127]. Default35sizes=[1,2,4,8,16,24,32,40,48,56,64,72,80,88,96,104,112,120,128,136,144,152,160,168,176,184,192,200,208,216,224,232,240,248,256]. Coarse=[1,2,4,8,16,32,64,128,256]. Matched=[1,2,4,8,16,24,31,32,48,63,64,80,95,112,127,128,256]. Means describe three warmed repetitions within one process per configuration. Fresh process per configuration, fixed configuration order default/matched/coarse, randomized case order after warmup. Active engine batches can differ from submitted fixed sizes. Measurements include prompt processing and host work, but exclude initialization/profiler passes. BF16 is16-bit floating-point precision. All model/dataset revisions and exact settings are saved. '+source.vllm);
+title(6,'Prism: recommendation inference across CPU and GPU nodes');
+add(6,'Original Figure 17. Taller bars mean higher goodput under a 25 ms service-latency target.',41,173,623,70,24);
+await img(6,'prism-figure17.png',41,280,623,253,'Original Prism Figure 17, GPU-node goodput for two recommendation models');
+add(6,'x = two recommendation models.\nPrism (CN, HN) labels CPU-side and GPU-side instance counts. OOM means out of memory.',41,557,623,91,22);
+block(6,'Goal and method','Separate CPU-heavy and GPU-heavy model stages so CPU or memory limits do not strand GPU capacity.',711,153,527,113,24);
+block(6,'Experiment shown','One node with 8 A100 80 GB GPUs, plus separate CPU nodes. Vary the number of inference instances.',711,325,527,107,24);
+block(6,'Result and relevance','Reported goodput rises 5–9×. The 9× case uses GPU partitioning (MIG). Added CPU resources matter, so this is not a same-total-hardware gain.',711,489,527,135,23);
+foot(6,[['Yang et al., GPU-Disaggregated DLRM Serving, NSDI 2025. Figure 17',source.prism]]);
 
+title(7,'Our experimental system and performance measures');
+table(7,[['Component','Recorded setup'],['GPU','NVIDIA A100 PCIe, 40 GB\nJarvisLabs, 250 W limit'],['Precision','BF16\nOne GPU per model'],['Serving software','vLLM 0.28.0\nPyTorch 2.13.0'],['Runtime','Python 3.12.13\nCUDA package 13.0.96'],['Inputs','WikiText-2 test text\n128 generated tokens/request']],[41,155,589,389],[211,378],22);
+block(7,'Throughput','Generated output tokens divided by elapsed seconds.',682,163,556,79,24);
+block(7,'SLO goodput','Requests meeting both latency targets divided by the full replay-and-drain duration.',682,310,556,86,24);
+block(7,'Latency and GPU busy time','TTFT measures first-token delay. TPOT measures average later-token delay. NVML busy time records kernel activity, not compute efficiency.',682,456,556,146,24);
+add(7,'Experiment 1 uses five models and fixed batches. Experiment 2 uses Gemma 4 12B and timed arrivals.',41,598,589,59,22);
+foot(7,[['Recorded system and model revisions',`${REPO}/blob/master/outputs/Experiment_Inventory.md`],['NVIDIA metric definition',source.nvml]]);
+
+title(8,'Our experiment 1: CUDA graph configuration');
+add(8,'Question: does matching recorded GPU execution sizes to our batches improve throughput?\nCUDA graphs replay recorded GPU operations. Their sizes affect padding and memory use.',41,138,1197,84,25);
+table(8,[['Configuration changed','Captured sizes','Role in the comparison'],['vLLM default captures','35 sizes from the engine','Current engine baseline'],['Coarse capture grid','9 powers-of-two sizes','Test the cost of a sparse set'],['Exact batch matches','17 sizes; covers all 8 tested batches','Test whether exact coverage helps']],[41,249,1197,235],[338,439,420],22);
+add(8,'Held fixed: A100 40 GB, BF16, 128 input + 128 output tokens/request, and graph ceiling 256.',41,510,1197,58,23);
+add(8,'8 batches × 3 configurations × 3 warmed repeats × 5 models = 360 timing calls.\nWe time full generation calls. Initialization and separate profiler runs are excluded.',41,582,1197,68,23);
+foot(8,[['Our executed capture protocol',`${REPO}/blob/master/outputs/model_suite/README.md`],['NVIDIA capture-size tradeoff',source.nvidia]]);
 const round=v=>Number(v.toFixed(6));
 function chartCapture(n,study,x,y,w,h){
  const series=[];
@@ -143,89 +157,101 @@ function chartCapture(n,study,x,y,w,h){
  const max=Math.max(...confs.flatMap(k=>study.configs[k].stats.flatMap(r=>r.values))),unit=max>15000?5000:max>6000?2000:1000;
  const c=sl(n).charts.add('scatter',{position:{left:x,top:y,width:w,height:h},series,hasLegend:false,scatterOptions:{style:'lineWithMarkers'},yAxis:{min:0,max:Math.ceil(max/unit)*unit,majorUnit:unit,numberFormatCode:'#,##0',textStyle:{typeface:FONT,fontSize:18},majorGridlines:{fill:'#DDDDDD',width:.7}},xAxis:{min:20,max:130,majorUnit:20,numberFormatCode:'0',textStyle:{typeface:FONT,fontSize:18}}});applyPresentationChartFont(c,{fontFamily:FONT});
 }
-function captureLegend(n,y){for(const [i,k] of confs.entries())add(n,`${k==='default'?'●':k==='matched'?'◆':'▲'} ${labels[k]}`,105+i*388,y,385,34,22,false,colors[k]);}
-title(9,'Current models: all 216 timing measurements');
-add(9,'Output tokens/s (higher is better). Points show every repeat. Lines show means.',41,137,1197,55,23);
-for(const [i,s] of studies.entries()){const x=41+i*411;add(9,short(s.model),x,212,379,35,23,true);chartCapture(9,s,x,259,379,299);add(9,'Requests in fixed batch',x+60,568,300,31,20);}
-captureLegend(9,614);foot(9,[['Source: raw timings and W&B runs',source.wandb]]);
-note(9,'All216raw timing observations are native chart points, plus72computed means. Points at the same batch size can overlap because repeated measurements and configurations are close. No horizontal/vertical jitter. Numeric x-axis preserves uneven batch spacing. Different panel y-axis ranges allow within-model comparison. Source files: '+studies.flatMap(s=>confs.map(k=>s.configs[k].measurement_source)).join('\n')+'\nCapture repetitions are within-process, not independent confidence intervals. '+studies.flatMap(s=>confs.map(k=>s.configs[k].wandb_url)).join('\n'));
+function captureLegend(n,y){for(const [i,k] of confs.entries())add(n,labels[k],58+i*402,y,394,31,21,false,colors[k]);}
 
+title(9,'Our experiment 1 results: three current models');
+add(9,'A100 40 GB, BF16, 128 input + 128 output tokens/request. Output tokens/s: higher is better.\nPoints show all 216 timings. Lines show configuration means from three warmed repeats.',41,134,1197,69,23);
+for(const [i,s] of studies.entries()){
+ const x=41+i*411;add(9,short(s.model),x,218,379,35,23,true);chartCapture(9,s,x,258,379,270);
+ add(9,'Requests in fixed batch',x+52,537,324,28,21);
+ const peak=s.configs.default.stats.reduce((a,b)=>a.mean>b.mean?a:b);
+ add(9,`Default peak: ${Math.round(peak.mean).toLocaleString('en-US')} tokens/s, batch ${peak.batch}`,x,569,394,29,20);
+}
+captureLegend(9,601);
+const deltas=studies.flatMap(s=>s.matched_delta_percent),maxLoss=Math.max(...studies.flatMap(s=>s.configs.coarse.stats.map((c,i)=>100*(1-c.mean/s.configs.default.stats[i].mean))));
+add(9,`Matched changes: ${Math.min(...deltas).toFixed(1)}% to +${Math.max(...deltas).toFixed(1)}%. No established gain. Coarse grids lose up to ${maxLoss.toFixed(1)}%.`,41,635,1197,26,22,true);
+foot(9,[['Source: our raw timing records and W&B',source.wandb]]);
 const earlier=[];
 for(const [model,folder] of [['Qwen/Qwen2.5-1.5B','experiment_data'],['Qwen/Qwen2.5-7B','experiment_data_qwen7b_complete']]){
  const configs={};for(const k of confs){const rows=(await fs.readFile(`${ROOT}/outputs/${folder}/${k}/measurements.jsonl`,'utf8')).trim().split('\n').map(JSON.parse);const batches=[...new Set(rows.map(r=>r.batch))].sort((a,b)=>a-b);configs[k]={stats:batches.map(batch=>{const values=rows.filter(r=>r.batch===batch).map(r=>r.output_tokens_s);return{batch,values,mean:values.reduce((a,b)=>a+b,0)/values.length};})};}earlier.push({model,folder,configs});}
-title(10,'Earlier Qwen controls: all 144 timing measurements');
-add(10,'Output tokens/s (higher is better). Two older controls, with every repeat and configuration mean.',41,137,1197,63,23);
-for(const [i,s] of earlier.entries()){const x=41+i*617;add(10,short(s.model),x,216,577,35,25,true);chartCapture(10,s,x,258,577,294);add(10,'Requests in fixed batch',x+180,565,355,35,21);}
-captureLegend(10,614);foot(10,[['Source: earlier Qwen raw timings and W&B',source.wandb]]);
-note(10,'All144measurements appear as native chart points, plus48computed means. These are supplementary older-model controls, not claims about current model releases. The fixed-batch protocol is on slide8. Values round to6decimal places in editable workbooks. Sources: '+earlier.flatMap(s=>confs.map(k=>`outputs/${s.folder}/${k}/measurements.jsonl`)).join('\n'));
 
-const deltas=studies.flatMap(s=>s.matched_delta_percent),maxLoss=Math.max(...studies.flatMap(s=>s.configs.coarse.stats.map((c,i)=>100*(1-c.mean/s.configs.default.stats[i].mean))));
-title(11,'What the capture controls tell us');
-sections(11,[['The current default is strong',`Across current models, matched-set differences range from ${Math.min(...deltas).toFixed(1)}% to +${Math.max(...deltas).toFixed(1)}%. Coarse grids lose up to ${maxLoss.toFixed(1)}%.`],['Memory pressure remains relevant','Gemma 4 12B throughput falls 10.1% from batch 95 to 127. Sampled logs also reach 99.7% KV-cache occupancy.']],41,178,574,405,25);
-sections(11,[['What this establishes','The settings affect measured throughput. Exact capture matching alone has not shown a useful improvement.'],['Why investigate admission next?','A fixed batch omits changing arrivals and waiting. We next test how a queue policy handles a burst of long prompts.']],657,178,581,405,25);
-add(11,'KV cache holds prior-token attention state. Its occupancy is a memory metric.',41,601,1197,41,22);
-foot(11,[['Source: recorded timings and sampled engine logs',source.wandb]]);
-note(11,'Gemma throughput decline and high KV occupancy are observations from the same study, not a causal demonstration that occupancy caused the decline. Occupancy includes sampled engine logs and warmup. No achieved SM counters were collected. Fixed configuration order and within-process repeats limit interpretation of sub-percent changes. Older Qwen controls likewise do not establish a matched-set gain.');
+title(10,'Our experiment 1 results: two earlier model controls');
+add(10,'A100 40 GB, BF16, 128 input + 128 output tokens/request. Output tokens/s: higher is better.\nPoints show all 144 timings. Lines show configuration means from three warmed repeats.',41,134,1197,69,23);
+for(const [i,s] of earlier.entries()){
+ const x=41+i*617;add(10,short(s.model),x,218,577,35,25,true);chartCapture(10,s,x,258,577,270);
+ add(10,'Requests in fixed batch',x+175,537,390,29,22);
+ const peak=s.configs.default.stats.reduce((a,b)=>a.mean>b.mean?a:b);
+ add(10,`Default peak: ${Math.round(peak.mean).toLocaleString('en-US')} tokens/s at batch ${peak.batch}`,x+58,570,510,29,22);
+}
+captureLegend(10,601);
+add(10,'These older-model controls test the same configuration change. They do not validate an improved scheduler.',41,635,1197,28,22,true);
+foot(10,[['Source: our earlier Qwen timing records and W&B',source.wandb]]);
 
-title(12,'Experiment 2: when should requests enter the engine?');
-add(12,'Same Gemma 4 12B and A100. Replay the same request sequence for each policy.',41,137,1197,53,24);
-table(12,[['Policy','Admission rule before the vLLM engine'],['vLLM default','Send every request on arrival. vLLM manages continuous batching.'],['Fixed limit 32','Admit at most 32 unfinished requests, in arrival order.'],['Context budget','Reserve input + 128 output tokens per request, up to 20,000 total.']],[41,208,1197,231],[277,920],22);
-add(12,'Trace: 96 short, 48 long, 96 short prompts (128 / 2,048 tokens), at 8 arrivals/s.',41,461,1197,36,23);
-add(12,'240 requests × 3 policies × 3 independent engine runs = 2,160 requests.',41,502,1197,35,23);
-add(12,'Targets: TTFT ≤ 2 s and mean TPOT ≤ 100 ms. Admission waiting counts.',41,543,1197,35,23);
-add(12,'Pass rule: ≥5% higher goodput than both controls in all 3 runs, with no worse p99 first-token delay or stream gap.',41,589,1197,61,23,true);
-foot(12,[['Exact protocol, traces and W&B',source.wandb]]);
-note(12,'vLLM is the engine used by all policies. A trace is an exact sequence of request prompts and scheduled arrival times. Poisson arrivals at8requests/s, seeds20260908,20260909,20260910. Three fresh engine processes each run all policies, with balanced rotated order. Each request generates128tokens. Context-budget policy chooses oldest fitting request and protects requests waiting≥2seconds by reserving room before bypassing them. Reservation is an estimate based on known output budget, not actual KV bytes. All queueing counts from scheduled arrival. The ≥5% threshold is a predeclared practical criterion, not a significance test. A stream gap is the interval between generated output chunks. Saved requests here have one token per chunk. Source: outputs/scheduling_validation/PROTOCOL.md and outputs/scheduling_results. '+scheduling.wandb_runs.join('\n'));
+title(11,'Our experiment 2: admission during a long-prompt burst');
+add(11,'Gemma 4 12B on the same A100. We replay saved arrivals through each admission rule before vLLM.',41,140,1197,66,25);
+table(11,[['Policy changed','How requests enter the model'],['Direct vLLM submission','Submit on arrival. The engine manages continuous batching.'],['Fixed limit 32','Admit at most 32 unfinished requests, in arrival order.'],['Context-budget rule','Reserve input + 128 output tokens/request, up to 20,000 total.']],[41,224,1197,224],[350,847],22);
+add(11,'Each trace: 96 short, 48 long, 96 short prompts (128 / 2,048 input tokens).\nArrivals average 8 requests/s. All requests generate 128 output tokens.',41,467,1197,68,23);
+add(11,'Targets: first token ≤2 s and mean later-token time ≤100 ms, including admission waiting.\n240 requests × 3 policies × 3 engine repetitions = 2,160 completed requests.',41,548,1197,68,23);
+add(11,'Pass rule: ≥5% higher goodput than both controls in every repetition, with no worse tail latency.',41,625,1197,35,22,true);
+foot(11,[['Our frozen protocol and exact settings',`${REPO}/blob/master/outputs/scheduling_validation/PROTOCOL.md`],['W&B runs',source.wandb]]);
 
-title(13,'Scheduling results: all four metrics and repetitions');
-add(13,'Gray dots show 3 independent runs per policy. Blue markers show means. Points may overlap.',41,135,1197,45,22);
-const policies=['default','fixed32','context_budget'],policyLabels=['vLLM default','Fixed 32','Context budget'];
-const metrics=[['slo_goodput_rps','SLO goodput (requests/s), higher is better',4,1],['output_tokens_s','Output tokens/s, higher is better',1000,250],['p99_ttft_s','p99 first-token delay (s), lower is better',30,10],['mean_gpu_busy_percent','NVML GPU busy time (%)',105,25]];
+title(12,'Our experiment 2 results: throughput, latency and GPU activity');
+add(12,'Gemma 4 12B, A100 40 GB, timed burst workload. Points: 3 runs/policy. Diamonds: means.',41,135,1197,59,23);
+const policies=['default','fixed32','context_budget'],policyLabels=['Direct vLLM','Fixed 32','Context budget'];
+const metrics=[['slo_goodput_rps','Requests meeting targets/s, higher is better',4,1],['output_tokens_s','Output tokens/s, higher is better',1000,250],['p99_ttft_s','p99 first-token delay (s), lower is better',30,10],['mean_gpu_busy_percent','NVML GPU busy time (%)',105,25]];
 for(const [idx,[metric,label,max,unit]] of metrics.entries()){
- const x=41+(idx%2)*617,y=196+Math.floor(idx/2)*223;
- add(13,label,x,y,577,35,22,true);
+ const x=41+(idx%2)*617,y=201+Math.floor(idx/2)*220;
+ add(12,label,x,y,577,35,22,true);
  const ser=[];
  for(let rep=0;rep<3;rep++)ser.push({name:`Independent run ${rep+1}`,values:policies.map(k=>round(scheduling.observations.find(r=>r.policy===k&&r.repeat===rep)[metric])),line:{fill:'#555555',width:0},fill:'#555555',marker:{symbol:'circle',size:6},valuesFormatCode:'0.000000'});
  ser.push({name:'Mean',values:policies.map(k=>round(scheduling.observations.filter(r=>r.policy===k).reduce((a,r)=>a+r[metric],0)/3)),line:{fill:BLUE,width:0},fill:BLUE,marker:{symbol:'diamond',size:8},valuesFormatCode:'0.000000'});
- const c=sl(13).charts.add('line',{position:{left:x,top:y+40,width:577,height:173},categories:policyLabels,series:ser,hasLegend:false,yAxis:{min:0,max,majorUnit:unit,numberFormatCode:metric==='slo_goodput_rps'?'0.0':'#,##0',textStyle:{typeface:FONT,fontSize:16},majorGridlines:{fill:'#DDDDDD',width:.7}},xAxis:{textStyle:{typeface:FONT,fontSize:17}},lineOptions:{smooth:false}});applyPresentationChartFont(c,{fontFamily:FONT});
+ const c=sl(12).charts.add('line',{position:{left:x,top:y+40,width:577,height:173},categories:policyLabels,series:ser,hasLegend:false,yAxis:{min:0,max,majorUnit:unit,numberFormatCode:metric==='slo_goodput_rps'?'0.0':'#,##0',textStyle:{typeface:FONT,fontSize:16},majorGridlines:{fill:'#DDDDDD',width:.7}},xAxis:{textStyle:{typeface:FONT,fontSize:17}},lineOptions:{smooth:false}});applyPresentationChartFont(c,{fontFamily:FONT});
 }
-foot(13,[['Source: request and telemetry records, three independent engine runs',source.wandb]]);
-note(13,'Four native charts contain36per-run observations plus12computed means. All values come from outputs/scheduling_results/analysis/validation.json. Means and points are different series; some nearly identical points overlap. Blue markers show the mean, and gray points show all three runs. Policy categories are discrete, so markers have no connecting line. GPU busy percentages span99.1–100.0% but useful work differs. NVML busy is not achieved SM utilization. TTFT includes external waiting. Per-run p99means are not pooled-request p99. Goodput uses the full replay/drain time. '+scheduling.wandb_runs.join('\n'));
+foot(12,[['Source: our saved requests, timing summaries and telemetry',`${REPO}/blob/master/outputs/scheduling_results/analysis/validation.json`]]);
 
-title(14,'What we learned and the next research question');
-sections(14,[['Measured finding','The context-budget rule loses 20–24% SLO goodput versus vLLM default across paired runs. Its p99 first-token delay increases.'],['Problem exposed by the trace','All 96 short requests after the long burst miss our latency targets under every policy and repetition. Recovery is poor in this workload.']],41,174,574,425,24);
-sections(14,[['Question to investigate next','Can admission based on service cost and latency targets preserve useful concurrency and improve recovery after a long-prompt burst?'],['One next experiment','Calibrate on separate data. Compare one adaptive rule with vLLM and a tuned fixed limit on unseen burst traces at several arrival rates.']],657,174,581,425,24);
-foot(14,[['Measured comparison',source.wandb],['Request-level phase analysis',`${REPO}/blob/master/outputs/scheduling_results/analysis/phase_diagnostics.json`]]);
-note(14,'Candidate context_budget relative to current default across paired repeats: '+JSON.stringify(scheduling.comparisons.filter(x=>x.baseline==='default'))+'. High GPU busy time alone does not establish more useful GPU work. All outputs meet the recorded length requirement, but output hashes differ across policies and this study does not establish answer-quality equivalence. The proposed cost-aware policy is an untested research direction. Post-hoc phase analysis finds 96/96 initial short requests pass and 0/96 recovery short requests pass in every trial. This diagnoses deadline misses in this finite burst, not sustainable capacity. The 20,000-token gate fits at most nine all-long requests versus 32 admitted requests for fixed32; admitted requests may queue inside vLLM and are not simultaneous GPU work. The test changes concurrency, ordering and age protection together, so it cannot isolate their causal effects. Next: use separate calibration to select baseline settings, diagnose queueing and service times, and evaluate one frozen adaptive rule on held-out traces at predeclared loads. Compare default vLLM and the strongest calibrated fixed rule; include a version without the adaptive decision to isolate its effect. Record phase-specific SLO attainment, long-request latency, all completed outputs and any drops, plus goodput and tail latency. Keep timing runs separate from detailed GPU profiling. No claim of achieved SM or memory-bandwidth efficiency follows from NVML busy time. Other inference model families and multi-worker routing remain future scope, not validated transfer.');
+title(13,'Our results: what the scheduling comparison means');
+add(13,'Means across three engine runs on Gemma 4 12B and the A100 40 GB.',41,144,1197,44,25);
+const mean=(policy,metric)=>scheduling.observations.filter(r=>r.policy===policy).reduce((a,r)=>a+r[metric],0)/3;
+table(13,[['Policy','SLO goodput\nrequests/s','Output\ntokens/s','p99 first-token\ndelay (s)','GPU busy\n(%)'],...policies.map((k,i)=>[policyLabels[i],mean(k,'slo_goodput_rps').toFixed(3),mean(k,'output_tokens_s').toFixed(1),mean(k,'p99_ttft_s').toFixed(2),mean(k,'mean_gpu_busy_percent').toFixed(2)])],[41,215,1197,218],[311,220,217,236,213],23);
+add(13,'The context-budget rule loses 20–24% goodput versus direct vLLM across paired runs.',41,463,1197,42,26,true);
+add(13,'It keeps the GPU busy while completing less useful work and increasing first-token delay.',41,513,1197,42,24);
+add(13,'Burst finding: in every trial, 96/96 initial short requests meet our targets.\nAfter the long prompts, 0/96 later short requests meet them.',41,557,1197,66,25);
+add(13,'The p99 column averages per-run p99s. This finite workload does not measure sustainable serving capacity.',41,633,1197,27,20);
+foot(13,[['Our measured comparison',`${REPO}/blob/master/outputs/scheduling_results/analysis/validation.json`],['Post-hoc phase analysis',`${REPO}/blob/master/outputs/scheduling_results/analysis/phase_diagnostics.json`]]);
 
-title(15,'References and experiment records');
+title(14,'The research question and one next experiment');
+add(14,'Can better admission decisions preserve useful concurrency and improve recovery after a burst of long prompts?',41,146,1197,102,33,true);
+block(14,'One controlled comparison','Calibrate processing-cost estimates on separate data. Freeze one adaptive rule, then replay unseen burst traces at several arrival rates.',41,302,565,138,25);
+block(14,'What makes the comparison fair','Compare with direct vLLM and a calibrated fixed limit. Count all requests and waiting time. Check goodput, tail latency and long-request fairness.',657,302,581,141,25);
+add(14,'What remains uncertain: our current rule mixes throttling and ordering. One workload cannot establish the best mechanism or cross-model improvement.',41,525,1197,82,25);
+add(14,'The completed tests motivate the question. They have not demonstrated an improved scheduler.',41,622,1197,36,24,true);
+foot(14,[['Research question and methodology assessment',`${REPO}/blob/master/outputs/Methodology_Assessment.md`]]);
+
+title(15,'References and reproducibility records');
 const refs=[
- ['[1] Hong et al. SOLA. MLSys 2025. Figure 1',source.sola],
- ['[2] Gao et al. DuetServe. ICML 2026. Figure 6',source.duet],
- ['[3] Yang et al. GPU-disaggregated DLRM serving. NSDI 2025',source.prism],
- ['[4] Agrawal et al. Sarathi-Serve. OSDI 2024',source.sarathi],
- ['[5] Aegaeon: GPU pooling for concurrent LLM serving. SOSP 2025',source.aegaeon],
- ['[6] Prism: GPU memory ballooning for LLMs. OSDI 2026',source.prism26],
- ['[7] NVIDIA Dynamo: KV-aware routing documentation',source.dynamo],
- ['[8] NVIDIA: tuning CUDA graph batch sizes. August 2026',source.nvidia],
- ['[9] vLLM: CUDA graph design documentation',source.vllm],
- ['[10] NVIDIA: NVML utilization metric definition',source.nvml],
- ['[11] Model and WikiText revisions: saved manifests',`${REPO}/blob/master/README.md`],
- ['[12] Our measurements: raw records and W&B runs',source.wandb]
+ ['[1] Hong et al. SOLA: state-aware scheduling. MLSys 2025. Figure 1',source.sola],
+ ['[2] Gao et al. DuetServe: adaptive GPU multiplexing. ICML 2026. Figure 6',source.duet],
+ ['[3] Yang et al. GPU-disaggregated DLRM serving. NSDI 2025. Figure 17',source.prism],
+ ['[4] NVIDIA. Tuning CUDA graph batch sizes. Engineering report, August 2026',source.nvidia],
+ ['[5] vLLM. CUDA graph design and serving implementation documentation',source.vllm],
+ ['[6] NVIDIA. NVML GPU-utilization metric definition',source.nvml],
+ ['[7] Official model and WikiText revisions: saved experiment manifests',`${REPO}/blob/master/outputs/Experiment_Inventory.md`],
+ ['[8] Our experiment code, raw results, graph data and full bibliography',REPO],
+ ['[9] Our W&B project and exact run records',source.wandb]
 ];
-for(const [i,[lab,url]] of refs.entries())link(15,lab,url,41,142+i*38,1197,33,21);
-add(15,'Paper figures retain their original data. Our plots use saved A100 measurements.',41,615,1197,34,21);
-foot(15,[['Full bibliography and reproducibility files',`${REPO}/blob/master/README.md`],['W&B experiment project',source.wandb]]);
-note(15,'Complete bibliography and model/data links:\n'+(await fs.readFile(`${ROOT}/outputs/References.md`,'utf8')).replaceAll('SaturateLLM','Inference Optimization').replace(/This engineering report limits what we can claim as novel\./g,'This report discusses capture-size selection.'));
-
+for(const [i,[lab,url]] of refs.entries())link(15,lab,url,41,158+i*48,1197,39,23);
+add(15,'Paper figures retain their original measurements. Our figures use saved A100 experiment records.',41,616,1197,41,22);
+foot(15,[['Full references and additional background',`${REPO}/blob/master/outputs/References.md`]]);
+const presenterNotes=JSON.parse(await fs.readFile(`${ROOT}/outputs/presentation_source/presenter_notes.json`,'utf8'));
+for(const n of order){const entry=presenterNotes[String(n)];if(!entry)throw Error(`Missing presenter notes: ${n}`);note(n,entry);}
 const candidate=`${ROOT}/work/slides/finalizer/Inference-Optimization-${suffix}-candidate.pptx`;
 const output=suffix==='final'?`${ROOT}/outputs/Inference_Optimization_Final.pptx`:`${ROOT}/work/review_exports/Inference-Optimization-${suffix}.pptx`;
 await fs.mkdir(path.dirname(output),{recursive:true});
 await(await PresentationFile.exportPptx(p)).save(candidate);
 const checked=await finalizePresentation({workspaceDir:ROOT,candidatePath:candidate,finalPath:output,pythonExecutable:PY,
  integrityValidatorPath:`${SKILL}/container_tools/inspect_presentation_package_integrity.py`,layoutValidatorPath:`${SKILL}/container_tools/inspect_presentation_layout_geometry.py`,
- layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...[4,8,12].flatMap(n=>['--require-native-table-slide',String(n)])],
- explicitTotalSlideCount:15,requiredNativeTableOwnerSlides:[4,8,12],requiredNativeChartOwnerSlides:[9,10,13],materializeLiteralChartWorkbooks:true,
+ layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...[4,9,10,11,16].flatMap(n=>['--require-native-table-slide',String(n)])],
+ explicitTotalSlideCount:18,requiredNativeTableOwnerSlides:[4,9,10,11,16],requiredNativeChartOwnerSlides:[13,14,15],materializeLiteralChartWorkbooks:true,
  fontPolicy:{basis:'reference',families:[FONT],referencePath:TEMPLATE,referenceSha256:crypto.createHash('sha256').update(await fs.readFile(TEMPLATE)).digest('hex')},verifyArtifactToolImport:true,receiptPath:`${ROOT}/work/slides/finalizer/Inference-Optimization-${suffix}.json`});
 console.log(JSON.stringify({output,package:checked.packageIntegrity?.status,layout:checked.presentationLayout?.findingCount,warnings:checked.presentationLayout?.warnings}));
 const final=await PresentationFile.importPptx(await FileBlob.load(output));

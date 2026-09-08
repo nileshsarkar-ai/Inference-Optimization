@@ -1,6 +1,8 @@
 # Presentation source
 
-`build_review.mjs` produces the current 15-slide **Inference Optimization** presentation. It reads the saved measurements directly and creates nine editable experiment charts containing all 360 capture observations and all 36 scheduling metric observations, with separate means. It also contains original paper figures, linked references and the research question.
+`build_review.mjs` produces the current 18-slide **Inference Optimization** presentation. It reads the saved measurements directly and creates nine editable experiment charts containing all 360 capture observations and all 36 scheduling metric observations, with separate means. It also contains original paper figures, linked references and the research question. `presenter_notes.json` supplies the native speaking notes for all 18 slides.
+
+The visible order is: cover and research question (1–2); previous literature divider and SOTA evidence (3–7); our experiments divider, system and protocols (8–11); our results divider, all measured graph panels and numeric interpretation (12–16); one future comparison (17); references (18).
 
 The source template files are stored in `template_assets.zip`. This keeps only the final presentation as a visible PPTX in the local codebase. Extract the source assets into a temporary build directory when rebuilding.
 
@@ -19,6 +21,6 @@ Skip the symlink command if the local `node_modules` link already exists. `node_
 
 Use a new suffix for each build. Rebuilt files and renders go into `work/` so they do not create competing final presentations in the repository. After inspecting a revised deck, replace the single root-level `Inference_Optimization_Final.pptx` with that verified version.
 
-The final deck uses the selected Simple Light Mode design, with Helvetica Neue and native charts/tables. Rendered checks use Artifact Tool; no claim is made that Microsoft PowerPoint was used for inspection.
+The final deck uses the selected Simple Light Mode design, with Helvetica Neue and native charts/tables. Rendered checks use Artifact Tool. Import into Apple Keynote was also checked, including native presenter notes. Microsoft PowerPoint and a physical HDMI/projector setup were not tested. See `../Keynote_Presenter_Setup.md` for the classroom display check.
 
 `write_results_report.py` regenerates `outputs/Results.md` from the recorded analysis. It does not run GPU experiments or change GPU lifecycle state.

@@ -2,7 +2,9 @@
 
 ## Current presentation and references
 
-- `../Inference_Optimization_Final.pptx`: current 15-slide presentation, with all completed experiments. Original paper figures have linked source footers. References are visible on the final slide and the full bibliography is also in its speaker notes.
+- `../Inference_Optimization_Final.pptx`: current 18-slide presentation, organized into the research question, previous literature, our system and experiment protocols, measured results, and one next comparison. It retains all nine distinct experimental chart panels. Original paper figures have linked source footers; references are visible on slide 18. Each slide includes native presenter notes.
+- `Inference_Optimization_Explained.pdf`: a plain-language explanation of the problem, system, experiments, graphs and measured conclusions.
+- `Keynote_Presenter_Setup.md`: presenter-note and extended-display setup for a classroom presentation. Keynote import was checked; a physical HDMI/projector test remains room-specific.
 - `References.md`: consolidated primary-source bibliography with slide mappings and experimental context.
 - `Research_Question.md`: research question, SOTA boundary, hypotheses and one eventual experiment.
 - `Results.md`: complete measured findings and limitations.
@@ -21,6 +23,8 @@ The candidate context-budget scheduler did not improve SLO goodput. Current vLLM
 - `remote_reproduction/`: exact remote experiment scripts and queue state.
 - `managed_run_records/` and `archived_attempts/`: detached-run logs, exit codes and unsuccessful setup attempts.
 - `research_sources/`: original paper PDFs, source figure excerpts and provenance.
+- `presentation_source/`: current slide builder, per-slide presenter notes and zipped template assets.
+- `document_source/`: explainer builder and two PNG/PDF figure families that replot existing measurements; these are not additional experiments.
 
 W&B project: https://wandb.ai/nileshsarkar-ai/saturatellm-feasibility
 
